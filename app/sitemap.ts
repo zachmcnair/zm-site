@@ -1,4 +1,4 @@
-export const baseUrl = 'https://zvpply.com'
+export const baseUrl = 'https://zachmcnair.com'
 
 export default async function sitemap() {
   let routes = [''].map((route) => ({

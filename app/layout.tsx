@@ -12,8 +12,8 @@ import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, f
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Zvpply — Designing products for AI & Web3',
-    template: '%s | Zvpply',
+    default: 'Zach McNair — Brand & Product Design Consultant',
+    template: '%s | Zach McNair',
   },
   description: 'I solve brand and product design problems, and I enable you to reach your audience effectively.',
   icons: {
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     apple: '/icon.jpg',
   },
   openGraph: {
-    title: 'Zvpply — Designing products for AI & Web3',
+    title: 'Zach McNair — Brand & Product Design Consultant',
     description: 'I solve brand and product design problems, and I enable you to reach your audience effectively.',
     url: baseUrl,
-    siteName: 'Zvpply',
+    siteName: 'Zach McNair',
     locale: 'en_US',
     type: 'website',
   },
