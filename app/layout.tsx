@@ -8,6 +8,7 @@ import Footer from './components/footer'
 import { DarkModeToggle } from './components/dark-mode-toggle'
 import { baseUrl } from './sitemap'
 import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold } from './fonts'
+import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
   },
   description: 'I solve brand and product design problems, and I enable you to reach your audience effectively.',
   icons: {
-    icon: '/icon.jpg',
-    shortcut: '/icon.jpg',
-    apple: '/icon.jpg',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     title: 'Zach McNair — Brand & Product Design Consultant',
@@ -64,16 +65,18 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased font-faktum">
-        <DarkModeToggle />
-        <main className="min-h-screen py-12 px-4 md:px-8">
-          <Navbar />
-          <div className="max-w-4xl mx-auto">
-            {children}
-          </div>
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <DarkModeToggle />
+          <main className="min-h-screen py-12 px-4 md:px-8">
+            <Navbar />
+            <div className="max-w-4xl mx-auto">
+              {children}
+            </div>
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )
