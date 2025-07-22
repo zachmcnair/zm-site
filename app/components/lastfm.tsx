@@ -35,7 +35,9 @@ export function LastFmScrobbler() {
         // Using a proxy to avoid CORS issues with Last.fm API
         const response = await fetch('/api/lastfm')
         if (!response.ok) {
-          throw new Error('Failed to fetch recent tracks')
+          // Don't throw error, just set loading to false and return
+          setLoading(false)
+          return
         }
         const data: LastFmData = await response.json()
         
@@ -50,7 +52,7 @@ export function LastFmScrobbler() {
         
         setTracks(recentTracks)
       } catch (err) {
-        setError('Unable to load recent tracks')
+        // Don't set error, just set loading to false
         console.error('Error fetching Last.fm data:', err)
       } finally {
         setLoading(false)
@@ -60,16 +62,8 @@ export function LastFmScrobbler() {
     fetchRecentTracks()
   }, [])
 
-  if (loading) {
-    return (
-      <div className="flex items-center space-x-2 text-sm text-neutral-600 dark:text-neutral-400">
-        <div className="animate-spin rounded-full h-3 w-3 border-b border-current"></div>
-        <span>Loading recent tracks...</span>
-      </div>
-    )
-  }
-
-  if (error || tracks.length === 0) {
+  // Don't render anything if loading or if there's an error
+  if (loading || error || tracks.length === 0) {
     return null
   }
 

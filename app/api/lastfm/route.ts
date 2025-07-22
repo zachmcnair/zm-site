@@ -6,10 +6,12 @@ export async function GET() {
     const apiKey = process.env.LASTFM_API_KEY
     
     if (!apiKey) {
-      return NextResponse.json(
-        { error: 'Last.fm API key not configured' },
-        { status: 500 }
-      )
+      // Return empty data instead of error to prevent breaking the page
+      return NextResponse.json({
+        recenttracks: {
+          track: []
+        }
+      })
     }
 
     const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&format=json&limit=3`
@@ -25,9 +27,11 @@ export async function GET() {
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error fetching Last.fm data:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch recent tracks' },
-      { status: 500 }
-    )
+    // Return empty data instead of error
+    return NextResponse.json({
+      recenttracks: {
+        track: []
+      }
+    })
   }
 } 
