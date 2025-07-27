@@ -7,7 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { DarkModeToggle } from './components/dark-mode-toggle'
 import { baseUrl } from './sitemap'
-import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold } from './fonts'
+import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold, dmMono, newsreader } from './fonts'
 import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
@@ -61,6 +61,8 @@ export default function RootLayout({
         faktumLight.variable,
         faktumSemiBold.variable,
         faktumExtraBold.variable,
+        dmMono.variable,
+        newsreader.variable,
         GeistMono.variable
       )}
     >
@@ -69,7 +71,7 @@ export default function RootLayout({
           <DarkModeToggle />
           <main className="min-h-screen py-12 px-4 md:px-8">
             <Navbar />
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto mb-0">
               {children}
             </div>
             <Footer />

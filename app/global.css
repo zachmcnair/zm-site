@@ -68,6 +68,74 @@ body {
   font-family: var(--font-faktum-extrabold), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* DM Mono font utility classes */
+.font-dm-mono {
+  font-family: var(--font-dm-mono), 'Courier New', Courier, monospace;
+}
+
+.font-dm-mono-light {
+  font-family: var(--font-dm-mono), 'Courier New', Courier, monospace;
+  font-weight: 300;
+}
+
+.font-dm-mono-regular {
+  font-family: var(--font-dm-mono), 'Courier New', Courier, monospace;
+  font-weight: 400;
+}
+
+.font-dm-mono-medium {
+  font-family: var(--font-dm-mono), 'Courier New', Courier, monospace;
+  font-weight: 500;
+}
+
+/* Newsreader font utility classes - Display variant */
+.font-newsreader {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-display: swap;
+}
+
+.font-newsreader-extralight {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 200;
+  font-display: swap;
+}
+
+.font-newsreader-light {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 300;
+  font-display: swap;
+}
+
+.font-newsreader-regular {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.font-newsreader-medium {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 500;
+  font-display: swap;
+}
+
+.font-newsreader-semibold {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 600;
+  font-display: swap;
+}
+
+.font-newsreader-bold {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.font-newsreader-extrabold {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 800;
+  font-display: swap;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -203,7 +271,7 @@ h2 {
 h3 {
   @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 400;
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 p {
@@ -240,10 +308,8 @@ li {
 }
 
 .expertise-item {
-  @apply px-2 py-1 rounded-md text-sm font-medium text-neutral-700 dark:text-neutral-300;
+  @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: none !important;
-  background-color: transparent !important;
 }
 
 /* Explicit dark mode overrides */
@@ -297,4 +363,96 @@ li {
 
 .animate-scroll-left {
   animation: scroll-left 30s linear infinite;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom purple color for CTA section */
+.bg-purple-600 {
+  background-color: #aeaef0;
+}
+
+.text-purple-100 {
+  color: #f3e8ff;
+}
+
+/* Hover effects for CTA button */
+.hover\:bg-white:hover {
+  background-color: #ffffff;
+}
+
+.hover\:text-purple-600:hover {
+  color: #aeaef0;
+}
+
+/* Light mode text color overrides for better legibility */
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.text-gray-700 {
+  color: #374151 !important;
+}
+
+.text-gray-300 {
+  color: #d1d5db !important;
+}
+
+/* Ensure headings are dark in light mode */
+h1, h2, h3, h4, h5, h6 {
+  color: #111827 !important;
+}
+
+/* Ensure body text is dark in light mode */
+p, li, span {
+  color: #374151 !important;
+}
+
+/* Link colors for better legibility in light mode - using #9191c9 as base */
+a {
+  color: #6b6b9e !important;
+}
+
+a:hover {
+  color: #5a5a8a !important;
+}
+
+/* Dark mode overrides */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f3f4f6 !important;
+}
+
+.dark p, .dark li, .dark span {
+  color: #d1d5db !important;
+}
+
+.dark a {
+  color: #b8b8e0 !important;
+}
+
+.dark a:hover {
+  color: #c9c9e8 !important;
+}
+
+.dark .text-gray-600 {
+  color: #9ca3af !important;
+}
+
+.dark .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.dark .text-gray-700 {
+  color: #d1d5db !important;
+}
+
+.dark .text-gray-300 {
+  color: #9ca3af !important;
 }

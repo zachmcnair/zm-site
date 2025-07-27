@@ -1,11 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 7007",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/dm-mono": "^5.2.6",
+    "@fontsource/newsreader": "^5.2.8",
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/postcss": "4.0.0-alpha.13",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",

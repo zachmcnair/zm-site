@@ -1,4 +1,6 @@
 import localFont from 'next/font/local'
+import { DM_Mono } from 'next/font/google'
+import { Newsreader } from 'next/font/google'
 
 export const faktumRegular = localFont({
   src: './content/fonts/Faktum Family/Rene Bieder - Faktum Regular.otf',
@@ -34,4 +36,19 @@ export const faktumExtraBold = localFont({
   src: './content/fonts/Faktum Family/Rene Bieder - Faktum ExtraBold.otf',
   variable: '--font-faktum-extrabold',
   display: 'swap',
+})
+
+export const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-dm-mono',
+  display: 'swap',
+})
+
+export const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  variable: '--font-newsreader',
+  display: 'swap',
+  style: ['normal', 'italic'],
 }) 

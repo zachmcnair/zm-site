@@ -41,7 +41,7 @@ export function LastFmScrobbler() {
         }
         const data: LastFmData = await response.json()
         
-        const recentTracks = data.recenttracks.track.slice(0, 3).map(track => ({
+        const recentTracks = data.recenttracks.track.slice(0, 1).map(track => ({
           name: track.name,
           artist: track.artist['#text'],
           album: track.album['#text'],
