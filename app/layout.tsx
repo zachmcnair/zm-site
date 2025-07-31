@@ -71,9 +71,7 @@ export default function RootLayout({
           <DarkModeToggle />
           <main className="min-h-screen py-12 px-4 md:px-8">
             <Navbar />
-            <div className="max-w-4xl mx-auto mb-0">
-              {children}
-            </div>
+            {children}
             <Footer />
             <Analytics />
             <SpeedInsights />

@@ -7,14 +7,15 @@ export default function Footer() {
       {/* Call to Action Section */}
       <section className="relative left-1/2 transform -translate-x-1/2 w-screen">
         <div className="bg-purple-600 text-white p-8 md:p-12 lg:p-16">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between px-8 md:px-12 lg:px-16">
             <div className="mb-6 md:mb-0 text-left">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-faktum-medium mb-4 text-black">Ready to work?</h2>
-              <p className="text-lg md:text-xl text-gray-700">Let's create something great together.</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-faktum-medium mb-4" style={{ color: '#1a1a1a !important' }}>Ready to work?</h2>
+              <p className="text-lg md:text-xl" style={{ color: '#ffffff !important' }}>Let's create something great together.</p>
             </div>
             <a 
               href="mailto:hello@zachmcnair.com" 
-              className="inline-block px-8 py-4 bg-white text-black font-faktum-medium hover:bg-gray-100 transition-colors duration-200 rounded-full text-lg no-underline"
+              className="inline-block px-8 py-4 bg-white font-faktum-medium hover:bg-gray-100 transition-colors duration-200 rounded-full text-lg no-underline"
+              style={{ textDecoration: 'none', color: '#1a1a1a !important' }}
             >
               GET IN TOUCH
             </a>
@@ -24,11 +25,15 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="border-t border-gray-200 dark:border-gray-800 pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <p className="text-gray-900 dark:text-gray-100 leading-relaxed mb-6">
               Zach McNair is a brand & product design consultant and musician with over 26 years of experience in brand, product design, and creative direction. Based in Austin, TX & Remote.
             </p>
+          </div>
+          
+          <div>
+            <LastFmScrobbler />
           </div>
           
           <div>
@@ -58,8 +63,6 @@ export default function Footer() {
                 <img src="/Pinterest.svg" alt="Pinterest" className="w-5 h-5" />
               </a>
             </div>
-            
-            <LastFmScrobbler />
           </div>
         </div>
         
