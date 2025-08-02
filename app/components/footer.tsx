@@ -2,13 +2,15 @@ import { LastFmScrobbler } from './lastfm'
 import { EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer>
       {/* Call to Action Section */}
       <section className="relative left-1/2 transform -translate-x-1/2 w-screen">
         <div className="bg-purple-600 text-white p-8 md:p-12 lg:p-16">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between px-8 md:px-12 lg:px-16">
-            <div className="mb-6 md:mb-0 text-left">
+          <div className="flex flex-col md:flex-row items-center md:items-center md:justify-between px-8 md:px-12 lg:px-16 text-center md:text-left">
+            <div className="mb-6 md:mb-0">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-faktum-medium mb-4" style={{ color: '#1a1a1a !important' }}>Ready to work?</h2>
               <p className="text-lg md:text-xl" style={{ color: '#ffffff !important' }}>Let's create something great together.</p>
             </div>
@@ -28,7 +30,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <p className="text-gray-900 dark:text-gray-100 leading-relaxed mb-6">
-              Zach McNair is a brand & product design consultant and musician with over 26 years of experience in brand, product design, and creative direction. Based in Austin, TX & Remote.
+              Zach McNair is a brand & product design consultant and musician with over 26 years of experience in brand, product design, and creative direction.
             </p>
           </div>
           
@@ -66,12 +68,9 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-8 pt-8">
+        <div className="mt-8 pt-8 flex items-center justify-between">
           <p className="text-gray-700 dark:text-gray-300 font-newsreader-regular italic" style={{ fontSize: '24px', letterSpacing: '-0.2px' }}>You're Ever Seen™</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <div></div>
-          <p className="text-sm text-gray-700 dark:text-gray-300">© 2025 Zach McNair</p>
+          <p className="text-xs md:text-sm text-gray-700 dark:text-gray-300">© {currentYear} Zach McNair</p>
         </div>
       </div>
     </footer>

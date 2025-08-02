@@ -125,17 +125,19 @@ const calculateAspectRatio = (width: number, height: number): 'portrait' | 'land
 const getCardWidth = (aspectRatio?: 'portrait' | 'landscape' | 'square' | 'wide') => {
   switch (aspectRatio) {
     case 'portrait':
-      return 'w-32' // 128px wide - much narrower for portraits to minimize horizontal cropping
+      return 'w-24 md:w-48' // 96px on mobile, 192px on desktop
     case 'landscape':
-      return 'w-64' // 256px wide - standard landscape width
+      return 'w-48 md:w-96' // 192px on mobile, 384px on desktop
     case 'square':
-      return 'w-48' // 192px wide - closer to square aspect ratio (192x192 vs 192x192)
+      return 'w-36 md:w-72' // 144px on mobile, 288px on desktop
     case 'wide':
-      return 'w-80' // 320px wide - wide but not extreme
+      return 'w-60 md:w-[30rem]' // 240px on mobile, 480px on desktop
     default:
-      return 'w-56' // Default to balanced medium width
+      return 'w-40 md:w-80' // 160px on mobile, 320px on desktop
   }
 }
+
+
 
 export function PortfolioCarousel() {
   const [isVisible, setIsVisible] = useState(false)
@@ -212,11 +214,11 @@ export function PortfolioCarousel() {
     if (isTopRow) {
       // Top row gets first half, shuffled
       const topHalf = images.slice(0, halfLength).sort(() => Math.random() - 0.5)
-      return [...topHalf, ...topHalf] // Duplicate for seamless loop
+      return [...topHalf, ...topHalf, ...topHalf] // Triple the images for seamless loop
     } else {
       // Bottom row gets second half, shuffled
       const bottomHalf = images.slice(halfLength).sort(() => Math.random() - 0.5)
-      return [...bottomHalf, ...bottomHalf] // Duplicate for seamless loop
+      return [...bottomHalf, ...bottomHalf, ...bottomHalf] // Triple the images for seamless loop
     }
   }
 
@@ -247,14 +249,14 @@ export function PortfolioCarousel() {
   }
 
   return (
-    <div className="relative overflow-hidden py-8 -rotate-1">
+    <div className="relative overflow-hidden py-8">
       {/* Top row - moves right */}
       <div className={`flex gap-4 mb-4 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         <div className="flex gap-4 animate-scroll-right">
           {topRowImages.map((image, index) => {
             const cardWidth = getCardWidth(image.calculatedAspectRatio)
             return (
-              <div key={`top-${index}`} className={`flex-shrink-0 ${cardWidth} h-48 overflow-hidden`}>
+              <div key={`top-${index}`} className={`flex-shrink-0 ${cardWidth} h-48 md:h-72 overflow-hidden`}>
                 <img 
                   src={image.src} 
                   alt={image.alt}
@@ -276,7 +278,7 @@ export function PortfolioCarousel() {
           {bottomRowImages.map((image, index) => {
             const cardWidth = getCardWidth(image.calculatedAspectRatio)
             return (
-              <div key={`bottom-${index}`} className={`flex-shrink-0 ${cardWidth} h-48 overflow-hidden`}>
+              <div key={`bottom-${index}`} className={`flex-shrink-0 ${cardWidth} h-48 md:h-72 overflow-hidden`}>
                 <img 
                   src={image.src} 
                   alt={image.alt}
