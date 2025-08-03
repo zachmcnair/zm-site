@@ -16,7 +16,7 @@ export default function Page() {
             Zach McNair
           </h1>
           
-          <h2 className="text-xs font-dm-mono text-gray-600 dark:text-gray-400 mb-6">
+          <h2 className="text-xs font-dm-mono mb-6" style={{color: '#6b7280'}}>
             BRAND & PRODUCT DESIGN CONSULTANT
           </h2>
 
@@ -34,22 +34,9 @@ export default function Page() {
       </div>
 
       <div className="max-w-6xl">
-        {/* Contact Section */}
-        <section id="contact" className="mb-16">
-          <h2 className="text-3xl font-faktum-medium mb-6">Ready to work?</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Let's create something great together.
-          </p>
-          <a 
-            href="mailto:hello@zachmcnair.com" 
-            className="inline-block bg-black dark:bg-white text-white dark:text-black px-8 py-3 font-faktum-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-          >
-            Get in Touch
-          </a>
-        </section>
 
                 {/* Content Sections with Aligned Titles and Content */}
-        <div className="space-y-24">
+        <div className="space-y-32">
           {/* About Section */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div className="md:col-span-1">
@@ -76,13 +63,21 @@ export default function Page() {
             <div className="md:col-span-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-white">Email</div>
-                <div className="text-white">hello@zachmcnair.com</div>
+                <div className="text-white">
+                  <a href="mailto:hello@zachmcnair.com" className="hover:underline">hello@zachmcnair.com</a>
+                </div>
                 <div className="text-white">LinkedIn</div>
-                <div className="text-white">@zachmcnair</div>
+                <div className="text-white">
+                  <a href="https://linkedin.com/in/zachmcnair" target="_blank" rel="noopener noreferrer" className="hover:underline">@zachmcnair</a>
+                </div>
                 <div className="text-white">X / Twitter</div>
-                <div className="text-white">@zachmcnair</div>
+                <div className="text-white">
+                  <a href="https://x.com/zachmcnair" target="_blank" rel="noopener noreferrer" className="hover:underline">@zachmcnair</a>
+                </div>
                 <div className="text-white">Instagram</div>
-                <div className="text-white">@zachmcnair</div>
+                <div className="text-white">
+                  <a href="https://instagram.com/zachmcnair" target="_blank" rel="noopener noreferrer" className="hover:underline">@zachmcnair</a>
+                </div>
               </div>
             </div>
           </div>
@@ -124,7 +119,7 @@ export default function Page() {
               <h2 className="text-2xl font-faktum-medium text-gray-600 dark:text-gray-400">Experience</h2>
             </div>
             <div className="md:col-span-4">
-              <div className="space-y-8">
+              <div className="space-y-24">
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
                     <div className="text-xl font-faktum-medium text-white">UX & Digital Product Designer</div>
@@ -139,16 +134,16 @@ export default function Page() {
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 mb-2">Have helped launch:</p>
                   <ul className="text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 ml-4">
-                    <li>The Independent AI Institute</li>
-                    <li>A social mission game using X integration (6079.ai)</li>
-                    <li>A crypto token ($THINK) in partnership with Futureverse</li>
-                    <li>Marcom for Wire.Network & Wire.Foundation</li>
+                    <li><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></li>
+                    <li>A social mission game using X integration (<a href="https://6079.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</li>
+                    <li>A crypto token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with Futureverse</li>
+                    <li>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></li>
                     <li>A blockchain hub, explorer, and node dashboard for Wire Network</li>
                     <li>The 6079 Foundation</li>
-                    <li>A decentralized AI prompt-based Street Fighter game (AI Prize Fight)</li>
+                    <li>A decentralized AI prompt-based Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</li>
                     <li>An independent AI news hub (IAI News)</li>
-                    <li>A virtual game available on iOS, Android, and Web (Nodeshifter)</li>
-                    <li>$MOR token swap product for Morpheus (Mor.org)</li>
+                    <li>A virtual game available on iOS, Android, and Web (<a href="https://6079.ai/game" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</li>
+                    <li>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</li>
                   </ul>
                 </div>
                 
@@ -252,7 +247,7 @@ export default function Page() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
                     <div className="text-xl font-faktum-medium text-white">Music Producer, Writer</div>
                     <div className="text-white">
-                      <div>Forenn — Listen here →</div>
+                      <div>Forenn — <a href="https://open.spotify.com/artist/73c3uoSWES19r8u3pNWd2K?si=8UDhAsx5SFCIlzFQ19crYg" target="_blank" rel="noopener noreferrer" className="hover:underline">Listen here →</a></div>
                       <div className="text-gray-500 dark:text-gray-500">Texas, USA & Nairobi, Kenya</div>
                     </div>
                     <div className="text-white">2012-Present</div>
@@ -263,7 +258,7 @@ export default function Page() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
                     <div className="text-xl font-faktum-medium text-white">Music Producer</div>
                     <div className="text-white">
-                      <div>Emma Bieniewcz — Listen here →</div>
+                      <div>Emma Bieniewcz — <a href="https://open.spotify.com/artist/3Q8oea8QqbpbbgHLzDcjTo?si=97yZmPGASN-BPZCzEIxJlQ" target="_blank" rel="noopener noreferrer" className="hover:underline">Listen here →</a></div>
                       <div className="text-gray-500 dark:text-gray-500">Grand Rapids, MI & Remote</div>
                     </div>
                     <div className="text-white">2021-Present</div>
@@ -274,7 +269,7 @@ export default function Page() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
                     <div className="text-xl font-faktum-medium text-white">Music Producer, Writer, Mixer</div>
                     <div className="text-white">
-                      <div>Mezzanines — Listen here →</div>
+                      <div>Mezzanines — <a href="https://open.spotify.com/artist/73c3uoSWES19r8u3pNWd2K?si=8UDhAsx5SFCIlzFQ19crYg" target="_blank" rel="noopener noreferrer" className="hover:underline">Listen here →</a></div>
                       <div className="text-gray-500 dark:text-gray-500">Austin, TX & Remote</div>
                     </div>
                     <div className="text-white">2021-Present</div>
@@ -285,17 +280,19 @@ export default function Page() {
           </div>
 
           {/* References Section */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-32">
             <div className="md:col-span-1">
               <h2 className="text-2xl font-faktum-medium text-gray-600 dark:text-gray-400">References</h2>
             </div>
             <div className="md:col-span-4">
-              <div className="space-y-8">
+              <div className="space-y-20">
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-white font-faktum-medium">Margaret Becker</div>
-                    <div className="text-white">Director of UX Research</div>
-                    <div className="text-white">Indeed Enterprise at Indeed.com</div>
+                    <div className="text-white">
+                      <div>Director of UX Research</div>
+                      <div className="text-gray-500 dark:text-gray-500">Indeed Enterprise at Indeed.com</div>
+                    </div>
                   </div>
                   <blockquote className="text-lg text-gray-600 dark:text-gray-300 italic">
                     "Zach has been a true pleasure to work with at Indeed. He always delivered quality, thoughtful design work that enhanced our startup product brand and gave our UX the polish of a much more mature product. He showed a strong spirit of partnership with UX Research, and it was always heartening to see how our reported user needs and perspectives were reflected in his work."
@@ -304,8 +301,10 @@ export default function Page() {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-white font-faktum-medium">Adam Day</div>
-                    <div className="text-white">Creative Director</div>
-                    <div className="text-white">Wistia</div>
+                    <div className="text-white">
+                      <div>Creative Director</div>
+                      <div className="text-gray-500 dark:text-gray-500">Wistia</div>
+                    </div>
                   </div>
                   <blockquote className="text-lg text-gray-600 dark:text-gray-300 italic">
                     "Zach helped my team create the visual brand identity for one of our core content properties—a podcast. He designed the show artwork (including unique cover art for each episode), created promotional assets for all social platforms, and helped with digital campaigns outside of social. An attentive listener and great designer, Zach worked hard to experiment and incorporate our feedback, and ultimately helped us create a strong brand identity for our show. Would absolutely work with Zach again."
@@ -314,8 +313,10 @@ export default function Page() {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-white font-faktum-medium">Gerren Lamson</div>
-                    <div className="text-white">Senior UX Director, Indeed; Head of Design</div>
-                    <div className="text-white">Creative Market</div>
+                    <div className="text-white">
+                      <div>Senior UX Director, Indeed</div>
+                      <div className="text-gray-500 dark:text-gray-500">Head of Design, Creative Market</div>
+                    </div>
                   </div>
                   <blockquote className="text-lg text-gray-600 dark:text-gray-300 italic">
                     "Zach worked with the Creative Market team for over a year as a contractor, and produced a variety of creative and design projects for the brand across marketing, product, and community initiatives. Zach has a ton of passion that he brings to the table. He cares deeply about the team and community of users that he produces work for. While at CM, he gave holistic, constructive feedback on team projects, company objectives and brand culture. Zach imparted a double-dose of user empathy and perspective into every project conversation and meeting that he participated in, and was very easy to work with. He helped our team stay focused on the member's experience of Creative Market, and gave thoughtful feedback about how various projects and choices impact the user's experience and perception of the Creative Market brand."
@@ -324,8 +325,10 @@ export default function Page() {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-white font-faktum-medium">Stephen Callender</div>
-                    <div className="text-white">Owner</div>
-                    <div className="text-white">Foster Commerce</div>
+                    <div className="text-white">
+                      <div>Owner</div>
+                      <div className="text-gray-500 dark:text-gray-500">Foster Commerce</div>
+                    </div>
                   </div>
                   <blockquote className="text-lg text-gray-600 dark:text-gray-300 italic">
                     "Zach designed a course-based website for a client of mine. 'Easy to read' and 'navigate' were the goals. He managed to make those happen and make it extremely beautiful. The site is still heavily used after more than four years and hasn't once needed a single facelift or design modification. That's impressive."
@@ -334,8 +337,10 @@ export default function Page() {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-white font-faktum-medium">James Hobbs</div>
-                    <div className="text-white">VP of Design, Metalab; Founder & CD</div>
-                    <div className="text-white">Octopus</div>
+                    <div className="text-white">
+                      <div>VP of Design, Metalab</div>
+                      <div className="text-gray-500 dark:text-gray-500">Founder & CD, Octopus</div>
+                    </div>
                   </div>
                   <blockquote className="text-lg text-gray-600 dark:text-gray-300 italic">
                     "Zach is a multi-talented designer and director. His background in Photography and Visual Design brings an interesting mix of skills to the table. Zach is always thinking outside of the box and trying to break tradition design patterns to come up with unique solutions. His easy-going attitude allows him to get on well with internal staff and clients alike. He leads teams well and inspires great outcomes from those who work alongside him."
@@ -344,8 +349,10 @@ export default function Page() {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-white font-faktum-medium">Ryan Kutter</div>
-                    <div className="text-white">Consultant Lead</div>
-                    <div className="text-white">Connect Realty</div>
+                    <div className="text-white">
+                      <div>Consultant Lead</div>
+                      <div className="text-gray-500 dark:text-gray-500">Connect Realty</div>
+                    </div>
                   </div>
                   <blockquote className="text-lg text-gray-600 dark:text-gray-300 italic">
                     "Zach has an accute eye for detail and cohesiveness. Visually he produces concepts, designs, brands, ideas, etc. that are at a whole new level of professionalism and creativity. I recommend Zach to anyone!"

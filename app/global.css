@@ -336,6 +336,13 @@ li {
   color: #f3f4f6 !important;
 }
 
+/* Override for the main title only */
+.dark h2.text-xs {
+  color: #6b7280 !important;
+}
+
+
+
 .dark p {
   color: #d1d5db !important; /* gray-300 */
 }
