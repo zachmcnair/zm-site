@@ -26,7 +26,7 @@ export default function Footer() {
       </section>
 
       {/* Main Footer Content */}
-      <div className="border-t border-gray-200 dark:border-gray-800 pt-12">
+      <div className="border-t border-gray-200 dark:border-gray-800 pt-12 px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <p className="text-gray-900 dark:text-gray-100 leading-relaxed mb-6">

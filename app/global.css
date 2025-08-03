@@ -422,6 +422,38 @@ nav a:hover {
   color: #aeaef0;
 }
 
+
+
+
+
+/* Full-width content blade styles - more powerful */
+.content-blade {
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+  z-index: 1 !important;
+}
+
+.content-blade-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Force any div with #333333 background to be full-width */
+div[style*="background-color: #333333"] {
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+  z-index: 1 !important;
+}
+
 /* Light mode text color overrides for better legibility */
 .text-gray-600 {
   color: #4b5563;
