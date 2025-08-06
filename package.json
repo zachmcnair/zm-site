@@ -2,6 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 7007",
+    "dev:main": "git checkout main && next dev -p 7007",
+    "dev:staging": "git checkout staging && next dev -p 7008",
+    "dev:both": "./scripts/dev-both.sh",
     "build": "next build",
     "start": "next start"
   },
