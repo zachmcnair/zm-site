@@ -36,8 +36,29 @@ export default function Page() {
               This is a staging environment for testing changes. The full site experience will be available soon.
             </p>
             <p className="text-sm text-yellow-600 dark:text-yellow-400">
-              Current version: Minimal landing page for phased release testing.
+              Current version: Minimal landing page with About section added.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* About Section - Added to Minimal */}
+      <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="pl-20">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <div className="md:col-span-1">
+              <h2 className="text-2xl font-faktum-medium text-gray-800 dark:text-gray-400">About</h2>
+            </div>
+            <div className="md:col-span-4">
+              <div className="max-w-2xl">
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  I'm a deeply relational and collaborative designer and founder with over 26 years of experience in brand, product design, and creative direction.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                  My approach is human-centric, systematic, and practical. The result is work that connects with your audience and empowers them to move.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
