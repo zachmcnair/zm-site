@@ -36,7 +36,8 @@
   --text: #0E0F12;
   --text-secondary: #4A5568;
   --text-tertiary: #718096;
-  --primary: #21232B;
+  --primary: #5959E3;
+  --link: #5959E3;
   --danger: #E25A1C;
   --warning: #F4B942;
   --success: #2E7D32;
@@ -60,6 +61,7 @@
   --text-secondary: #E0D9C3;
   --text-tertiary: #9B9581;
   --primary: #A4A4F1;
+  --link: #A4A4F1;
   --danger: #E25A1C;
   --warning: #F4B942;
   --success: #2E7D32;
@@ -362,13 +364,13 @@ p {
 }
 
 a {
-  color: var(--text);
+  color: var(--link);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--primary);
+  color: var(--text);
   text-decoration: underline;
 }
 
@@ -489,6 +491,15 @@ div[style*="background-color: #333333"] {
 /* Dark mode weather icon filter */
 .dark .weather-icon {
   filter: brightness(0) invert(1);
+}
+
+/* Memo text styling */
+.memo-text {
+  color: var(--text); /* Off-black in light mode */
+}
+
+.dark .memo-text {
+  color: var(--text-secondary); /* Secondary color in dark mode */
 }
 
 

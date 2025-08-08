@@ -27,46 +27,79 @@ interface LastFmData {
 export function LastFmScrobbler() {
   const [tracks, setTracks] = useState<Track[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [isUpdating, setIsUpdating] = useState(false)
+
+  const fetchRecentTracks = async () => {
+    try {
+      setError(null)
+      const response = await fetch('/api/lastfm')
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      const data: LastFmData = await response.json()
+      
+      console.log('LastFM API response:', data) // Debug log
+      
+      if (data.recenttracks && data.recenttracks.track && data.recenttracks.track.length > 0) {
+        const recentTracks = data.recenttracks.track.slice(0, 1).map(track => ({
+          name: track.name,
+          artist: track.artist['#text'],
+          album: track.album['#text'],
+          url: track.url,
+          image: track.image.find(img => img.size === 'small')?.['#text'],
+          nowPlaying: track['@attr']?.nowplaying === 'true'
+        }))
+        
+        setTracks(recentTracks)
+      } else {
+        setError('No tracks found')
+      }
+    } catch (err) {
+      console.error('Error fetching Last.fm data:', err)
+      setError(err instanceof Error ? err.message : 'Unknown error')
+    } finally {
+      setLoading(false)
+      setIsUpdating(false)
+    }
+  }
 
   useEffect(() => {
-    const fetchRecentTracks = async () => {
-      try {
-        const response = await fetch('/api/lastfm')
-        if (!response.ok) {
-          setLoading(false)
-          return
-        }
-        const data: LastFmData = await response.json()
-        
-        if (data.recenttracks && data.recenttracks.track && data.recenttracks.track.length > 0) {
-          const recentTracks = data.recenttracks.track.slice(0, 1).map(track => ({
-            name: track.name,
-            artist: track.artist['#text'],
-            album: track.album['#text'],
-            url: track.url,
-            image: track.image.find(img => img.size === 'small')?.['#text'],
-            nowPlaying: track['@attr']?.nowplaying === 'true'
-          }))
-          
-          setTracks(recentTracks)
-        }
-      } catch (err) {
-        console.error('Error fetching Last.fm data:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
+    // Initial fetch
     fetchRecentTracks()
+
+    // Set up polling every 30 seconds
+    const interval = setInterval(() => {
+      setIsUpdating(true)
+      fetchRecentTracks()
+    }, 30000) // 30 seconds
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval)
   }, [])
 
-  // Show loading state or empty state
+  // Show loading state
   if (loading) {
     return (
       <div className="flex items-center gap-2">
         <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
         <div className="text-sm" style={{ color: 'var(--text)' }}>
           <div>Loading...</div>
+          <div></div>
+        </div>
+      </div>
+    )
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
+        <div className="text-sm" style={{ color: 'var(--text)' }}>
+          <div>Error: {error}</div>
           <div></div>
         </div>
       </div>
@@ -100,7 +133,15 @@ export function LastFmScrobbler() {
             <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
           )}
           <div className="text-sm" style={{ color: 'var(--text)' }}>
-            <div>{track.name}</div>
+            <div className="flex items-center gap-1">
+              {track.name}
+              {track.nowPlaying && (
+                <span className="text-xs text-green-500 animate-pulse">●</span>
+              )}
+              {isUpdating && (
+                <span className="text-xs opacity-50">⟳</span>
+              )}
+            </div>
             <div>{track.artist}</div>
           </div>
         </div>

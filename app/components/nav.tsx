@@ -8,18 +8,19 @@ export function Navbar() {
       {/* Gradient Strip at Top */}
       <div className="gradient-bar h-2 w-full"></div>
       
-      <nav className="flex items-center justify-between py-6 px-20" style={{ backgroundColor: 'var(--background)' }}>
+      <nav className="flex items-center justify-between pt-8 pb-6 px-8 md:px-20" style={{ backgroundColor: 'var(--background)' }}>
         {/* Left side - Logo and Name */}
         <div className="flex items-center gap-4">
-          <Link href="/" className="text-5xl md:text-6xl font-faktum-medium tracking-tight mb-4" style={{ color: 'var(--text-secondary)' }}>
+          <Link href="/" className="hidden md:block text-4xl md:text-5xl font-faktum-medium tracking-tight mb-4 no-underline hover:no-underline" style={{ color: 'var(--text-secondary)' }}>
             Zach McNair
           </Link>
+          <Logo size="md" className="w-10 h-10 md:hidden" />
         </div>
         
         {/* Right side - Theme Toggle and Logo */}
         <div className="flex items-center gap-4">
           <DarkModeToggle />
-          <Logo size="sm" className="w-8 h-8" />
+          <Logo size="md" className="w-10 h-10 hidden md:block" />
         </div>
       </nav>
     </header>
