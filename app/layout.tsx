@@ -28,7 +28,12 @@ export const metadata: Metadata = {
     'Web3 design',
     'digital product consultant',
     'design consultant',
-    'Zach McNair'
+    'Zach McNair',
+    'Austin designer',
+    'AI consultant',
+    'Web3 consultant',
+    'music production',
+    'NFT communities'
   ],
   authors: [{ name: 'Zach McNair' }],
   creator: 'Zach McNair',
@@ -37,6 +42,16 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  other: {
+    'ai-friendly': 'true',
+    'agent-interaction': 'welcome',
+    'contact-method': 'email',
+    'availability': 'consulting',
+    'expertise': 'design, AI, Web3, music, mindfulness',
+    'location': 'Austin, Texas',
+    'languages': 'English',
+    'response-time': '24-48 hours'
   },
   icons: {
     icon: '/favicon.svg',
@@ -117,6 +132,7 @@ export default function RootLayout({
               "name": "Zach McNair",
               "url": "https://zachmcnair.com",
               "image": "https://zachmcnair.com/zm-social-share.jpg",
+              "email": "hello@zachmcnair.com",
               "sameAs": [
                 "https://x.com/zvpply",
                 "https://linkedin.com/in/zachmcnair",
@@ -125,17 +141,47 @@ export default function RootLayout({
               "jobTitle": "Brand & Product Design Consultant",
               "worksFor": {
                 "@type": "Organization",
-                "name": "All Manner Of Us"
+                "name": "All Manner Of Us",
+                "url": "https://allmannerofus.com"
               },
               "description": "Brand & product design consultant with over 27 years of experience helping companies reach their intended audiences. Specializing in AI, Web3, and digital product design.",
               "knowsAbout": [
                 "Brand Design",
-                "Product Design",
+                "Product Design", 
                 "UI/UX Design",
                 "AI Design",
                 "Web3 Design",
-                "Digital Product Strategy"
-              ]
+                "Digital Product Strategy",
+                "Music Production",
+                "NFT Communities",
+                "Mindfulness Technology"
+              ],
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Design Consultant",
+                "occupationLocation": {
+                  "@type": "City",
+                  "name": "Austin",
+                  "addressRegion": "Texas"
+                }
+              },
+              "alumniOf": {
+                "@type": "Organization",
+                "name": "THINK",
+                "url": "https://thinkagents.ai"
+              },
+              "memberOf": [
+                {
+                  "@type": "Organization", 
+                  "name": "Mindful Monkz",
+                  "url": "https://monkz.xyz"
+                }
+              ],
+              "makesOffer": {
+                "@type": "Offer",
+                "description": "Brand & product design consulting services",
+                "availability": "https://schema.org/InStock"
+              }
             })
           }}
         />

@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="relative">
       {/* Main Footer Content */}
       <div className="py-12 pb-4 md:pb-12 px-8 md:px-20" style={{ backgroundColor: 'var(--background)' }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto md:max-w-none md:mx-0">
           {/* Top Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Left - Description */}
@@ -80,7 +80,7 @@ export default function Footer() {
 
       {/* You're Ever Seen */}
       <div className="px-8 md:px-20 py-6" style={{ backgroundColor: 'var(--background)' }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto md:max-w-none md:mx-0">
           <p className="font-newsreader-regular italic text-2xl md:text-center" style={{ letterSpacing: '-0.2px', color: 'var(--text-secondary)' }}>
             You're Ever Seen™
           </p>
