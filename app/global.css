@@ -16,6 +16,33 @@
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
   --logo-color: #000000;
+  
+  /* Brand Colors */
+  --off-white: #FEFCF4;
+  --off-black: #0E0F12;
+  --light-digital-blue: #A4A4F1;
+  --digital-blue-primary: #9191C9;
+  --dark-digital-blue: #21232B;
+  --secondary-1: #E25A1C;
+  --secondary-2: #F4B942;
+  --secondary-3: #2E7D32;
+  --secondary-4: #47A3F3;
+  --alt-1: #E91E63;
+  
+  /* Light Mode Colors */
+  --background: #FEFCF4;
+  --raised: #E0D9C3;
+  --raised-tertiary: #9B9581;
+  --text: #0E0F12;
+  --text-secondary: #4A5568;
+  --text-tertiary: #718096;
+  --primary: #21232B;
+  --danger: #E25A1C;
+  --warning: #F4B942;
+  --success: #2E7D32;
+  
+  /* Signature filter for light mode */
+  --signature-filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1234%) hue-rotate(202deg) brightness(94%) contrast(86%);
 }
 
 .dark {
@@ -24,6 +51,21 @@
   --sh-keyword: #f47067;
   --sh-string: #0fa295;
   --logo-color: #ffffff;
+  
+  /* Dark Mode Colors */
+  --background: #0E0F12;
+  --raised: #2A2D36;
+  --raised-tertiary: #1A1D26;
+  --text: #FEFCF4;
+  --text-secondary: #E0D9C3;
+  --text-tertiary: #9B9581;
+  --primary: #A4A4F1;
+  --danger: #E25A1C;
+  --warning: #F4B942;
+  --success: #2E7D32;
+  
+  /* Signature filter for dark mode */
+  --signature-filter: brightness(0) saturate(100%) invert(89%) sepia(6%) saturate(1014%) hue-rotate(359deg) brightness(96%) contrast(94%);
 }
 
 html {
@@ -33,16 +75,54 @@ html {
 }
 
 body {
-  color: #0E0F12;
-  background-color: #FEFCF4;
+  color: var(--text);
+  background-color: var(--background);
   font-size: 16px;
   line-height: 1.6;
   font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-.dark body {
-  color: #FEFCF4 !important;
-  background-color: #0E0F12 !important;
+/* Gradient Animation Keyframes */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-flow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animated Gradient Bar */
+.gradient-bar {
+  background: linear-gradient(90deg, 
+    #A4A4F1 0%, 
+    #E0D9C3 50%, 
+    #9B9581 74%, 
+    #21232B 100%);
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.gradient-bar-inverted {
+  background: linear-gradient(90deg, 
+    #A4A4F1 0%, 
+    #E0D9C3 50%, 
+    #9B9581 74%, 
+    #21232B 100%);
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease-in-out infinite reverse;
 }
 
 /* Faktum font utility classes */
@@ -282,13 +362,13 @@ p {
 }
 
 a {
-  color: #0E0F12;
+  color: var(--text);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #0E0F12;
+  color: var(--primary);
   text-decoration: underline;
 }
 
@@ -319,48 +399,7 @@ li {
   border: none !important;
   border-radius: 0 !important;
   min-width: 0;
-  color: #6b7280; /* gray-500 for better accessibility in light mode */
-}
-
-.dark .expertise-item {
-  color: #d1d5db; /* gray-300 for dark mode */
-}
-
-/* Explicit dark mode overrides */
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  color: #f3f4f6 !important;
-}
-
-/* Override for the main title only */
-.dark h2.text-xs {
-  color: #6b7280 !important;
-}
-
-
-
-.dark p {
-  color: #d1d5db !important; /* gray-300 */
-}
-
-.dark a {
-  color: #9191c9 !important;
-}
-
-.dark a:hover {
-  color: #e6e6fa !important;
-}
-
-.dark li {
-  color: #d1d5db !important; /* gray-300 */
-}
-
-.dark .expertise-item {
-  color: #d1d5db !important; /* gray-300 */
+  color: var(--text-secondary);
 }
 
 /* Portfolio Carousel Animations */
@@ -404,28 +443,6 @@ nav a:hover {
   text-decoration: underline !important;
 }
 
-/* Custom purple color for CTA section */
-.bg-purple-600 {
-  background-color: #aeaef0;
-}
-
-.text-purple-100 {
-  color: #f3e8ff;
-}
-
-/* Hover effects for CTA button */
-.hover\:bg-white:hover {
-  background-color: #ffffff;
-}
-
-.hover\:text-purple-600:hover {
-  color: #aeaef0;
-}
-
-
-
-
-
 /* Full-width content blade styles - more powerful */
 .content-blade {
   width: 100vw !important;
@@ -454,36 +471,24 @@ div[style*="background-color: #333333"] {
   z-index: 1 !important;
 }
 
-/* Light mode text color overrides for better legibility */
-.text-gray-600 {
-  color: #4b5563;
+/* Weather widget styles */
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
 }
 
-.text-gray-500 {
-  color: #6b7280;
+.weather-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: var(--weather-icon-filter);
 }
 
-.text-gray-700 {
-  color: #374151;
+/* Dark mode weather icon filter */
+.dark .weather-icon {
+  filter: brightness(0) invert(1);
 }
 
-.text-gray-300 {
-  color: #d1d5db;
-}
 
-/* Dark mode overrides */
-.dark .text-gray-600 {
-  color: #9ca3af;
-}
-
-.dark .text-gray-500 {
-  color: #6b7280;
-}
-
-.dark .text-gray-700 {
-  color: #d1d5db;
-}
-
-.dark .text-gray-300 {
-  color: #9ca3af;
-}

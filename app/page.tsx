@@ -1,7 +1,17 @@
 import { PortfolioCarousel } from 'app/components/portfolio-carousel'
 import { Logo } from './components/logo'
+import LandingPage from './landing'
+
+// Set to true to show the minimal landing page, false to show the full site
+const WIP = true
 
 export default function Page() {
+  // If WIP is true, show the minimal landing page
+  if (WIP) {
+    return <LandingPage />
+  }
+
+  // Otherwise show the full site
   return (
     <>
       {/* Logo positioned on far right of browser */}

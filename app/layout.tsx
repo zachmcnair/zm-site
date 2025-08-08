@@ -9,6 +9,9 @@ import { baseUrl } from './sitemap'
 import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold, dmMono, newsreader } from './fonts'
 import { ThemeProvider } from 'next-themes'
 
+// Set to true to show the minimal landing page, false to show the full site
+const WIP = false
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
@@ -68,10 +71,10 @@ export default function RootLayout({
     >
       <body className="antialiased font-faktum">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="min-h-screen py-12">
-            <Navbar />
+          <main className="min-h-screen">
+            {!WIP && <Navbar />}
             {children}
-            <Footer />
+            {!WIP && <Footer />}
             <Analytics />
             <SpeedInsights />
           </main>
