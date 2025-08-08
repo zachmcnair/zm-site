@@ -1,5 +1,21 @@
 import Link from 'next/link'
 import { Logo } from './components/logo'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Zach McNair — Brand & Product Design Consultant',
+  description: 'Brand & product design consultant with over 27 years of experience. Specializing in AI, Web3, and digital product design. Currently working on THINK, Mindful Monkz, and music production.',
+  openGraph: {
+    title: 'Zach McNair — Brand & Product Design Consultant',
+    description: 'Brand & product design consultant with over 27 years of experience. Specializing in AI, Web3, and digital product design.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zach McNair — Brand & Product Design Consultant',
+    description: 'Brand & product design consultant with over 27 years of experience. Specializing in AI, Web3, and digital product design.',
+  },
+}
 
 export default function LandingPage() {
   const currentYear = new Date().getFullYear()
