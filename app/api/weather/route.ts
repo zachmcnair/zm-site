@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
   try {
     // Austin, TX coordinates
@@ -25,7 +28,11 @@ export async function GET() {
     
     console.log('✅ Making OpenWeatherMap API request...')
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`,
+      {
+        cache: 'no-store',
+        next: { revalidate: 0 }
+      }
     )
     
     console.log('OpenWeatherMap Response Status:', response.status)
@@ -64,20 +71,34 @@ export async function GET() {
       return description
     }
     
-    return NextResponse.json({
+    const result = {
       temperature: Math.round(data.main.temp),
       condition: getConditionFromWeatherCode(data.weather[0].id, data.weather[0].main),
       icon: getIconFromWeatherCode(data.weather[0].id)
-    })
+    }
+    
+    // Set cache control headers
+    const response2 = NextResponse.json(result)
+    response2.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+    response2.headers.set('Pragma', 'no-cache')
+    response2.headers.set('Expires', '0')
+    
+    return response2
     
   } catch (error) {
     console.error('Weather API error:', error)
     
     // Return fallback data
-    return NextResponse.json({
+    const fallbackResponse = NextResponse.json({
       temperature: 0,
       condition: 'Close To The Clouds',
       icon: 'partly-cloudy'
     })
+    
+    fallbackResponse.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+    fallbackResponse.headers.set('Pragma', 'no-cache')
+    fallbackResponse.headers.set('Expires', '0')
+    
+    return fallbackResponse
   }
 }

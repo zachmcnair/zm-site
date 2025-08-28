@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
   try {
     const username = 'zachmcnair'
@@ -16,11 +19,15 @@ export async function GET() {
     
     if (!apiKey) {
       console.log('❌ No LastFM API key found - returning empty data')
-      return NextResponse.json({
+      const emptyResponse = NextResponse.json({
         recenttracks: {
           track: []
         }
       })
+      emptyResponse.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+      emptyResponse.headers.set('Pragma', 'no-cache')
+      emptyResponse.headers.set('Expires', '0')
+      return emptyResponse
     }
 
     console.log('✅ LastFM API key found, making request...')
@@ -29,7 +36,10 @@ export async function GET() {
     
     console.log('LastFM API URL:', url.replace(apiKey, '***'))
     
-    const response = await fetch(url)
+    const response = await fetch(url, {
+      cache: 'no-store',
+      next: { revalidate: 0 }
+    })
     
     console.log('LastFM API Response Status:', response.status)
     
@@ -43,13 +53,22 @@ export async function GET() {
     
     console.log('✅ LastFM API Success Response:', JSON.stringify(data, null, 2))
     
-    return NextResponse.json(data)
+    const successResponse = NextResponse.json(data)
+    successResponse.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+    successResponse.headers.set('Pragma', 'no-cache')
+    successResponse.headers.set('Expires', '0')
+    
+    return successResponse
   } catch (error) {
     console.error('❌ Error fetching Last.fm data:', error)
-    return NextResponse.json({
+    const errorResponse = NextResponse.json({
       recenttracks: {
         track: []
       }
     })
+    errorResponse.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+    errorResponse.headers.set('Pragma', 'no-cache')
+    errorResponse.headers.set('Expires', '0')
+    return errorResponse
   }
 } 
