@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 ::selection {
   background-color: #47a3f3;
@@ -404,32 +406,7 @@ li {
   color: var(--text-secondary);
 }
 
-/* Portfolio Carousel Animations */
-@keyframes scroll-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.33%);
-  }
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(-33.33%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.animate-scroll-right {
-  animation: scroll-right 30s linear infinite;
-}
-
-.animate-scroll-left {
-  animation: scroll-left 30s linear infinite;
-}
+/* Portfolio Carousel Animations - Now handled by JavaScript */
 
 /* Smooth scrolling for anchor links */
 html {

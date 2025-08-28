@@ -1,6 +1,6 @@
-import { PortfolioCarousel } from 'app/components/portfolio-carousel'
 import { Logo } from './components/logo'
 import LandingPage from './landing'
+import { PortfolioCarousel } from './components/portfolio-carousel'
 
 // Set to true to show the minimal landing page, false to show the full site
 const WIP = true
@@ -39,7 +39,10 @@ export default function Page() {
       {/* Portfolio Grid - Full Width */}
       <div className="w-screen relative left-1/2 transform -translate-x-1/2">
         <section id="portfolio" className="mb-20">
-          <PortfolioCarousel />
+          <div className="pl-20">
+            <h2 className="text-3xl font-faktum-medium mb-8">Portfolio</h2>
+            <PortfolioCarousel />
+          </div>
         </section>
       </div>
 

@@ -9,6 +9,8 @@ import { baseUrl } from './sitemap'
 import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold, dmMono, newsreader } from './fonts'
 import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
+import { LastFmProvider } from './components/lastfm-context'
+
 
 // Set to true to show the minimal landing page, false to show the full site
 const WIP = false
@@ -108,18 +110,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        faktumRegular.variable,
-        faktumMedium.variable,
-        faktumBold.variable,
-        faktumLight.variable,
-        faktumSemiBold.variable,
-        faktumExtraBold.variable,
-        dmMono.variable,
-        newsreader.variable,
-        GeistMono.variable
-      )}
+      className={`text-black bg-white dark:text-white dark:bg-black ${faktumRegular.variable} ${faktumMedium.variable} ${faktumBold.variable} ${faktumLight.variable} ${faktumSemiBold.variable} ${faktumExtraBold.variable} ${dmMono.variable} ${newsreader.variable}`}
     >
       <head>
         <Script
@@ -190,8 +181,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="min-h-screen">
             {!WIP && <Navbar />}
-            {children}
-            {!WIP && <Footer />}
+            <LastFmProvider>
+              {children}
+              {!WIP && <Footer />}
+            </LastFmProvider>
             <Analytics />
             <SpeedInsights />
           </main>

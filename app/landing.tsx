@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Logo } from './components/logo'
+import { PortfolioCarousel } from './components/portfolio-carousel'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -28,6 +29,12 @@ export default function LandingPage() {
         <div className="flex items-center gap-4">
         </div>
       </header>
+
+      {/* Portfolio Carousel Section - Directly under header */}
+      <section className="mb-12" aria-labelledby="portfolio-heading">
+        <h2 id="portfolio-heading" className="sr-only">Portfolio Showcase</h2>
+        <PortfolioCarousel />
+      </section>
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col justify-center px-8 py-12" role="main" aria-label="About Zach McNair">
