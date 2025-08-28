@@ -264,7 +264,7 @@ export function PortfolioCarousel() {
   const bottomRowRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<number>()
 
-  // Create stable, non-resetting rows
+  // Create stable, non-resetting rows with completely different image sets
   const createRowImages = useCallback(() => {
     // Use deterministic ordering based on image ID hashes
     const ordered = [...portfolioImages].sort((a, b) => {
@@ -273,9 +273,10 @@ export function PortfolioCarousel() {
       return hashA - hashB
     })
     
+    // Split into completely different sets - no overlap
     const half = Math.ceil(ordered.length / 2)
-    setTopRowImages(ordered.slice(0, half))
-    setBottomRowImages(ordered.slice(half))
+    setTopRowImages(ordered.slice(0, half)) // First half
+    setBottomRowImages(ordered.slice(half)) // Second half (completely different images)
     setIsLoaded(true)
   }, [])
 
@@ -289,17 +290,18 @@ export function PortfolioCarousel() {
 
     const topRow = topRowRef.current
     const bottomRow = bottomRowRef.current
-    const scrollSpeed = 1.5 // pixels per frame - adjust for speed
+    const topScrollSpeed = 1.5 // pixels per frame for top row
+    const bottomScrollSpeed = 1.125 // 25% slower than top row (1.5 * 0.75)
     let topPosition = 0
     let bottomPosition = 0
 
     const animate = () => {
       // Move top row left
-      topPosition -= scrollSpeed
+      topPosition -= topScrollSpeed
       topRow.style.transform = `translateX(${topPosition}px)`
 
-      // Move bottom row right
-      bottomPosition += scrollSpeed
+      // Move bottom row left (same direction but slower for visual variety)
+      bottomPosition -= bottomScrollSpeed
       bottomRow.style.transform = `translateX(${bottomPosition}px)`
 
       // Get the total width of all images in each row
@@ -328,8 +330,8 @@ export function PortfolioCarousel() {
         topRow.style.transform = `translateX(${topPosition}px)`
       }
 
-      // Reset bottom row when it has scrolled one complete set width
-      if (bottomPosition >= bottomRowWidth) {
+      // Reset bottom row when it has scrolled one complete set width (same logic as top row)
+      if (Math.abs(bottomPosition) >= bottomRowWidth) {
         bottomPosition = 0
         bottomRow.style.transform = `translateX(${bottomPosition}px)`
       }

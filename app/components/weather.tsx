@@ -23,8 +23,8 @@ export function WeatherWidget() {
         } else {
           // Fallback data if API fails
           setWeather({
-            temperature: 98,
-            condition: 'Partly Cloudy',
+            temperature: 88,
+            condition: 'Close To The Clouds',
             icon: 'partly-cloudy'
           })
         }
@@ -32,8 +32,8 @@ export function WeatherWidget() {
         console.error('Failed to fetch weather:', error)
         // Fallback data
         setWeather({
-          temperature: 98,
-          condition: 'Partly Cloudy',
+          temperature: 88,
+          condition: 'Close To The Clouds',
           icon: 'partly-cloudy'
         })
       } finally {
@@ -114,7 +114,12 @@ export function WeatherWidget() {
     <div className="flex items-center gap-2">
       {getWeatherIcon(weather.icon)}
       <div className="text-sm" style={{ color: 'var(--text)' }}>
-        <div>{weather.condition} and {weather.temperature}°F</div>
+        <div>
+          {weather.condition === 'Close To The Clouds' 
+            ? weather.condition 
+            : `${weather.condition} and ${weather.temperature}°F`
+          }
+        </div>
         <div>in Austin, Texas</div>
       </div>
     </div>

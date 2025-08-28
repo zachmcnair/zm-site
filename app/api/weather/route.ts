@@ -6,27 +6,38 @@ export async function GET() {
     const lat = 30.2672
     const lon = -97.7431
     
-    // Using OpenWeatherMap API (you'll need to add OPENWEATHER_API_KEY to your environment variables)
-    const apiKey = process.env.OPENWEATHER_API_KEY || 'e62243750df3f112863afe705b4cbf82'
+    // Using OpenWeatherMap API
+    const apiKey = process.env.OPENWEATHER_API_KEY
     
-    if (apiKey === 'demo') {
-      // Return demo data if no API key is provided
+    console.log('=== Weather API Debug ===')
+    console.log('Environment:', process.env.NODE_ENV)
+    console.log('OpenWeather API Key exists:', !!apiKey)
+    console.log('========================')
+    
+    if (!apiKey) {
+      console.log('❌ No OpenWeather API key found - using fallback data')
       return NextResponse.json({
-        temperature: 98,
-        condition: 'Partly Cloudy',
+        temperature: 0,
+        condition: 'Close To The Clouds',
         icon: 'partly-cloudy'
       })
     }
     
+    console.log('✅ Making OpenWeatherMap API request...')
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
     )
     
+    console.log('OpenWeatherMap Response Status:', response.status)
+    
     if (!response.ok) {
+      const errorText = await response.text()
+      console.log('❌ OpenWeatherMap API Error:', errorText)
       throw new Error('Weather API request failed')
     }
     
     const data = await response.json()
+    console.log('✅ OpenWeatherMap API Response:', JSON.stringify(data, null, 2))
     
     // Map OpenWeatherMap conditions to our icon system
     const getIconFromWeatherCode = (code: number) => {
@@ -64,8 +75,8 @@ export async function GET() {
     
     // Return fallback data
     return NextResponse.json({
-      temperature: 98,
-      condition: 'Partly Cloudy',
+      temperature: 0,
+      condition: 'Close To The Clouds',
       icon: 'partly-cloudy'
     })
   }

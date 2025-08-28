@@ -8,7 +8,7 @@ export function Navbar() {
       {/* Gradient Strip at Top */}
       <div className="gradient-bar h-2 w-full"></div>
       
-      <nav className="flex items-center justify-between pt-8 pb-6 px-8 md:px-20" style={{ backgroundColor: 'var(--background)' }}>
+      <nav className="flex items-center justify-between pt-20 pb-6 px-8 md:px-20" style={{ backgroundColor: 'var(--background)' }}>
         {/* Left side - Logo and Name */}
         <div className="flex items-center gap-4">
           <Link href="/" className="hidden md:block text-4xl md:text-5xl font-faktum-medium tracking-tight mb-4 no-underline hover:no-underline" style={{ color: 'var(--text-secondary)' }}>
