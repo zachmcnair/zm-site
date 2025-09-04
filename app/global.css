@@ -36,7 +36,7 @@
   --raised: #E0D9C3;
   --raised-tertiary: #9B9581;
   --text: #0E0F12;
-  --text-secondary: #4A5568;
+  --text-secondary: #21232B;
   --text-tertiary: #718096;
   --primary: #5959E3;
   --link: #5959E3;
@@ -441,6 +441,13 @@ nav a:hover {
   outline: none !important;
   box-shadow: none !important;
   text-decoration: none !important;
+}
+
+/* Active navigation links - strikethrough styling */
+nav a[style*="line-through"] {
+  text-decoration: line-through !important;
+  text-decoration-thickness: 2px !important;
+  text-decoration-color: rgba(113, 128, 150, 0.4) !important;
 }
 
 /* Full-width content blade styles - more powerful */

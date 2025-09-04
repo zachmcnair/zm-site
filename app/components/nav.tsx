@@ -18,12 +18,32 @@ export function Navbar() {
       <nav className="flex items-center pt-20 pb-6 px-8 md:px-20" style={{ backgroundColor: 'var(--background)' }}>
         {/* Left side - Name and Navigation Links */}
         <div className="flex items-center gap-10">
+          {/* Mobile: Logo, Desktop: Name */}
+          <div className="md:hidden">
+            <Link 
+              href="/" 
+              className="no-underline hover:no-underline" 
+              style={{ 
+                textDecoration: 'none !important'
+              }}
+            >
+              <Logo size="md" className="w-12 h-12" />
+            </Link>
+          </div>
           <Link 
             href="/" 
-            className="text-4xl md:text-5xl font-faktum-medium tracking-tight mb-4 no-underline hover:no-underline" 
+            className="hidden md:block text-5xl font-faktum-medium tracking-tight mb-4 no-underline hover:no-underline" 
             style={{ 
               color: 'var(--text-secondary)', 
               textDecoration: 'none !important'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.textDecoration = 'none !important'
+              e.currentTarget.style.color = 'var(--text-secondary)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.textDecoration = 'none !important'
+              e.currentTarget.style.color = 'var(--text-secondary)'
             }}
           >
             Zach McNair
@@ -35,12 +55,13 @@ export function Navbar() {
               href="/" 
               className={`transition-colors ${
                 pathname === '/' 
-                  ? 'font-medium' 
-                  : 'hover:underline'
+                  ? 'font-medium cursor-default' 
+                  : 'hover:underline cursor-pointer'
               }`}
               style={{ 
-                color: pathname === '/' ? 'rgba(113, 128, 150, 0.3)' : 'var(--link)',
-                textDecoration: 'none'
+                color: pathname === '/' ? 'rgba(113, 128, 150, 0.4)' : 'var(--link)',
+                textDecoration: pathname === '/' ? 'line-through' : 'none',
+                pointerEvents: pathname === '/' ? 'none' : 'auto'
               }}
               onMouseEnter={(e) => {
                 if (pathname !== '/') {
@@ -61,12 +82,13 @@ export function Navbar() {
               href="/portfolio" 
               className={`transition-colors ${
                 pathname === '/portfolio' 
-                  ? 'font-medium' 
-                  : 'hover:underline'
+                  ? 'font-medium cursor-default' 
+                  : 'hover:underline cursor-pointer'
               }`}
               style={{ 
-                color: pathname === '/portfolio' ? 'rgba(113, 128, 150, 0.3)' : 'var(--link)',
-                textDecoration: 'none'
+                color: pathname === '/portfolio' ? 'rgba(113, 128, 150, 0.4)' : 'var(--link)',
+                textDecoration: pathname === '/portfolio' ? 'line-through' : 'none',
+                pointerEvents: pathname === '/portfolio' ? 'none' : 'auto'
               }}
               onMouseEnter={(e) => {
                 if (pathname !== '/portfolio') {
@@ -97,7 +119,7 @@ export function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -110,22 +132,23 @@ export function Navbar() {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+        <div className="md:hidden">
           <div className="px-8 py-4 space-y-4">
             <Link 
               href="/" 
               className={`block transition-colors mobile-nav-link ${
                 pathname === '/' 
-                  ? 'font-medium' 
-                  : ''
+                  ? 'font-medium cursor-default' 
+                  : 'cursor-pointer'
               }`}
               style={{ 
-                color: pathname === '/' ? 'rgba(113, 128, 150, 0.3)' : 'var(--link)',
-                textDecoration: 'none !important',
+                color: pathname === '/' ? 'rgba(113, 128, 150, 0.4)' : 'var(--link)',
+                textDecoration: pathname === '/' ? 'line-through !important' : 'none !important',
                 backgroundColor: 'transparent !important',
                 outline: 'none !important',
                 border: 'none !important',
-                boxShadow: 'none !important'
+                boxShadow: 'none !important',
+                pointerEvents: pathname === '/' ? 'none' : 'auto'
               }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -135,16 +158,17 @@ export function Navbar() {
               href="/portfolio" 
               className={`block transition-colors mobile-nav-link ${
                 pathname === '/portfolio' 
-                  ? 'font-medium' 
-                  : ''
+                  ? 'font-medium cursor-default' 
+                  : 'cursor-pointer'
               }`}
               style={{ 
-                color: pathname === '/portfolio' ? 'rgba(113, 128, 150, 0.3)' : 'var(--link)',
-                textDecoration: 'none !important',
+                color: pathname === '/portfolio' ? 'rgba(113, 128, 150, 0.4)' : 'var(--link)',
+                textDecoration: pathname === '/portfolio' ? 'line-through !important' : 'none !important',
                 backgroundColor: 'transparent !important',
                 outline: 'none !important',
                 border: 'none !important',
-                boxShadow: 'none !important'
+                boxShadow: 'none !important',
+                pointerEvents: pathname === '/portfolio' ? 'none' : 'auto'
               }}
               onClick={() => setIsMobileMenuOpen(false)}
             >

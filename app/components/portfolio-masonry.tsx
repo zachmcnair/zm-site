@@ -227,7 +227,7 @@ const portfolioItems: PortfolioItem[] = [
     metatags: ['Product Design', 'Front-end Development'],
     aspectRatio: 'wide',
     hidden: false,
-    caseStudyUrl: 'https://thinkagents.ai/projects/thinkubator'
+    caseStudyUrl: 'https://thinkagents.ai/products/thinkubator'
   },
   {
     id: '21',

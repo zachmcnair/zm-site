@@ -10,6 +10,7 @@ import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, f
 import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
 import { LastFmProvider } from './components/lastfm-context'
+import { PageTransition } from './components/page-transition'
 
 
 // Set to true to show the minimal landing page, false to show the full site
@@ -182,7 +183,9 @@ export default function RootLayout({
           <main className="min-h-screen">
             {!WIP && <Navbar />}
             <LastFmProvider>
-              {children}
+              <PageTransition>
+                {children}
+              </PageTransition>
               {!WIP && <Footer />}
             </LastFmProvider>
             <Analytics />
