@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 import { PortfolioMasonry } from '../components/portfolio-masonry'
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Zach McNair',
-  description: 'Explore my portfolio of brand and product design work, including AI/Web3 projects, creative campaigns, and corporate design solutions.',
+  title: 'Zach McNair — Brand & Product Design Consultant',
+  description: 'Explore my portfolio featuring AI/Web3 projects, creative campaigns, and corporate design solutions. Including work for THINK Agents, 6079, Mindful Monkz, and other innovative brands.',
   openGraph: {
-    title: 'Portfolio | Zach McNair',
-    description: 'Explore my portfolio of brand and product design work, including AI/Web3 projects, creative campaigns, and corporate design solutions.',
+    title: 'Zach McNair — Brand & Product Design Consultant',
+    description: 'Explore my portfolio featuring AI/Web3 projects, creative campaigns, and corporate design solutions. Including work for THINK Agents, 6079, Mindful Monkz, and other innovative brands.',
     type: 'website',
   },
 }
