@@ -247,7 +247,8 @@ const portfolioItems: PortfolioItem[] = [
     client: 'Wistia',
     metatags: ['Web Design', 'Art Direction'],
     aspectRatio: 'landscape',
-    hidden: false
+    hidden: false,
+    caseStudyUrl: 'https://wistia.com/series/talking-too-loud'
   },
   {
     id: '23',
