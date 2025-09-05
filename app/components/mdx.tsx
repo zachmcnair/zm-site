@@ -1,5 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
+import { BlogImage } from './blog-image'
+import { YouTubeEmbed, SpotifyEmbed, GenericEmbed } from './embeds'
 
 const components = {
   h1: (props: any) => (
@@ -18,10 +20,10 @@ const components = {
     <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed" {...props} />
   ),
   ul: (props: any) => (
-    <ul className="mb-4 pl-6 text-gray-700 dark:text-gray-300" {...props} />
+    <ul className="mb-4 text-gray-700 dark:text-gray-300 list-disc list-outside" {...props} />
   ),
   ol: (props: any) => (
-    <ol className="mb-4 pl-6 text-gray-700 dark:text-gray-300" {...props} />
+    <ol className="mb-4 text-gray-700 dark:text-gray-300 list-decimal list-outside" {...props} />
   ),
   li: (props: any) => (
     <li className="mb-1 text-gray-700 dark:text-gray-300" {...props} />
@@ -44,6 +46,45 @@ const components = {
   em: (props: any) => (
     <em className="italic text-gray-700 dark:text-gray-300" {...props} />
   ),
+  BlogImage: (props: any) => <BlogImage {...props} />,
+  YouTubeEmbed: (props: any) => <YouTubeEmbed {...props} />,
+  SpotifyEmbed: (props: any) => <SpotifyEmbed {...props} />,
+  GenericEmbed: (props: any) => <GenericEmbed {...props} />,
+  img: (props: any) => {
+    // Handle relative image paths in blog posts
+    const src = props.src?.startsWith('images/') 
+      ? `/blog/images/${props.src.replace('images/', '')}`
+      : props.src
+    
+    // Check if this image has a caption (next sibling is a figcaption)
+    const hasCaption = props.title || props.alt?.includes('caption:')
+    
+    if (hasCaption) {
+      const caption = props.title || props.alt?.replace('caption:', '').trim()
+      return (
+        <figure className="my-8">
+          <Image 
+            {...props} 
+            src={src}
+            className="w-full h-auto rounded-lg"
+            unoptimized
+          />
+          <figcaption className="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center italic">
+            {caption}
+          </figcaption>
+        </figure>
+      )
+    }
+    
+    return (
+      <Image 
+        {...props} 
+        src={src}
+        className="w-full h-auto rounded-lg my-8"
+        unoptimized
+      />
+    )
+  },
 }
 
 interface MDXContentProps {

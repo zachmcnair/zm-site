@@ -30,9 +30,6 @@ export default function BlogPage() {
             RSS Feed
           </Link>
         </div>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          Thoughts on design, AI, Web3, and building products that matter.
-        </p>
       </header>
 
       {posts.length === 0 ? (

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from 'app/lib/mdx'
-import { SimpleContent } from 'app/components/simple-content'
+import { MDXContent } from 'app/components/mdx'
 import { ShareButtons } from 'app/components/share-buttons'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
       </header>
 
-      <SimpleContent content={post.content} />
+      <MDXContent source={post.content} />
 
       <ShareButtons 
         title={post.meta.title}
