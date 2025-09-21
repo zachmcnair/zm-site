@@ -95,6 +95,136 @@ export default function LandingPage() {
           </section>
         </div>
       </main>
+
+      {/* Experience Section - Full Width Content Blade */}
+      <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
+        <div className="pl-20">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <div className="md:col-span-1">
+              <h2 className="text-2xl font-faktum-medium md:sticky md:top-20" style={{color: '#fefcf4'}}>Experience</h2>
+            </div>
+            <div className="md:col-span-4">
+              <div className="space-y-24 max-w-[540px]">
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="style={{color: '#fefcf4'}}">UX & Digital Product Designer</div>
+                        <div className="text-gray-500 dark:text-gray-500">AI Layer Labs</div>
+                      </div>
+                      <div className="text-gray-500 dark:text-gray-500 text-right">
+                        <div>2024-Present</div>
+                        <div>Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="mb-2 body-text">
+                      Working to create a truly independent AI ecosystem by bridging the gap between brand and product, focusing on user experience, and utilizing Web3 and AI technologies.
+                    </p>
+                  </div>
+                  <p className="mb-2 body-text">Have helped launch:</p>
+                  <ul className="list-disc list-inside space-y-1 ml-4 body-text">
+                    <li><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></li>
+                    <li>A social mission game using X integration (<a href="https://6079.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</li>
+                    <li>A crypto token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with Futureverse</li>
+                    <li>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></li>
+                    <li>A blockchain hub, explorer, and node dashboard for Wire Network</li>
+                    <li>The 6079 Foundation</li>
+                    <li>A decentralized AI prompt-based Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</li>
+                    <li>An independent AI news hub (IAI News)</li>
+                    <li>A virtual game available on iOS, Android, and Web (<a href="https://6079.ai/game" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</li>
+                    <li>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="style={{color: '#fefcf4'}}">Freelance Consultant</div>
+                        <div className="text-gray-500 dark:text-gray-500">Freelance / Self-employed</div>
+                      </div>
+                      <div className="text-gray-500 dark:text-gray-500 text-right">
+                        <div>1998-Present</div>
+                        <div>Austin, TX & Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="body-text">
+                      I solve Brand & Product design problems to help people reach their intended audiences. While my experience is vast, I focus on using design and strategy to bridge the gap between brand and product. I currently leverage Web3 and AI technologies to help businesses and design teams work efficiently and to create work that lasts.
+                    </p>
+                    <p className="mt-2 body-text">
+                      Select clients include: Alphi.xyz, AI Layer, Ugmonk, Funsize, Hertz, Johnson & Johnson, Fjord, Accenture, Sapient Razorfish, Underoath, Mutemath, Son Lux, WeWork, Google, The Culinary Institute of America, Humin, SuperFriendly, SerialBox Presents, QRI, Sony BMG / EMI, Jeremy Cowart.
+                    </p>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="style={{color: '#fefcf4'}}">Founder & Executive Creative Director</div>
+                        <div className="text-gray-500 dark:text-gray-500">All Manner Of Us</div>
+                      </div>
+                      <div className="text-gray-500 dark:text-gray-500 text-right">
+                        <div>2017-Present</div>
+                        <div>Austin, TX & Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="body-text">
+                      Helping organizations and artists build deeper relationships with their audience through full-service brand design. Select clients include: Indeed, Wistia, HCA Healthcare, Kistler Rods, Lemburg House, Superset, Hammock.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="style={{color: '#fefcf4'}}">Art Director & Senior Marketing Designer</div>
+                        <div className="text-gray-500 dark:text-gray-500">Creative Market (Autodesk)</div>
+                      </div>
+                      <div className="text-gray-500 dark:text-gray-500 text-right">
+                        <div>2015-2016</div>
+                        <div>San Francisco, CA & Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="body-text">
+                      Creative Market is an online marketplace platform for design content from independent creatives around the world. I worked on various marketing, product, and brand initiatives. Enhanced product user signup conversion by 17%.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="style={{color: '#fefcf4'}}">Co-founder & Creative Director</div>
+                        <div className="text-gray-500 dark:text-gray-500">Dbln llc</div>
+                      </div>
+                      <div className="text-gray-500 dark:text-gray-500 text-right">
+                        <div>2013-2014</div>
+                        <div>Houston, TX & Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="body-text">
+                      Dbln was a web design, development, and brand studio with a focus on the wedding and hospitality industries.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
