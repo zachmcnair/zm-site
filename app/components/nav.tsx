@@ -105,33 +105,6 @@ export function Navbar() {
             >
               Portfolio
             </Link>
-            <Link 
-              href="/blog" 
-              className={`transition-colors ${
-                pathname === '/blog' 
-                  ? 'font-medium cursor-default' 
-                  : 'hover:underline cursor-pointer'
-              }`}
-              style={{ 
-                color: pathname === '/blog' ? 'rgba(113, 128, 150, 0.4)' : 'var(--link)',
-                textDecoration: pathname === '/blog' ? 'line-through' : 'none',
-                pointerEvents: pathname === '/blog' ? 'none' : 'auto'
-              }}
-              onMouseEnter={(e) => {
-                if (pathname !== '/blog') {
-                  e.currentTarget.style.color = 'var(--link)'
-                  e.currentTarget.style.textDecoration = 'underline'
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (pathname !== '/blog') {
-                  e.currentTarget.style.color = 'var(--link)'
-                  e.currentTarget.style.textDecoration = 'none'
-                }
-              }}
-            >
-              Blog
-            </Link>
           </div>
         </div>
 
@@ -200,26 +173,6 @@ export function Navbar() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Portfolio
-            </Link>
-            <Link 
-              href="/blog" 
-              className={`block transition-colors mobile-nav-link ${
-                pathname === '/blog' 
-                  ? 'font-medium cursor-default' 
-                  : 'cursor-pointer'
-              }`}
-              style={{ 
-                color: pathname === '/blog' ? 'rgba(113, 128, 150, 0.4)' : 'var(--link)',
-                textDecoration: pathname === '/blog' ? 'line-through !important' : 'none !important',
-                backgroundColor: 'transparent !important',
-                outline: 'none !important',
-                border: 'none !important',
-                boxShadow: 'none !important',
-                pointerEvents: pathname === '/blog' ? 'none' : 'auto'
-              }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Blog
             </Link>
           </div>
         </div>
