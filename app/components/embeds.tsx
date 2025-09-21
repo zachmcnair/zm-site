@@ -6,7 +6,7 @@ interface YouTubeEmbedProps {
 
 export function YouTubeEmbed({ videoId, title = "YouTube video", className = "my-8" }: YouTubeEmbedProps) {
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`w-full ${className} -mx-8 md:-mx-20`}>
       <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
         <iframe
           className="absolute top-0 left-0 w-full h-full rounded-lg"
@@ -42,7 +42,7 @@ export function SpotifyEmbed({
   const spotifyUrl = `https://open.spotify.com/embed/${type}/${id}`
   
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`w-full ${className} -mx-8 md:-mx-20`}>
       <iframe
         className="w-full rounded-lg"
         src={spotifyUrl}
@@ -73,7 +73,7 @@ export function GenericEmbed({
   height = "400px"
 }: GenericEmbedProps) {
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`w-full ${className} -mx-8 md:-mx-20`}>
       <iframe
         className="w-full rounded-lg"
         src={url}

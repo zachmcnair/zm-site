@@ -38,7 +38,7 @@ const components = {
     <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4" {...props} />
   ),
   a: (props: any) => (
-    <a className="text-blue-600 dark:text-blue-400 hover:underline" {...props} />
+    <a className="hover:underline" style={{ color: 'var(--link)' }} {...props} />
   ),
   strong: (props: any) => (
     <strong className="font-faktum-medium text-gray-900 dark:text-gray-100" {...props} />
@@ -62,7 +62,7 @@ const components = {
     if (hasCaption) {
       const caption = props.title || props.alt?.replace('caption:', '').trim()
       return (
-        <figure className="my-8">
+        <figure className="my-8 -mx-8 md:-mx-20">
           <Image 
             {...props} 
             src={src}
@@ -77,12 +77,14 @@ const components = {
     }
     
     return (
-      <Image 
-        {...props} 
-        src={src}
-        className="w-full h-auto rounded-lg my-8"
-        unoptimized
-      />
+      <div className="my-8 -mx-8 md:-mx-20">
+        <Image 
+          {...props} 
+          src={src}
+          className="w-full h-auto rounded-lg"
+          unoptimized
+        />
+      </div>
     )
   },
 }

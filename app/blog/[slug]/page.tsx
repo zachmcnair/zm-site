@@ -57,13 +57,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const postUrl = `${baseUrl}/blog/${slug}`
+  
+  // Get all posts for navigation
+  const allPosts = getAllPosts('blog')
+  const currentIndex = allPosts.findIndex(p => p.slug === slug)
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   return (
-    <article className="max-w-4xl mx-auto">
+    <article className="max-w-4xl mx-auto px-8 md:px-20">
       <header className="mb-8">
         <Link 
           href="/blog" 
-          className="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block"
+          className="hover:underline mb-4 inline-block"
+          style={{ color: 'var(--link)' }}
         >
           ← Back to Blog
         </Link>
@@ -81,7 +88,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.meta.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs"
+                  className="text-xs font-mono uppercase text-gray-500 dark:text-gray-500"
                 >
                   {tag}
                 </span>
@@ -97,7 +104,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
       </header>
 
-      <MDXContent source={post.content} />
+      <div className="max-w-[680px] mx-auto">
+        <MDXContent source={post.content} />
+      </div>
 
       <ShareButtons 
         title={post.meta.title}
@@ -105,6 +114,51 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         description={post.meta.description}
         tags={post.meta.tags}
       />
+
+      {/* Prev/Next Navigation */}
+      {(prevPost || nextPost) && (
+        <nav className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex justify-between items-start gap-8">
+            {/* Previous Post */}
+            <div className="flex-1">
+              {prevPost ? (
+                <Link 
+                  href={`/blog/${prevPost.slug}`}
+                  className="group block"
+                >
+                  <div className="text-sm text-gray-500 dark:text-gray-400 mb-2 transition-colors" style={{ color: 'var(--text-tertiary)' }}>
+                    ← Prev
+                  </div>
+                  <div className="text-lg font-faktum-medium text-gray-900 dark:text-gray-100 transition-colors" style={{ color: 'var(--text)' }}>
+                    {prevPost.meta.title}
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+            </div>
+
+            {/* Next Post */}
+            <div className="flex-1 text-right">
+              {nextPost ? (
+                <Link 
+                  href={`/blog/${nextPost.slug}`}
+                  className="group block"
+                >
+                  <div className="text-sm text-gray-500 dark:text-gray-400 mb-2 transition-colors" style={{ color: 'var(--text-tertiary)' }}>
+                    Next →
+                  </div>
+                  <div className="text-lg font-faktum-medium text-gray-900 dark:text-gray-100 transition-colors" style={{ color: 'var(--text)' }}>
+                    {nextPost.meta.title}
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </div>
+        </nav>
+      )}
     </article>
   )
 } 

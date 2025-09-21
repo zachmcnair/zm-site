@@ -17,7 +17,7 @@ export default function BlogPage() {
   const posts = getAllPosts('blog')
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-8 md:px-20">
       <header className="mb-12">
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-4xl font-faktum-medium tracking-tight">
@@ -25,7 +25,8 @@ export default function BlogPage() {
           </h1>
           <Link 
             href="/feed" 
-            className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-sm hover:underline"
+            style={{ color: 'var(--link)' }}
           >
             RSS Feed
           </Link>
@@ -43,7 +44,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article key={post.slug} className="border-b border-gray-200 dark:border-gray-700 pb-8">
               <Link href={`/blog/${post.slug}`} className="group">
-                <h2 className="text-2xl font-faktum-medium mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h2 className="text-2xl font-faktum-medium mb-2 transition-colors" style={{ color: 'var(--text)' }}>
                   {post.meta.title}
                 </h2>
               </Link>
@@ -57,7 +58,7 @@ export default function BlogPage() {
                     {post.meta.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs"
+                        className="text-xs font-mono uppercase text-gray-500 dark:text-gray-500"
                       >
                         {tag}
                       </span>
