@@ -38,7 +38,7 @@ export default function LandingPage() {
 
       {/* Main Content */}
       <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
-        <div className="px-4 md:px-20">
+        <div className="px-8 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-2">
               <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)', display: 'none'}}>Bio</h2>
@@ -108,7 +108,7 @@ export default function LandingPage() {
 
       {/* Experience Section - Full Width Content Blade */}
       <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
-        <div className="px-4 md:px-20">
+        <div className="px-8 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-2">
               <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)'}}>Experience</h2>
