@@ -37,11 +37,17 @@ export default function LandingPage() {
       </section>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col justify-center px-8 py-12" role="main" aria-label="About Zach McNair">
-        <div className="max-w-4xl mx-auto">
+      <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
+        <div className="pl-20">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <div className="md:col-span-1">
+              <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)', display: 'none'}}>Bio</h2>
+            </div>
+            <div className="md:col-span-4">
+              <div className="space-y-24 max-w-[540px]">
+                <div>
           {/* Memo Section */}
           <section className="mb-12" aria-labelledby="memo-heading">
-            <h1 id="memo-heading" className="sr-only">Zach McNair - Professional Introduction</h1>
             <div className="text-base leading-relaxed space-y-4 max-w-[540px] memo-text" role="article">
               <p className="memo-text" data-agent-context="greeting">
                 Howdy,
@@ -93,15 +99,19 @@ export default function LandingPage() {
               data-agent-context="personal-signature"
             />
           </section>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
 
       {/* Experience Section - Full Width Content Blade */}
       <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
         <div className="pl-20">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div className="md:col-span-1">
-              <h2 className="text-2xl font-faktum-medium md:sticky md:top-20" style={{color: '#fefcf4'}}>Experience</h2>
+              <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)'}}>Experience</h2>
             </div>
             <div className="md:col-span-4">
               <div className="space-y-24 max-w-[540px]">
@@ -109,7 +119,7 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="style={{color: '#fefcf4'}}">UX & Digital Product Designer</div>
+                        <div style={{color: 'var(--text)'}}>UX & Digital Product Designer</div>
                         <div className="text-gray-500 dark:text-gray-500">AI Layer Labs</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">
@@ -142,7 +152,7 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="style={{color: '#fefcf4'}}">Freelance Consultant</div>
+                        <div style={{color: 'var(--text)'}}>Freelance Consultant</div>
                         <div className="text-gray-500 dark:text-gray-500">Freelance / Self-employed</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">
@@ -165,7 +175,7 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="style={{color: '#fefcf4'}}">Founder & Executive Creative Director</div>
+                        <div style={{color: 'var(--text)'}}>Founder & Executive Creative Director</div>
                         <div className="text-gray-500 dark:text-gray-500">All Manner Of Us</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">
@@ -185,7 +195,7 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="style={{color: '#fefcf4'}}">Art Director & Senior Marketing Designer</div>
+                        <div style={{color: 'var(--text)'}}>Art Director & Senior Marketing Designer</div>
                         <div className="text-gray-500 dark:text-gray-500">Creative Market (Autodesk)</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">
@@ -205,7 +215,7 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="style={{color: '#fefcf4'}}">Co-founder & Creative Director</div>
+                        <div style={{color: 'var(--text)'}}>Co-founder & Creative Director</div>
                         <div className="text-gray-500 dark:text-gray-500">Dbln llc</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">

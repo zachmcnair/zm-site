@@ -532,4 +532,24 @@ div[style*="background-color: #333333"] {
   color: var(--text-secondary); /* #E0D9C3 in dark mode */
 }
 
+/* Experience body text - same as job titles */
+.experience-body-text {
+  color: var(--text); /* Dark text in light mode */
+}
+
+.dark .experience-body-text {
+  color: #fefcf4; /* White in dark mode */
+}
+
+/* Experience list items - override global ul/li rules */
+.experience-body-text ul,
+.experience-body-text li {
+  color: var(--text); /* Dark text in light mode */
+}
+
+.dark .experience-body-text ul,
+.dark .experience-body-text li {
+  color: #fefcf4; /* White in dark mode */
+}
+
 

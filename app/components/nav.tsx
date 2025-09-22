@@ -76,7 +76,7 @@ export function Navbar() {
                 }
               }}
             >
-              Bio
+              About
             </Link>
             <Link 
               href="/portfolio" 
@@ -152,7 +152,7 @@ export function Navbar() {
               }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Bio
+              About
             </Link>
             <Link 
               href="/portfolio" 
