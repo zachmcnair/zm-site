@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Logo } from './components/logo'
 import { PortfolioCarousel } from './components/portfolio-carousel'
 import type { Metadata } from 'next'
@@ -24,11 +23,33 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="flex items-center justify-between py-6 px-8">
-        <div className="flex items-center gap-4">
+      {/* Hero Section */}
+      <section className="px-8 md:px-20 mb-12 mt-10 md:mt-24">
+        <div className="flex items-center justify-between">
+          {/* Desktop - Logo and text with fixed positioning matching header */}
+          <div className="hidden md:flex items-center" style={{ gap: '142px' }}>
+            {/* Logo aligned with "From the mind of" */}
+            <div className="w-[60px] h-[60px]">
+              <Logo size="lg" className="w-[60px] h-[60px]" />
+            </div>
+            
+            {/* Hero text aligned with "Currently at work" */}
+            <div>
+              <p className="font-faktum-light leading-relaxed" style={{ color: 'var(--text)', fontSize: '1.5rem' }}>
+                Howdy, I'm Zach. I turn ideas into brands,<br />
+                products, and communities people believe in.
+              </p>
+            </div>
+          </div>
+
+          {/* Mobile - Hero text only, left-aligned */}
+          <div className="md:hidden w-full" style={{ paddingRight: '30px' }}>
+            <p className="font-faktum-light leading-relaxed text-left" style={{ color: 'var(--text)', fontSize: '1.25rem' }}>
+              Howdy, I'm Zach. I turn ideas into brands, products, and communities people believe in.
+            </p>
+          </div>
         </div>
-      </header>
+      </section>
 
       {/* Portfolio Carousel Section - Directly under header */}
       <section className="mb-12" aria-labelledby="portfolio-heading">
