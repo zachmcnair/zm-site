@@ -120,6 +120,48 @@ export default function LandingPage() {
         </div>
       </div>
 
+      {/* Expertise Section - Full Width Content Blade */}
+      <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
+        <div className="px-8 md:px-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="md:col-span-2">
+              <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)'}}>Expertise</h2>
+            </div>
+            <div className="md:col-span-8 flex justify-center">
+              <div className="space-y-24 max-w-[540px] w-full">
+                <div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="expertise-item">AI</div>
+                    <div className="expertise-item">Art Direction</div>
+                    <div className="expertise-item">Brand Strategy</div>
+                    <div className="expertise-item">Brand Guidelines</div>
+                    <div className="expertise-item">Campaigns</div>
+                    <div className="expertise-item">Creative Direction</div>
+                    <div className="expertise-item">Curation</div>
+                    <div className="expertise-item">Design Consulting</div>
+                    <div className="expertise-item">Design Systems</div>
+                    <div className="expertise-item">Environments</div>
+                    <div className="expertise-item">GTM</div>
+                    <div className="expertise-item">Identity Design</div>
+                    <div className="expertise-item">Installations</div>
+                    <div className="expertise-item">Naming</div>
+                    <div className="expertise-item">NFTs & Tokens</div>
+                    <div className="expertise-item">Original Artwork</div>
+                    <div className="expertise-item">Print & Packaging</div>
+                    <div className="expertise-item">Product Design</div>
+                    <div className="expertise-item">Signage & Wayfinding</div>
+                    <div className="expertise-item">Software Design & Development</div>
+                    <div className="expertise-item">User Experience</div>
+                    <div className="expertise-item">Web3 & Blockchain</div>
+                    <div className="expertise-item">Website Design & Development</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Experience Section - Full Width Content Blade */}
       <div className="w-screen relative left-1/2 transform -translate-x-1/2 py-20">
         <div className="px-8 md:px-20">
