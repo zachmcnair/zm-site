@@ -36,7 +36,7 @@ export default function LandingPage() {
             {/* Hero text aligned with "Currently at work" */}
             <div>
               <p className="font-faktum-light leading-relaxed" style={{ color: 'var(--text)', fontSize: '1.5rem' }}>
-                Howdy, I'm Zach. I turn ideas into brands,<br />
+                Howdy, I'm Zach. I use design to turn ideas into brands,<br />
                 products, and communities people believe in.
               </p>
             </div>
@@ -74,35 +74,28 @@ export default function LandingPage() {
                         Howdy,
                       </p>
                       <p className="memo-text" data-agent-context="introduction">
-                        I'm so glad you dropped by. I've been designing in some form or fashion with a desire to help folks like yourself build deeper relationships with their audiences since 1998.
+                        I'm grateful you dropped by. Since 1998, I've been using design to help people hone their ideas and engage their audience.
                       </p>
-                      
-                      <p className="memo-text" data-agent-context="current-work">
-                        For the past couple of years, I've been designing and building products at the intersection of AI and Web3 with the team responsible for <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>. It's been a great joy working with the <a href="https://thinkagents.ai/about" className="hover:underline" style={{ color: 'var(--primary)' }}>best people</a> to help people have AI they own. We've made some wild shit including a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a>, a <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a>, an <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubator</a>, an <a href="https://6079.ai/game" className="hover:underline" style={{ color: 'var(--primary)' }}>ios/web game</a>, a <a href="https://6079.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>social mission game</a>, and we still have more up our sleeves.
-                      </p>
-                      
+
                       <p className="memo-text" data-agent-context="freelance-work">
-                        Occasionally, I take on freelance work through <a href="https://allmannerofus.com" className="hover:underline" style={{ color: 'var(--primary)' }}>All Manner Of Us</a>, the design studio I founded in 2017.
+                        In 2017, I founded <a href="https://allmannerofus.com" className="hover:underline" style={{ color: 'var(--primary)' }}>All Manner Of Us</a>, a creative studio built for the future of work, where I consult on brand and product design.
+                      </p>
+
+                      <p className="memo-text" data-agent-context="current-work">
+                        More recently, I've been shaping products at the edge of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="https://6079.ai/game" className="hover:underline" style={{ color: 'var(--primary)' }}>games</a>.
                       </p>
                       
                       <p className="memo-text" data-agent-context="personal-life">
-                        When I'm not working, I'm making things with my friends and collaborators as well as spending time with my family.
-                      </p>
-                      
-                      <p className="memo-text" data-agent-context="side-projects">
-                        <a href="https://monkz.xyz" className="hover:underline" style={{ color: 'var(--primary)' }}>Mindful Monkz</a> is a mindfulness and wellness NFT community, and we're chasing a couple of pursuits including a smart journal app and a lifestyle brand. I'd love for folks to jump in with me on these pursuits, if you're interested.
-                      </p>
-                      
-                      <p className="memo-text" data-agent-context="music-production">
-                        Music production has been a passion of mine, and I get to regularly release music with my friends, <a href="https://forennmusic.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://emmabieniewicz.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>.
+                        Outside of client work, I keep creating. That includes contributing to <a href="https://monkz.xyz" className="hover:underline" style={{ color: 'var(--primary)' }}>Mindful Monkz</a>, a mindfulness-driven NFT community, as well as producing music with <a href="https://forennmusic.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://emmabieniewicz.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>. When I am not building, you will find me with my family, which is my most important work of all.
                       </p>
                       
                       <p className="memo-text" data-agent-context="contact-invitation">
-                        I'm thankful you're here. I hope we get to connect and make something great together. Feel free to hit me up <a href="mailto:hello@zachmcnair.com?subject=let's make something great together" className="hover:underline" style={{ color: 'var(--primary)' }}>here</a>.
+                        I cannot leave well enough alone, and if you are here, chances are we share that drive. Let's connect and make something meaningful together.
                       </p>
                       
                       <p className="memo-text" data-agent-context="closing">
-                        Cheers!
+                        Cheers,<br />
+                        Zach
                       </p>
                     </div>
                   </section>

@@ -16,7 +16,7 @@ export default function Footer() {
             {/* Left - Description */}
             <div>
               <p className="leading-relaxed max-w-[460px] text-base" style={{ color: 'var(--text)' }}>
-                Zach McNair is a brand & product design consultant and founder with over {yearsExperience} years of experience helping people reach their intended audiences.
+                Zach McNair is a brand and product designer with over {yearsExperience} years of experience using design to turn ideas into brands, products, and communities people believe in.
               </p>
             </div>
 

@@ -252,6 +252,70 @@ const portfolioImages: PortfolioImage[] = [
     title: 'MOR Swap',
     aspectRatio: 'landscape',
     hidden: false
+  },
+  {
+    id: '31',
+    src: '/portfolio/6079-home.png',
+    alt: '6079 - Home Interface',
+    title: '6079',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '32',
+    src: '/portfolio/6079-nodeshifter.png',
+    alt: '6079 - NodeShifter Interface',
+    title: '6079',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '33',
+    src: '/portfolio/6079-S1.png',
+    alt: '6079 - S1 Interface',
+    title: '6079',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '34',
+    src: '/portfolio/think-agents-dashboard.png',
+    alt: 'THINK Agents - Dashboard',
+    title: 'THINK Agents',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '35',
+    src: '/portfolio/think-agents-claim.png',
+    alt: 'THINK Agents - Claim Interface',
+    title: 'THINK Agents',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '36',
+    src: '/portfolio/think-agents-thinkubator.png',
+    alt: 'THINK Agents - Thinkubator',
+    title: 'THINK Agents',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '37',
+    src: '/portfolio/think-agents-token-claimed.png',
+    alt: 'THINK Agents - Token Claimed',
+    title: 'THINK Agents',
+    aspectRatio: 'wide',
+    hidden: false
+  },
+  {
+    id: '38',
+    src: '/portfolio/think-agents-token-claimed-2.png',
+    alt: 'THINK Agents - Token Claimed 2',
+    title: 'THINK Agents',
+    aspectRatio: 'wide',
+    hidden: false
   }
 ]
 

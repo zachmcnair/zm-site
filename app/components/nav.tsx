@@ -23,18 +23,38 @@ export function Navbar() {
               <div className="text-sm font-faktum-medium mb-2" style={{ color: 'var(--text-tertiary)' }}>
                 From the mind of
               </div>
-              <div className="text-sm font-faktum-medium" style={{ color: 'var(--text)' }}>
+              <Link 
+                href="/" 
+                className="text-sm font-faktum-medium transition-colors hover:underline"
+                style={{ color: 'var(--text)' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--primary)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--text)'
+                }}
+              >
                 Zach McNair
-              </div>
+              </Link>
             </div>
             <div>
               <div className="text-sm font-faktum-medium mb-2" style={{ color: 'var(--text-tertiary)' }}>
                 Currently at work
               </div>
               <div className="flex items-center gap-2">
-                <div className="text-sm font-faktum-medium" style={{ color: 'var(--text)' }}>
+                <Link 
+                  href="mailto:hello@zachmcnair.com?subject=I know you have limited availability, but..."
+                  className="text-sm font-faktum-medium transition-colors hover:underline"
+                  style={{ color: 'var(--text)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--primary)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--text)'
+                  }}
+                >
                   With limited availability
-                </div>
+                </Link>
                 <div 
                   className="w-2 h-2 rounded-full status-indicator" 
                   style={{ backgroundColor: '#E2B237' }}
@@ -45,7 +65,9 @@ export function Navbar() {
 
           {/* Mobile - Logo instead of "From the mind of" */}
           <div className="md:hidden">
-            <Logo size="md" className="w-12 h-12" />
+            <Link href="/">
+              <Logo size="md" className="w-12 h-12" />
+            </Link>
           </div>
           
           {/* Right side - Navigation and Toggle */}
