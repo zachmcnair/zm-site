@@ -328,19 +328,19 @@ export function PortfolioCarousel() {
   const bottomRowRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<number>()
 
-  // Create stable, non-resetting rows with completely different image sets
+  // Create randomized rows with no duplicate images between rows
   const createRowImages = useCallback(() => {
-    // Use deterministic ordering based on image ID hashes
-    const ordered = [...portfolioImages].sort((a, b) => {
-      const hashA = a.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
-      const hashB = b.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
-      return hashA - hashB
-    })
+    // Shuffle the portfolio images array using Fisher-Yates algorithm
+    const shuffled = [...portfolioImages]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
     
-    // Split into completely different sets - no overlap
-    const half = Math.ceil(ordered.length / 2)
-    setTopRowImages(ordered.slice(0, half)) // First half
-    setBottomRowImages(ordered.slice(half)) // Second half (completely different images)
+    // Split into two completely different sets - no overlap
+    const half = Math.ceil(shuffled.length / 2)
+    setTopRowImages(shuffled.slice(0, half)) // First half
+    setBottomRowImages(shuffled.slice(half)) // Second half (completely different images)
     setIsLoaded(true)
   }, [])
 
