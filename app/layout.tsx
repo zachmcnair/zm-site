@@ -180,8 +180,8 @@ export default function RootLayout({
       </head>
       <body className="antialiased font-faktum">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="min-h-screen">
-            {!WIP && <Navbar />}
+          {!WIP && <Navbar />}
+          <main className="min-h-screen pt-20">
             <LastFmProvider>
               <PageTransition>
                 {children}

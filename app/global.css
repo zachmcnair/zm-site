@@ -113,6 +113,51 @@ body {
   animation: status-pulse 2s ease-in-out infinite;
 }
 
+/* Sticky navigation backdrop blur */
+.nav-backdrop {
+  background-color: rgba(254, 252, 244, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .nav-backdrop {
+  background-color: rgba(14, 15, 18, 0.8);
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+/* Mobile menu backdrop - matches nav exactly */
+.mobile-menu-backdrop {
+  background-color: rgba(254, 252, 244, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .mobile-menu-backdrop {
+  background-color: rgba(14, 15, 18, 0.8);
+}
+
 @keyframes gradient-flow {
   0% {
     transform: translateX(-100%);
