@@ -36,7 +36,7 @@ export default function LandingPage() {
             {/* Hero text aligned with "Currently at work" */}
             <div>
               <p className="font-faktum-light leading-relaxed" style={{ color: 'var(--text)', fontSize: '1.5rem' }}>
-                Howdy, I'm Zach. I use design to turn ideas into brands,<br />
+                Howdy, I'm Zach. I turn ideas into brands,<br />
                 products, and communities people believe in.
               </p>
             </div>
@@ -45,7 +45,7 @@ export default function LandingPage() {
           {/* Mobile - Hero text only, left-aligned */}
           <div className="md:hidden w-full" style={{ paddingRight: '30px' }}>
             <p className="font-faktum-light leading-relaxed text-left" style={{ color: 'var(--text)', fontSize: '1.25rem' }}>
-              Howdy, I'm Zach. <br></br><br></br>I use design to turn ideas into brands, products, and communities people believe in.
+              Howdy, I'm Zach. <br></br><br></br>I turn ideas into brands, products, and communities people believe in.
             </p>
           </div>
         </div>
