@@ -82,15 +82,15 @@ export default function LandingPage() {
                       </p>
 
                       <p className="memo-text" data-agent-context="current-work">
-                        More recently, I've been shaping products at the edge of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="https://6079.ai/game" className="hover:underline" style={{ color: 'var(--primary)' }}>games</a>.
+                        More recently, I've been shaping and shipping products at the intersection of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="https://6079.ai/game" className="hover:underline" style={{ color: 'var(--primary)' }}>games</a>.
                       </p>
                       
                       <p className="memo-text" data-agent-context="personal-life">
-                        Outside of client work, I keep creating. That includes contributing to <a href="https://monkz.xyz" className="hover:underline" style={{ color: 'var(--primary)' }}>Mindful Monkz</a>, a mindfulness-driven NFT community, as well as producing music with <a href="https://forennmusic.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://emmabieniewicz.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>. When I am not building, you will find me with my family, which is my most important work of all.
+                        Personally, you'll find me contributing to <a href="https://monkz.xyz" className="hover:underline" style={{ color: 'var(--primary)' }}>Mindful Monkz</a>, a mindfulness-driven NFT community, as well as producing music with <a href="https://forennmusic.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://emmabieniewicz.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>. When I am not making things, you will find me with my family, eating tacos, and drinking coffee.
                       </p>
                       
                       <p className="memo-text" data-agent-context="contact-invitation">
-                        I cannot leave well enough alone, and if you are here, chances are we share that drive. Let's connect and make something meaningful together.
+                        I believe design should come from a place of truth and that it should have soul. If you are here, chances are we share that drive. Let's connect and create something great together.
                       </p>
                       
                       <p className="memo-text" data-agent-context="closing">
