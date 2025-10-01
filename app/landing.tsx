@@ -125,7 +125,7 @@ export default function LandingPage() {
         <div className="px-8 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-2">
-              <h2 className="mb-2 md:sticky md:top-20 md:pl-2" style={{color: 'var(--text)'}}>Expertise</h2>
+              <h2 className="mb-2 md:sticky md:top-32 md:pl-2" style={{color: 'var(--text)'}}>Expertise</h2>
             </div>
             <div className="md:col-span-8 flex justify-center">
               <div className="space-y-24 max-w-[540px] w-full">
@@ -167,7 +167,7 @@ export default function LandingPage() {
         <div className="px-8 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-2">
-              <h2 className="mb-2 md:sticky md:top-20 md:pl-2" style={{color: 'var(--text)'}}>Experience</h2>
+              <h2 className="mb-2 md:sticky md:top-32 md:pl-2" style={{color: 'var(--text)'}}>Experience</h2>
             </div>
             <div className="md:col-span-8 flex justify-center">
               <div className="space-y-24 max-w-[540px] w-full">
