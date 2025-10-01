@@ -126,7 +126,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 md:hidden">
             <DarkModeToggle />
             <button
-              className="p-1"
+              className="p-1 w-10 h-10 flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
             >
@@ -166,7 +166,7 @@ export function Navbar() {
               <div className="flex items-center gap-2">
                 <DarkModeToggle />
                 <button
-                  className="p-2"
+                  className="p-1 w-10 h-10 flex items-center justify-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Close mobile menu"
                 >

@@ -13,7 +13,7 @@ export function DarkModeToggle() {
 
   if (!mounted) {
     return (
-      <button className="p-1">
+      <button className="p-1 w-10 h-10 flex items-center justify-center">
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text)' }}>
           <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
@@ -28,7 +28,7 @@ export function DarkModeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-1 transition-colors hover:opacity-70"
+      className="p-1 w-10 h-10 flex items-center justify-center transition-colors hover:opacity-70"
       aria-label="Toggle dark mode"
     >
       {theme === 'dark' ? (
