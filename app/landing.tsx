@@ -43,9 +43,9 @@ export default function LandingPage() {
           </div>
 
           {/* Mobile - Hero text only, left-aligned */}
-          <div className="md:hidden w-full" style={{ paddingRight: '30px' }}>
+          <div className="md:hidden w-full">
             <p className="font-faktum-light leading-relaxed text-left" style={{ color: 'var(--text)', fontSize: '1.25rem' }}>
-              Howdy, I'm Zach. <br></br><br></br>I turn ideas into brands, products, and communities people believe in.
+              Howdy, I'm Zach. I turn ideas into brands, products, and communities people believe in.
             </p>
           </div>
         </div>
