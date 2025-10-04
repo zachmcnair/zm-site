@@ -70,14 +70,6 @@ const portfolioImages: PortfolioImage[] = [
     hidden: false
   },
   {
-    id: '8',
-    src: '/portfolio/oakwood-public-market.webp',
-    alt: 'Oakwood Public Market',
-    title: 'Oakwood Public Market',
-    aspectRatio: 'landscape',
-    hidden: false
-  },
-  {
     id: '9',
     src: '/portfolio/mutemath-playdead.webp',
     alt: 'Mutemath - Playdead',
@@ -90,14 +82,6 @@ const portfolioImages: PortfolioImage[] = [
     src: '/portfolio/lemburg-house.webp',
     alt: 'Lemburg House',
     title: 'Lemburg House',
-    aspectRatio: 'portrait',
-    hidden: false
-  },
-  {
-    id: '11',
-    src: '/portfolio/jane-wild.webp',
-    alt: 'Jane Wild',
-    title: 'Jane Wild',
     aspectRatio: 'portrait',
     hidden: false
   },
@@ -150,14 +134,6 @@ const portfolioImages: PortfolioImage[] = [
     hidden: false
   },
   {
-    id: '18',
-    src: '/portfolio/capital-one-app.webp',
-    alt: 'Capital One App',
-    title: 'Capital One',
-    aspectRatio: 'portrait',
-    hidden: false
-  },
-  {
     id: '19',
     src: '/portfolio/caleb-mabrey-cover.webp',
     alt: 'Caleb Mabrey',
@@ -191,7 +167,7 @@ const portfolioImages: PortfolioImage[] = [
   },
   {
     id: '23',
-    src: '/portfolio/souls-1.png',
+    src: '/portfolio/SOULS-1c(compressed).jpg',
     alt: 'Souls - AI Agent Experience',
     title: 'Souls',
     aspectRatio: 'wide',
@@ -199,7 +175,7 @@ const portfolioImages: PortfolioImage[] = [
   },
   {
     id: '24',
-    src: '/portfolio/souls-2.png',
+    src: '/portfolio/SOULS-2c(compressed).jpg',
     alt: 'Souls - AI Agent Interface',
     title: 'Souls',
     aspectRatio: 'wide',
@@ -207,7 +183,7 @@ const portfolioImages: PortfolioImage[] = [
   },
   {
     id: '25',
-    src: '/portfolio/souls-3.png',
+    src: '/portfolio/SOULS-3c(compressed).jpg',
     alt: 'Souls - AI Agent System',
     title: 'Souls',
     aspectRatio: 'wide',

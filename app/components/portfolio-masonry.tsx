@@ -19,14 +19,14 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     id: '1',
-    src: '/portfolio/6079-home.png',
-    alt: '6079 - Home Interface',
-    title: 'Securing Independent AI',
+    src: '/portfolio/6079-nodeshifter.png',
+    alt: '6079 - NodeShifter Interface',
+    title: 'NodeShifting for independent AI',
     client: '6079',
     metatags: ['Product Design', 'Interface Design', 'UX Design'],
     aspectRatio: 'wide',
     hidden: false,
-    caseStudyUrl: 'https://6079.ai'
+    caseStudyUrl: 'https://6079.ai/game'
   },
   {
     id: '2',
@@ -51,7 +51,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: '4',
-    src: '/portfolio/souls-1.png',
+    src: '/portfolio/SOULS-1c(compressed).jpg',
     alt: 'Souls - AI Agent Experience',
     title: 'Designing independent AI for the consumer market',
     client: 'SOU.LS',
@@ -114,7 +114,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: '10',
-    src: '/portfolio/souls-2.png',
+    src: '/portfolio/SOULS-2c(compressed).jpg',
     alt: 'Souls - AI Agent Experience',
     title: 'Designing independent AI for the consumer market',
     client: 'SOU.LS',
@@ -135,14 +135,14 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: '12',
-    src: '/portfolio/6079-nodeshifter.png',
-    alt: '6079 - NodeShifter Interface',
-    title: 'NodeShifting for independent AI',
+    src: '/portfolio/6079-home.png',
+    alt: '6079 - Home Interface',
+    title: 'Securing Independent AI',
     client: '6079',
     metatags: ['Product Design', 'Interface Design', 'UX Design'],
     aspectRatio: 'wide',
     hidden: false,
-    caseStudyUrl: 'https://6079.ai/game'
+    caseStudyUrl: 'https://6079.ai'
   },
   {
     id: '13',
@@ -166,18 +166,8 @@ const portfolioItems: PortfolioItem[] = [
     caseStudyUrl: 'https://thinkagents.ai/claim'
   },
   {
-    id: '15',
-    src: '/portfolio/oakwood-public-market.webp',
-    alt: 'Oakwood Public Market',
-    title: 'A market for the public',
-    client: 'Oakwood Public Market',
-    metatags: ['Creative Direction', 'Website Design', 'Visual Identity'],
-    aspectRatio: 'landscape',
-    hidden: false
-  },
-  {
     id: '16',
-    src: '/portfolio/souls-3.png',
+    src: '/portfolio/SOULS-3c(compressed).jpg',
     alt: 'Souls - AI Agent Experience',
     title: 'Designing independent AI for the consumer market',
     client: 'SOU.LS',
@@ -249,16 +239,6 @@ const portfolioItems: PortfolioItem[] = [
     aspectRatio: 'landscape',
     hidden: false,
     caseStudyUrl: 'https://wistia.com/series/talking-too-loud'
-  },
-  {
-    id: '23',
-    src: '/portfolio/jane-wild.webp',
-    alt: 'Jane Wild',
-    title: 'Food for rebel souls',
-    client: 'Jane Wild',
-    metatags: ['Art Direction', 'Visual Identity'],
-    aspectRatio: 'portrait',
-    hidden: false
   },
   {
     id: '24',
@@ -362,16 +342,6 @@ const portfolioItems: PortfolioItem[] = [
     metatags: ['Creative Direction', 'Website Design', 'UX Design'],
     aspectRatio: 'landscape',
     hidden: false
-  },
-  {
-    id: '34',
-    src: '/portfolio/capital-one-app.webp',
-    alt: 'Capital One App',
-    title: 'Capital One App',
-    client: 'Capital One',
-    metatags: ['App Design', 'Fintech', 'UX Design'],
-    aspectRatio: 'portrait',
-    hidden: true
   },
   {
     id: '35',

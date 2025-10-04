@@ -41,7 +41,7 @@ Your portfolio carousel now has enhanced randomization and hiding capabilities! 
 // In portfolio-carousel.tsx, change any item's hidden property:
 {
   id: '13',
-  src: '/portfolio/souls-1.png',
+  src: '/portfolio/SOULS-1c(compressed).jpg',
   alt: 'Souls - AI Agent Experience',
   title: 'Souls',
   aspectRatio: 'portrait',
@@ -84,7 +84,7 @@ The `PortfolioControls` component is currently added to your landing page for te
 
 ### **Original Work (IDs 1-12)**
 - Jane's Dine Inn, Hammock, Wistia, Indeed, HCA Healthcare
-- Underoath, Lemburg House, Hank & Booth, Oakwood Public Market
+- Underoath, Lemburg House, Hank & Booth
 - Son Lux, Forenn, Avaere
 
 ### **AI/Web3 Work (IDs 13-25)**
