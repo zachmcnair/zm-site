@@ -13,17 +13,21 @@ interface PortfolioImage {
 }
 
 // Get portfolio images from portfolio.json, filter for non-hidden items
-// Show all non-hidden items in carousel (not just featured)
+// Deduplicate by src so each unique image appears only once
+const seenImages = new Set<string>()
 const portfolioImages: PortfolioImage[] = portfolioData
-  .filter(item => !item.hidden)
-  .map(item => ({
-    id: item.id,
-    src: item.src,
-    alt: item.alt,
-    title: item.client || item.title,
-    aspectRatio: item.aspectRatio as PortfolioImage['aspectRatio'],
-    hidden: item.hidden,
-  }))
+  .filter(item => !item.hidden && !seenImages.has(item.src))
+  .map(item => {
+    seenImages.add(item.src) // Mark this image as seen
+    return {
+      id: item.id,
+      src: item.src,
+      alt: item.alt,
+      title: item.client || item.title,
+      aspectRatio: item.aspectRatio as PortfolioImage['aspectRatio'],
+      hidden: item.hidden,
+    }
+  })
 
 export function PortfolioCarousel() {
   const [topRowImages, setTopRowImages] = useState<PortfolioImage[]>([])
