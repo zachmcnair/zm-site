@@ -14,8 +14,25 @@
 3. Run: node scripts/update-aspect-ratios.js  ← DON'T FORGET THIS!
 ```
 
-### Add Portfolio Item + Case Study
+### Add Portfolio Item + Case Study (EASY MODE)
 
+**Use the script - it creates everything for you:**
+```bash
+node scripts/add-project.js <project-slug> <client-name> [title]
+```
+
+**Example:**
+```bash
+node scripts/add-project.js mindful-monkz "Mindful Monkz"
+```
+
+**Then:**
+1. Add your images to `/public/portfolio/` (use the filenames from the template)
+2. Edit the case study: `app/content/case-studies/project-slug.mdx`
+3. Edit the portfolio entry in `app/lib/portfolio.json` (update metatags, etc.)
+4. Run: `node scripts/update-aspect-ratios.js`  ← DON'T FORGET THIS!
+
+**Manual method (if you prefer):**
 ```
 1. Add image to /public/portfolio/
 2. Create case study: app/content/case-studies/project-slug.mdx
@@ -104,12 +121,27 @@ Copy-paste this and fill in:
 
 ## 🛠️ Scripts
 
+### Add New Project + Case Study (EASIEST!)
+```bash
+node scripts/add-project.js <project-slug> <client-name> [title]
+```
+**When to run:** When adding a new project with a case study  
+**What it does:** Creates case study template + portfolio entry automatically  
+**Example:** `node scripts/add-project.js mindful-monkz "Mindful Monkz"`
+
 ### Auto-Update Aspect Ratios
 ```bash
 node scripts/update-aspect-ratios.js
 ```
 **When to run:** After adding/updating portfolio items  
 **What it does:** Detects and updates all aspect ratios automatically
+
+### Update Thumbnails from Case Studies
+```bash
+node scripts/update-portfolio-thumbnails.js
+```
+**When to run:** When case study featured images change  
+**What it does:** Updates portfolio thumbnails to match case study featured images
 
 ### Preview Aspect Ratios (Optional)
 ```bash

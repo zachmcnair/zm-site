@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "src": "/portfolio/6079-nodeshifter.png",
+    "src": "/portfolio/6079-home.png",
     "alt": "6079 - NodeShifter Interface",
     "title": "NodeShifting for independent AI",
     "client": "6079",
@@ -54,7 +54,7 @@
   },
   {
     "id": "4",
-    "src": "/portfolio/SOULS-1c(compressed).jpg",
+    "src": "/portfolio/SOULS-1c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Designing independent AI for the consumer market",
     "client": "SOU.LS",
@@ -73,7 +73,7 @@
   },
   {
     "id": "5",
-    "src": "/portfolio/wistia-talking-loud.webp",
+    "src": "/portfolio/wistia-talking-too-loud.png",
     "alt": "Wistia - Talking Too Loud",
     "title": "Talking Too Loud",
     "client": "Wistia",
@@ -109,7 +109,7 @@
   },
   {
     "id": "7",
-    "src": "/portfolio/indeed-hire-book.webp",
+    "src": "/portfolio/indeed.png",
     "alt": "Indeed - Balancing The Art & Science Of Recruiting",
     "title": "The Art & Science of Recruiting",
     "client": "Indeed",
@@ -126,7 +126,7 @@
   },
   {
     "id": "8",
-    "src": "/portfolio/think-agents-dashboard.png",
+    "src": "/portfolio/think-agents.png",
     "alt": "THINK Agents - Dashboard",
     "title": "A dashboard for independent AI",
     "client": "THINK Agents",
@@ -145,7 +145,7 @@
   },
   {
     "id": "9",
-    "src": "/portfolio/hca-healthcare.webp",
+    "src": "/portfolio/HCA.png",
     "alt": "HCA Healthcare - Humanizing Healthcare",
     "title": "Humanizing Healthcare",
     "client": "HCA Healthcare",
@@ -162,7 +162,7 @@
   },
   {
     "id": "10",
-    "src": "/portfolio/SOULS-2c(compressed).jpg",
+    "src": "/portfolio/SOULS-1c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Designing independent AI for the consumer market",
     "client": "SOU.LS",
@@ -181,7 +181,7 @@
   },
   {
     "id": "11",
-    "src": "/portfolio/underoath.webp",
+    "src": "/portfolio/underoath.png",
     "alt": "Underoath",
     "title": "Erase Me",
     "client": "Underoath",
@@ -216,7 +216,7 @@
   },
   {
     "id": "13",
-    "src": "/portfolio/son-lux-remnants.webp",
+    "src": "/portfolio/son-lux.png",
     "alt": "Son Lux - Remnants",
     "title": "Remnants",
     "client": "Son Lux",
@@ -233,7 +233,7 @@
   },
   {
     "id": "14",
-    "src": "/portfolio/think-agents-claim.png",
+    "src": "/portfolio/think-agents.png",
     "alt": "THINK Agents - Claim Interface",
     "title": "$THINK token claim interface",
     "client": "THINK Agents",
@@ -252,7 +252,7 @@
   },
   {
     "id": "16",
-    "src": "/portfolio/SOULS-3c(compressed).jpg",
+    "src": "/portfolio/SOULS-1c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Designing independent AI for the consumer market",
     "client": "SOU.LS",
@@ -271,7 +271,7 @@
   },
   {
     "id": "17",
-    "src": "/portfolio/monkz-xyz.png",
+    "src": "/portfolio/monkz-xyz-studio.png",
     "alt": "Mindful Monkz - NFT Community Platform",
     "title": "Mindful NFT art generator",
     "client": "Mindful Monkz",
@@ -290,7 +290,7 @@
   },
   {
     "id": "18",
-    "src": "/portfolio/6079-S1.png",
+    "src": "/portfolio/6079-home.png",
     "alt": "6079 - S1 Interface",
     "title": "The end is the beginning",
     "client": "6079",
@@ -326,7 +326,7 @@
   },
   {
     "id": "20",
-    "src": "/portfolio/think-agents-thinkubator.png",
+    "src": "/portfolio/think-agents.png",
     "alt": "THINK Agents - Thinkubator",
     "title": "Thinkubator",
     "client": "THINK Agents",
@@ -344,7 +344,7 @@
   },
   {
     "id": "21",
-    "src": "/portfolio/lemburg-house.webp",
+    "src": "/portfolio/lemburg-house.jpeg",
     "alt": "Lemburg House",
     "title": "Building a legacy",
     "client": "Lemburg House",
@@ -361,7 +361,7 @@
   },
   {
     "id": "22",
-    "src": "/portfolio/wistia-talking-loud-web.webp",
+    "src": "/portfolio/wistia-talking-too-loud.png",
     "alt": "Wistia - Talking Too Loud Website",
     "title": "Talking Too Loud",
     "client": "Wistia",
@@ -378,7 +378,7 @@
   },
   {
     "id": "24",
-    "src": "/portfolio/think-agents-token-claimed.png",
+    "src": "/portfolio/think-agents.png",
     "alt": "THINK Agents - Token Claimed",
     "title": "$THINK token claim interface",
     "client": "THINK Agents",
@@ -444,7 +444,7 @@
   },
   {
     "id": "28",
-    "src": "/portfolio/think-agents-token-claimed-2.png",
+    "src": "/portfolio/think-agents.png",
     "alt": "THINK Agents - Token Claimed 2",
     "title": "$THINK token claim interface",
     "client": "THINK Agents",
@@ -545,7 +545,7 @@
   },
   {
     "id": "35",
-    "src": "/portfolio/avaere.webp",
+    "src": "/portfolio/avaere.png",
     "alt": "Avaere",
     "title": "Avaere",
     "client": "Avaere",
@@ -562,7 +562,7 @@
   },
   {
     "id": "36",
-    "src": "/portfolio/w-co.webp",
+    "src": "/portfolio/w-co.jpeg",
     "alt": "W-Co",
     "title": "Merchline Design",
     "client": "W-Co",
