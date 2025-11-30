@@ -4,6 +4,7 @@ import { CaseStudyPageClient } from 'app/components/case-study-page-client'
 import { Metadata } from 'next'
 import { baseUrl } from 'app/sitemap'
 import Script from 'next/script'
+import portfolioData from 'app/lib/portfolio.json'
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -169,23 +170,35 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   }
   const displayDescription = initialDescription.length > 0 ? initialDescription.join(' ') : caseStudy.meta.description
 
-  // Extract first image for featured image on mobile
+  // Get featured image from portfolio.json (single source of truth)
+  // Look up portfolio item by caseStudySlug
   let featuredImage: { src: string; alt: string } | undefined
-  let inImagesSection = false
-  for (const line of contentLines) {
-    if (line.startsWith('## Project Images')) {
-      inImagesSection = true
-      continue
+  const portfolioItem = portfolioData.find(item => item.caseStudySlug === slug)
+  
+  if (portfolioItem) {
+    // Use portfolio.json src as featured thumbnail
+    featuredImage = {
+      src: portfolioItem.src,
+      alt: portfolioItem.alt,
     }
-    if (inImagesSection && line.startsWith('## ')) {
-      break
-    }
-    if (inImagesSection && line.trim()) {
-      const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/)
-      if (imageMatch) {
-        const [, alt, src] = imageMatch
-        featuredImage = { src, alt: alt || '' }
+  } else {
+    // Fallback: Extract first image from MDX if no portfolio.json match
+    let inImagesSection = false
+    for (const line of contentLines) {
+      if (line.startsWith('## Project Images')) {
+        inImagesSection = true
+        continue
+      }
+      if (inImagesSection && line.startsWith('## ')) {
         break
+      }
+      if (inImagesSection && line.trim()) {
+        const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/)
+        if (imageMatch) {
+          const [, alt, src] = imageMatch
+          featuredImage = { src, alt: alt || '' }
+          break
+        }
       }
     }
   }
@@ -206,7 +219,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const previousCaseStudy = allCaseStudies[previousIndex]
   const nextCaseStudy = allCaseStudies[nextIndex]
 
-  // Extract first image from previous/next case studies
+  // Get featured images from portfolio.json for navigation
+  // Look up portfolio items by caseStudySlug
+  const getFeaturedImageFromPortfolio = (caseStudySlug: string): string | undefined => {
+    const portfolioItem = portfolioData.find(item => item.caseStudySlug === caseStudySlug)
+    return portfolioItem?.src
+  }
+
+  // Fallback: Extract first image from MDX if no portfolio.json match
   const extractFirstImage = (content: string): string | undefined => {
     let inImagesSection = false
     for (const line of content.split('\n')) {
@@ -232,19 +252,19 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     slug: previousCaseStudy.slug,
     title: previousCaseStudy.meta.title,
     client: previousCaseStudy.meta.client,
-    image: extractFirstImage(previousCaseStudy.content),
+    image: getFeaturedImageFromPortfolio(previousCaseStudy.slug) || extractFirstImage(previousCaseStudy.content),
   } : undefined
 
   const next = nextCaseStudy ? {
     slug: nextCaseStudy.slug,
     title: nextCaseStudy.meta.title,
     client: nextCaseStudy.meta.client,
-    image: extractFirstImage(nextCaseStudy.content),
+    image: getFeaturedImageFromPortfolio(nextCaseStudy.slug) || extractFirstImage(nextCaseStudy.content),
   } : undefined
 
   // Extract images for all case studies for navigation component
   const allCaseStudiesWithImages = allCaseStudies.map(cs => {
-    const image = extractFirstImage(cs.content)
+    const image = getFeaturedImageFromPortfolio(cs.slug) || extractFirstImage(cs.content)
     return {
       slug: cs.slug,
       title: cs.meta.title,
