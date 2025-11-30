@@ -9,7 +9,7 @@ export function LastFmScrobbler() {
   if (loading) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
+        <div className="w-10 h-10 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
         <div className="text-sm" style={{ color: 'var(--text)' }}>
           <div>Loading...</div>
           <div></div>
@@ -22,7 +22,7 @@ export function LastFmScrobbler() {
   if (error) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
+        <div className="w-10 h-10 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
         <div className="text-sm" style={{ color: 'var(--text)' }}>
           <div>Error: {error}</div>
           <div></div>
@@ -35,7 +35,7 @@ export function LastFmScrobbler() {
   if (tracks.length === 0) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
+        <div className="w-10 h-10 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
         <div className="text-sm" style={{ color: 'var(--text)' }}>
           <div>No recent tracks</div>
           <div></div>
@@ -52,10 +52,10 @@ export function LastFmScrobbler() {
             <img 
               src={track.image} 
               alt={`${track.album} cover`}
-              className="w-8 h-8 rounded object-cover"
+              className="w-10 h-10 rounded object-cover"
             />
           ) : (
-            <div className="w-8 h-8 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
+            <div className="w-10 h-10 rounded" style={{ backgroundColor: 'var(--raised)' }}></div>
           )}
           <div className="text-sm" style={{ color: 'var(--text)' }}>
             <div className="flex items-center gap-1">

@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Left - Description */}
             <div>
-              <p className="leading-relaxed max-w-[460px] text-base" style={{ color: 'var(--text)' }}>
+              <p className="max-w-[460px] text-base font-faktum-regular" style={{ color: 'var(--text)', lineHeight: '1.5' }}>
                 Zach McNair is a brand and product designer with over {yearsExperience} years of experience using design to turn ideas into brands, products, and communities people believe in.
               </p>
             </div>
@@ -23,11 +23,11 @@ export default function Footer() {
             {/* Right - Get In Touch */}
             <div className="md:flex md:justify-end">
               <div className="md:min-w-[240px]">
-                <h2 className="text-sm font-faktum-medium mb-4" style={{ color: 'var(--text)' }}>Get In Touch</h2>
+                <h3 className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>Get In Touch</h3>
                 <div className="space-y-2">
                   <a 
                     href="mailto:hello@zachmcnair.com" 
-                    className="block hover:underline transition-colors text-sm"
+                    className="block hover:underline transition-colors text-sm font-faktum-regular"
                     style={{ color: 'var(--primary)' }}
                   >
                     hello@zachmcnair.com
@@ -63,14 +63,14 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4 md:mb-8">
             {/* Left - Recently Spinning */}
             <div>
-              <h3 className="text-sm font-faktum-medium mb-2" style={{ color: 'var(--text-tertiary)' }}>Recently Spinning</h3>
+              <h3 className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>Recently Spinning</h3>
               <LastFmScrobbler />
             </div>
             
             {/* Right - Currently Feeling */}
             <div className="md:flex md:justify-end">
               <div className="md:min-w-[240px]">
-                <h3 className="text-sm font-faktum-medium mb-2" style={{ color: 'var(--text-tertiary)' }}>Currently Feeling</h3>
+                <h3 className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>Currently Feeling</h3>
                 <WeatherWidget />
               </div>
             </div>

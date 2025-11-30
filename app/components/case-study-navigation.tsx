@@ -128,11 +128,11 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="font-vt323 text-base uppercase no-underline" style={{ color: 'var(--text-tertiary)' }}>Previous</span>
+                <span className="font-faktum-regular no-underline" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }}>Previous</span>
               </div>
               <div className="flex flex-col gap-[4px] mt-4">
-                <p className="font-instrument-serif text-base md:text-lg uppercase leading-[1.5] tracking-[0.2052px] no-underline group-hover:opacity-80 transition-opacity" style={{ color: 'var(--text)' }}>
-                  {displayPrevious.title}
+                <p className="font-instrument-serif uppercase tracking-[0.2052px] no-underline group-hover:opacity-80 transition-opacity" style={{ color: 'var(--text)', fontSize: 'var(--unit-xl)', lineHeight: '1.5' }}>
+                  {displayPrevious.client || displayPrevious.title}
                 </p>
               </div>
             </div>
@@ -166,7 +166,7 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
             {/* Content */}
             <div className="relative z-10">
               <div className="flex items-center gap-2 md:justify-end">
-                <span className="font-vt323 text-base uppercase no-underline" style={{ color: 'var(--text-tertiary)' }}>Next</span>
+                <span className="font-faktum-regular no-underline" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }}>Next</span>
                 <svg 
                   width="16" 
                   height="16" 
@@ -186,8 +186,8 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
                 </svg>
               </div>
               <div className="flex flex-col gap-[4px] mt-4">
-                <p className="font-instrument-serif text-base md:text-lg uppercase leading-[1.5] tracking-[0.2052px] no-underline group-hover:opacity-80 transition-opacity" style={{ color: 'var(--text)' }}>
-                  {displayNext.title}
+                <p className="font-instrument-serif uppercase tracking-[0.2052px] no-underline group-hover:opacity-80 transition-opacity" style={{ color: 'var(--text)', fontSize: 'var(--unit-xl)', lineHeight: '1.5' }}>
+                  {displayNext.client || displayNext.title}
                 </p>
               </div>
             </div>

@@ -67,7 +67,7 @@ export function LastFmProvider({ children }: LastFmProviderProps) {
           artist: track.artist['#text'],
           album: track.album['#text'],
           url: track.url,
-          image: track.image.find(img => img.size === 'small')?.['#text'],
+          image: track.image.find(img => img.size === 'large')?.['#text'] || track.image.find(img => img.size === 'extralarge')?.['#text'] || track.image.find(img => img.size === 'medium')?.['#text'] || track.image.find(img => img.size === 'small')?.['#text'],
           nowPlaying: track['@attr']?.nowplaying === 'true'
         }))
         

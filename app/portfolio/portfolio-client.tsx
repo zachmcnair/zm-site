@@ -35,18 +35,18 @@ export default function PortfolioPageClient() {
             <Logo size="lg" className="w-10 h-10" />
           </div>
           
-          {/* Hero Content - fades in */}
-          <div 
-            className="flex flex-col gap-6 md:gap-[30px]"
-            style={{
-              opacity: textVisible ? 1 : 0,
-              transition: 'opacity 0.5s ease-out',
-            }}
-          >
-            <p className="font-faktum-light text-[18px] md:text-[24px] leading-[1.5] max-w-[613px]">
-            Since 1998, I design and ship brands, sites, and software that connect artists, communities, and companies to their fans.
-            </p>
-          </div>
+                  {/* Hero Content - fades in */}
+                  <div 
+                    className="flex flex-col gap-6 md:gap-[30px] md:pl-[6px]"
+                    style={{
+                      opacity: textVisible ? 1 : 0,
+                      transition: 'opacity 0.5s ease-out',
+                    }}
+                  >
+                    <p className="font-faktum-light text-[18px] md:text-[24px] leading-[1.5] max-w-[613px]" style={{ color: 'var(--off-white)' }}>
+                    Since 1998, I design and ship brands, sites, and software that connect artists, communities, and companies to their fans.
+                    </p>
+                  </div>
         </div>
       </section>
 

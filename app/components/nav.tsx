@@ -20,12 +20,12 @@ export function Navbar() {
           {/* Left side - Branding with fixed positioning */}
           <div className="hidden md:flex items-center" style={{ gap: '90px' }}>
             <div>
-              <div className="text-sm font-faktum-medium mb-2" style={{ color: 'var(--text-tertiary)' }}>
+              <div className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>
                 From the mind of
               </div>
               <Link 
                 href="/" 
-                className="text-sm font-faktum-medium transition-colors hover:underline"
+                className="text-sm font-faktum-regular transition-colors hover:underline"
                 style={{ color: 'var(--text)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = 'var(--primary)'
@@ -38,13 +38,13 @@ export function Navbar() {
               </Link>
             </div>
             <div>
-              <div className="text-sm font-faktum-medium mb-2" style={{ color: 'var(--text-tertiary)' }}>
+              <div className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>
                 Currently at work
               </div>
               <div className="flex items-center gap-2">
                 <Link 
                   href="mailto:hello@zachmcnair.com?subject=I know you have limited availability, but..."
-                  className="text-sm font-faktum-medium transition-colors hover:underline"
+                  className="text-sm font-faktum-regular transition-colors hover:underline"
                   style={{ color: 'var(--text)' }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = 'var(--primary)'
@@ -74,11 +74,10 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <Link 
               href="/portfolio" 
-              className={`transition-colors hover:underline ${
-                pathname === '/portfolio' ? 'font-medium' : ''
-              }`}
+              className="transition-colors hover:underline font-faktum-regular"
               style={{ 
-                color: pathname === '/portfolio' ? 'var(--primary)' : 'var(--text-secondary)'
+                color: pathname === '/portfolio' ? 'var(--primary)' : 'var(--text-secondary)',
+                fontSize: 'var(--unit-sm)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = 'var(--primary)'
@@ -91,11 +90,10 @@ export function Navbar() {
             </Link>
             <Link 
               href="/" 
-              className={`transition-colors hover:underline ${
-                pathname === '/' ? 'font-medium' : ''
-              }`}
+              className="transition-colors hover:underline font-faktum-regular"
               style={{ 
-                color: pathname === '/' ? 'var(--primary)' : 'var(--text-secondary)'
+                color: pathname === '/' ? 'var(--primary)' : 'var(--text-secondary)',
+                fontSize: 'var(--unit-sm)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = 'var(--primary)'
@@ -106,10 +104,28 @@ export function Navbar() {
             >
               About
             </Link>
+            <a 
+              href="/ZACH MCNAIR - CV.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:underline font-faktum-regular flex items-center gap-1"
+              style={{ color: 'var(--text-secondary)', fontSize: 'var(--unit-sm)' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--primary)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--text-secondary)'
+              }}
+            >
+              CV
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
             <Link 
               href="mailto:hello@zachmcnair.com" 
-              className="transition-colors hover:underline"
-              style={{ color: 'var(--text-secondary)' }}
+              className="transition-colors hover:underline font-faktum-regular"
+              style={{ color: 'var(--text-secondary)', fontSize: 'var(--unit-sm)' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = 'var(--primary)'
               }}
@@ -183,15 +199,16 @@ export function Navbar() {
         <div className="fixed top-20 left-0 right-0 bottom-0 z-40 px-8 py-6 space-y-4">
           <Link 
             href="/" 
-            className={`block transition-colors mobile-nav-link ${
+            className={`block transition-colors mobile-nav-link font-faktum-regular ${
               isMobileMenuOpen ? 'animate-in fade-in duration-300' : ''
             } ${
               pathname === '/' 
-                ? 'font-medium cursor-default' 
+                ? 'cursor-default' 
                 : 'cursor-pointer'
             }`}
             style={{ 
               color: pathname === '/' ? 'var(--primary)' : 'var(--text-secondary)',
+              fontSize: 'var(--unit-xl)',
               textDecoration: pathname === '/' ? 'none !important' : 'none !important',
               backgroundColor: 'transparent !important',
               outline: 'none !important',
@@ -206,15 +223,16 @@ export function Navbar() {
           </Link>
           <Link 
             href="/portfolio" 
-            className={`block transition-colors mobile-nav-link ${
+            className={`block transition-colors mobile-nav-link font-faktum-regular ${
               isMobileMenuOpen ? 'animate-in fade-in duration-300' : ''
             } ${
               pathname === '/portfolio' 
-                ? 'font-medium cursor-default' 
+                ? 'cursor-default' 
                 : 'cursor-pointer'
             }`}
             style={{ 
               color: pathname === '/portfolio' ? 'var(--primary)' : 'var(--text-secondary)',
+              fontSize: 'var(--unit-xl)',
               textDecoration: pathname === '/portfolio' ? 'none !important' : 'none !important',
               backgroundColor: 'transparent !important',
               outline: 'none !important',
@@ -227,18 +245,42 @@ export function Navbar() {
           >
             Portfolio
           </Link>
-          <Link 
-            href="mailto:hello@zachmcnair.com" 
-            className={`block transition-colors mobile-nav-link ${
+          <a 
+            href="/ZACH MCNAIR - CV.pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`block transition-colors mobile-nav-link font-faktum-regular flex items-center gap-2 ${
               isMobileMenuOpen ? 'animate-in fade-in duration-300' : ''
             }`}
             style={{ 
               color: 'var(--text-secondary)',
+              fontSize: 'var(--unit-xl)',
               backgroundColor: 'transparent !important',
               outline: 'none !important',
               border: 'none !important',
               boxShadow: 'none !important',
               animationDelay: '0.3s'
+            }}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            CV
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <Link 
+            href="mailto:hello@zachmcnair.com" 
+            className={`block transition-colors mobile-nav-link font-faktum-regular ${
+              isMobileMenuOpen ? 'animate-in fade-in duration-300' : ''
+            }`}
+            style={{ 
+              color: 'var(--text-secondary)',
+              fontSize: 'var(--unit-xl)',
+              backgroundColor: 'transparent !important',
+              outline: 'none !important',
+              border: 'none !important',
+              boxShadow: 'none !important',
+              animationDelay: '0.4s'
             }}
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -248,7 +290,7 @@ export function Navbar() {
           {/* Social Media Icons */}
           <div className={`flex items-center gap-4 pt-8 ${
             isMobileMenuOpen ? 'animate-in fade-in duration-300' : ''
-          }`} style={{ animationDelay: '0.4s' }}>
+          }`} style={{ animationDelay: '0.5s' }}>
             <a href="https://twitter.com/zachmcnair" target="_blank" rel="noopener noreferrer" className="w-6 h-6">
               <svg fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text-secondary)' }}>
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>

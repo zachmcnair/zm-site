@@ -4,16 +4,16 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
-  description: '0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.',
+  description: '0→1 designer shaping AI × UX × Web3. Portfolio of 25+ case studies including THINK Agents, 6079 AI, SOU.LS, Wistia, Indeed, and more. Designing how humans and decentralized agents connect through design, technology, and play.',
   openGraph: {
     title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
-    description: '0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.',
+    description: '0→1 designer shaping AI × UX × Web3. Portfolio of 25+ case studies including THINK Agents, 6079 AI, SOU.LS, Wistia, Indeed, and more.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
-    description: '0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.',
+    description: '0→1 designer shaping AI × UX × Web3. Portfolio of 25+ case studies including THINK Agents, 6079 AI, SOU.LS, Wistia, Indeed, and more.',
   },
 }
 
@@ -35,8 +35,8 @@ export default function LandingPage() {
             
             {/* Hero text aligned with "Currently at work" */}
             <div>
-              <p className="font-faktum-light leading-relaxed" style={{ color: 'var(--text)', fontSize: '1.5rem' }}>
-              Howdy, I’m Zach. I design how humans experience <br />
+              <p className="font-faktum-light" style={{ color: 'var(--text)', fontSize: 'var(--unit-xl)', lineHeight: '1.5' }}>
+              Howdy, I'm Zach. I design how humans experience <br />
               AI, products, and the future of the web.
               </p>
             </div>
@@ -44,8 +44,8 @@ export default function LandingPage() {
 
           {/* Mobile - Hero text only, left-aligned */}
           <div className="md:hidden w-full">
-            <p className="font-faktum-light leading-relaxed text-left" style={{ color: 'var(--text)', fontSize: '1.25rem' }}>
-              Howdy, I’m Zach. I design how humans experience AI, products, and the future of the web.
+            <p className="font-faktum-light text-left" style={{ color: 'var(--text)', fontSize: 'var(--unit-lg)', lineHeight: '1.5' }}>
+              Howdy, I'm Zach. I design how humans experience AI, products, and the future of the web.
             </p>
           </div>
         </div>
@@ -64,12 +64,12 @@ export default function LandingPage() {
             <div className="md:col-span-2">
               <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)', display: 'none'}}>Bio</h2>
             </div>
-            <div className="md:col-span-8 flex justify-center">
+            <div className="md:col-span-8 md:ml-[39px]">
               <div className="space-y-24 max-w-[540px] w-full">
                 <div>
                   {/* Memo Section */}
                   <section className="mb-12" aria-labelledby="memo-heading">
-                    <div className="text-base leading-relaxed space-y-4 max-w-[540px] memo-text" role="article">
+                    <div className="space-y-4 memo-text font-faktum-regular" role="article">
                       <p className="memo-text" data-agent-context="greeting">
                         Howdy,
                       </p>
@@ -82,7 +82,7 @@ export default function LandingPage() {
                       </p>
 
                       <p className="memo-text" data-agent-context="current-work">
-                        More recently, I've been shaping and shipping products at the intersection of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="https://6079.ai/game" className="hover:underline" style={{ color: 'var(--primary)' }}>games for iOS/Android/Web</a>.
+                        More recently, I've been shaping and shipping products at the intersection of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="/case-studies/6079-ai" className="hover:underline" style={{ color: 'var(--primary)' }}>games for iOS/Android/Web</a>.
                       </p>
                       
                       <p className="memo-text" data-agent-context="personal-life">
@@ -102,7 +102,7 @@ export default function LandingPage() {
 
                   {/* Signature and Code */}
                   <section className="flex justify-between items-center mb-12" aria-label="Signature and project code">
-                    <div className="font-dm-mono-regular text-sm" style={{ color: 'var(--text-tertiary)' }} data-agent-context="project-identifier">
+                    <div className="font-dm-mono-regular" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }} data-agent-context="project-identifier">
                       // 001
                     </div>
                     <img 
@@ -125,12 +125,12 @@ export default function LandingPage() {
         <div className="px-8 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-2">
-              <h2 className="mb-2 md:sticky md:top-32 md:pl-2" style={{color: 'var(--text)'}}>Expertise</h2>
+              <h2 className="mb-2 md:sticky md:top-32 md:pl-2 font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-md)'}}>Expertise</h2>
             </div>
-            <div className="md:col-span-8 flex justify-center">
+            <div className="md:col-span-8 md:ml-[39px]">
               <div className="space-y-24 max-w-[540px] w-full">
                 <div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                     <div className="expertise-item">AI</div>
                     <div className="expertise-item">Art Direction</div>
                     <div className="expertise-item">Brand Strategy</div>
@@ -167,20 +167,20 @@ export default function LandingPage() {
         <div className="px-8 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-2">
-              <h2 className="mb-2 md:sticky md:top-32 md:pl-2" style={{color: 'var(--text)'}}>Experience</h2>
+              <h2 className="mb-2 md:sticky md:top-32 md:pl-2 font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-md)'}}>Experience</h2>
             </div>
-            <div className="md:col-span-8 flex justify-center">
+            <div className="md:col-span-8 md:ml-[39px]">
               <div className="space-y-24 max-w-[540px] w-full">
                 <div>
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div style={{color: 'var(--text)'}}>UX & Digital Product Designer</div>
-                        <div className="text-gray-500 dark:text-gray-500">AI Layer Labs</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>UX & Digital Product Designer</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>AI Layer Labs</div>
                       </div>
-                      <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>2024-Present</div>
-                        <div>Remote</div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2024-Present</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Remote</div>
                       </div>
                     </div>
                   </div>
@@ -190,30 +190,30 @@ export default function LandingPage() {
                     </p>
                   </div>
                   <p className="mb-2 body-text">Have helped launch:</p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 body-text">
-                    <li>THINK Protocol token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with <a href="https://futureverse.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Futureverse</a></li>
-                    <li><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></li>
-                    <li>A social mission game using X integration (<a href="https://6079.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</li>
-                    <li>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></li>
-                    <li>A blockchain hub, explorer, and node dashboard for Wire Network</li>
-                    <li>The 6079 Foundation</li>
-                    <li>A decentralized AI PVP Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</li>
-                    <li>An independent AI news hub (IAI News)</li>
-                    <li>A virtual game available on iOS, Android, and Web (<a href="https://6079.ai/game" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</li>
-                    <li>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</li>
-                  </ul>
+                  <div className="body-text space-y-3 md:space-y-3">
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>THINK Protocol token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with <a href="https://futureverse.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Futureverse</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A social mission game using X integration (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A blockchain hub, explorer, and node dashboard for Wire Network</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>The 6079 Foundation</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A decentralized AI PVP Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>An independent AI news hub (IAI News)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A virtual game available on iOS, Android, and Web (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</div>
+                    <div>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</div>
+                  </div>
                 </div>
                 
                 <div>
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div style={{color: 'var(--text)'}}>Freelance Consultant</div>
-                        <div className="text-gray-500 dark:text-gray-500">Freelance / Self-employed</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Freelance Consultant</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Freelance / Self-employed</div>
                       </div>
-                      <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>1998-Present</div>
-                        <div>Austin, TX & Remote</div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>1998-Present</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Austin, TX & Remote</div>
                       </div>
                     </div>
                   </div>
@@ -231,12 +231,12 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div style={{color: 'var(--text)'}}>Founder & Executive Creative Director</div>
-                        <div className="text-gray-500 dark:text-gray-500">All Manner Of Us</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Founder & Executive Creative Director</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>All Manner Of Us</div>
                       </div>
-                      <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>2017-Present</div>
-                        <div>Austin, TX & Remote</div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2017-Present</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Austin, TX & Remote</div>
                       </div>
                     </div>
                   </div>
@@ -251,12 +251,12 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div style={{color: 'var(--text)'}}>Art Director & Senior Marketing Designer</div>
-                        <div className="text-gray-500 dark:text-gray-500">Creative Market (Autodesk)</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Art Director & Senior Marketing Designer</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Creative Market (Autodesk)</div>
                       </div>
-                      <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>2015-2016</div>
-                        <div>San Francisco, CA & Remote</div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2015-2016</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>San Francisco, CA & Remote</div>
                       </div>
                     </div>
                   </div>
@@ -271,12 +271,12 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div style={{color: 'var(--text)'}}>Co-founder & Creative Director</div>
-                        <div className="text-gray-500 dark:text-gray-500">Dbln llc</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Co-founder & Creative Director</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Dbln llc</div>
                       </div>
-                      <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>2013-2014</div>
-                        <div>Houston, TX & Remote</div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2013-2014</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Houston, TX & Remote</div>
                       </div>
                     </div>
                   </div>

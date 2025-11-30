@@ -4,7 +4,17 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Case Studies',
-  description: 'Portfolio of design work and case studies.',
+  description: 'Portfolio of 25+ design case studies including AI platforms, Web3 products, brand identity, music packaging, and digital experiences for clients like THINK Foundation, 6079 AI, Wistia, Indeed, and more.',
+  openGraph: {
+    title: 'Case Studies — Zach McNair',
+    description: 'Portfolio of 25+ design case studies including AI platforms, Web3 products, brand identity, music packaging, and digital experiences.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Case Studies — Zach McNair',
+    description: 'Portfolio of 25+ design case studies including AI platforms, Web3 products, brand identity, music packaging, and digital experiences.',
+  },
 }
 
 export default function CaseStudiesPage() {

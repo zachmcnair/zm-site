@@ -11,6 +11,17 @@ export const metadata: Metadata = {
       'application/rss+xml': `${baseUrl}/feed`,
     },
   },
+  openGraph: {
+    title: 'Blog — Zach McNair',
+    description: 'Thoughts on design, AI, Web3, and building products that matter.',
+    url: `${baseUrl}/blog`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — Zach McNair',
+    description: 'Thoughts on design, AI, Web3, and building products that matter.',
+  },
 }
 
 export default function BlogPage() {

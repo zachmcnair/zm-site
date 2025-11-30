@@ -208,23 +208,23 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
         // Determine link destination: case study (priority) > external URL > no link
         let linkHref: string | null = null
         let isExternal = false
-        let buttonText = 'VIEW PROJECT'
+        let buttonText = 'View Project'
         
         if (item.caseStudySlug) {
           // Priority 1: Case study page
           linkHref = `/case-studies/${item.caseStudySlug}`
-          buttonText = 'VIEW CASE STUDY'
+          buttonText = 'View Case Study'
         } else if (item.caseStudyUrl?.startsWith('http')) {
           // Priority 2: External URL
           linkHref = item.caseStudyUrl
           isExternal = true
-          buttonText = 'VIEW LIVE SITE'
+          buttonText = 'View Live Site'
         }
         // Priority 3: No link (linkHref remains null)
 
         const cardContent = (
-          <div className="flex flex-col gap-[4px] group">
-            <div className="relative w-full overflow-hidden">
+          <div className="flex flex-col group cursor-pointer">
+            <div className="relative w-full overflow-hidden mb-2">
               <img
                 ref={(el) => {
                   if (el) {
@@ -247,8 +247,15 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
               {linkHref && (
                 <>
                   <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="gradient-border-button px-6 py-3 text-sm font-faktum-medium">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div 
+                      className="px-6 py-3 text-sm font-faktum-regular rounded"
+                      style={{ 
+                        color: 'var(--text)',
+                        backgroundColor: 'var(--background)',
+                        border: '1px solid var(--text-tertiary)'
+                      }}
+                    >
                       {buttonText}
                     </div>
                   </div>
@@ -258,13 +265,13 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
             
             {/* Content */}
             <div className="flex flex-col gap-[4px]">
-              <p className="font-newsreader-medium text-base md:text-lg" style={{ color: 'var(--text)' }}>
+              <p className="font-faktum-regular" style={{ color: 'var(--text)', fontSize: 'var(--unit-sm)' }}>
                 {item.title}
               </p>
-              <p className="font-dm-mono-regular text-base" style={{ color: 'var(--text-secondary)' }}>
+              <p className="font-faktum-regular" style={{ color: 'var(--text-secondary)', fontSize: 'var(--unit-sm)' }}>
                 {item.client}
               </p>
-              <p className="font-dm-mono-regular text-base" style={{ color: 'var(--text-tertiary)' }}>
+              <p className="font-faktum-regular" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }}>
                 {item.metatags.join(', ')}
               </p>
             </div>
@@ -281,6 +288,8 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
                 href={linkHref}
                 target={isExternal ? '_blank' : '_self'}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
+                className="no-underline"
+                style={{ textDecoration: 'none' }}
               >
                 {cardContent}
               </Link>
