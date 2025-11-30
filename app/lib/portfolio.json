@@ -104,7 +104,7 @@
     "featured": true,
     "projectId": "think-agents",
     "category": "ai",
-    "caseStudySlug": "ai-layer-labs",
+    "caseStudySlug": "think-agents",
     "caseStudyUrl": "https://thinkagents.ai"
   },
   {
@@ -141,7 +141,7 @@
     "projectId": "think-agents",
     "category": "ai",
     "caseStudyUrl": "https://thinkagents.ai",
-    "caseStudySlug": "ai-layer-labs"
+    "caseStudySlug": "think-agents"
   },
   {
     "id": "9",
@@ -248,7 +248,7 @@
     "projectId": "think-agents",
     "category": "ai",
     "caseStudyUrl": "https://thinkagents.ai/claim",
-    "caseStudySlug": "ai-layer-labs"
+    "caseStudySlug": "think-agents"
   },
   {
     "id": "16",
@@ -340,7 +340,7 @@
     "projectId": "think-agents",
     "category": "ai",
     "caseStudyUrl": "https://thinkagents.ai/products/thinkubator",
-    "caseStudySlug": "ai-layer-labs"
+    "caseStudySlug": "think-agents"
   },
   {
     "id": "21",
@@ -393,7 +393,7 @@
     "projectId": "think-agents",
     "category": "ai",
     "caseStudyUrl": "https://thinkagents.ai/claim",
-    "caseStudySlug": "ai-layer-labs"
+    "caseStudySlug": "think-agents"
   },
   {
     "id": "25",
@@ -459,7 +459,7 @@
     "projectId": "think-agents",
     "category": "ai",
     "caseStudyUrl": "https://thinkagents.ai/claim",
-    "caseStudySlug": "ai-layer-labs"
+    "caseStudySlug": "think-agents"
   },
   {
     "id": "29",
