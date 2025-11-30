@@ -152,6 +152,14 @@ node scripts/update-aspect-ratios.js
 **When to run:** After generating portfolio.json  
 **What it does:** Detects and updates all aspect ratios automatically
 
+### Sync Portfolio Metadata from amou
+```bash
+node scripts/sync-portfolio-from-amou.js
+```
+**When to run:** When you want to pull latest titles, metatags, categories from amou  
+**What it does:** Updates portfolio item titles, metatags, categories, and alt text from amou  
+**Note:** Matches items by image src, so make sure images match between repos
+
 ### Preview Aspect Ratios (Optional)
 ```bash
 node scripts/detect-aspect-ratios.js
