@@ -44,7 +44,7 @@ export default function LandingPage() {
 
           {/* Mobile - Hero text only, left-aligned */}
           <div className="md:hidden w-full">
-            <p className="font-faktum-light text-left" style={{ color: 'var(--text)', fontSize: 'var(--unit-lg)', lineHeight: '1.5' }}>
+            <p className="font-faktum-light text-left" style={{ color: 'var(--text)', fontSize: 'var(--unit-xl)', lineHeight: '1.5' }}>
               Howdy, I'm Zach. I design how humans experience AI, products, and the future of the web.
             </p>
           </div>
