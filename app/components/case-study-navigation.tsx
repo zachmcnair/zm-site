@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface CaseStudyNavigationProps {
   previous?: {
@@ -15,18 +17,79 @@ interface CaseStudyNavigationProps {
     client?: string
     image?: string
   }
+  currentSlug?: string
+  allCaseStudies?: Array<{
+    slug: string
+    title: string
+    client?: string
+  }>
 }
 
-export function CaseStudyNavigation({ previous, next }: CaseStudyNavigationProps) {
-  if (!previous && !next) return null
+export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudies }: CaseStudyNavigationProps) {
+  const router = useRouter()
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Only handle if not typing in an input/textarea
+      if (
+        (e.target as HTMLElement).tagName === 'INPUT' ||
+        (e.target as HTMLElement).tagName === 'TEXTAREA' ||
+        (e.target as HTMLElement).isContentEditable
+      ) {
+        return
+      }
+
+      if (e.key === 'ArrowLeft' && previous) {
+        e.preventDefault()
+        router.push(`/case-studies/${previous.slug}`)
+      } else if (e.key === 'ArrowRight' && next) {
+        e.preventDefault()
+        router.push(`/case-studies/${next.slug}`)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [previous, next, router])
+
+  // Always show navigation with infinite loop
+  // If previous/next are not provided but we have allCaseStudies, calculate them
+  let displayPrevious = previous
+  let displayNext = next
+
+  if (allCaseStudies && currentSlug && (!previous || !next)) {
+    const currentIndex = allCaseStudies.findIndex(cs => cs.slug === currentSlug)
+    if (currentIndex !== -1) {
+      const prevIndex = currentIndex > 0 ? currentIndex - 1 : allCaseStudies.length - 1
+      const nextIndex = currentIndex < allCaseStudies.length - 1 ? currentIndex + 1 : 0
+      
+      if (!displayPrevious) {
+        displayPrevious = {
+          slug: allCaseStudies[prevIndex].slug,
+          title: allCaseStudies[prevIndex].title,
+          client: allCaseStudies[prevIndex].client,
+        }
+      }
+      if (!displayNext) {
+        displayNext = {
+          slug: allCaseStudies[nextIndex].slug,
+          title: allCaseStudies[nextIndex].title,
+          client: allCaseStudies[nextIndex].client,
+        }
+      }
+    }
+  }
+
+  if (!displayPrevious && !displayNext) return null
 
   return (
     <section className="px-8 md:px-20 py-[60px] md:py-[80px]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {/* Previous Case Study */}
-        {previous ? (
+        {displayPrevious ? (
           <Link 
-            href={`/case-studies/${previous.slug}`}
+            href={`/case-studies/${displayPrevious.slug}`}
             prefetch={true}
             className="group relative flex flex-col gap-4 p-6 md:p-8 rounded-lg transition-all hover:opacity-90 overflow-hidden"
             style={{ 
@@ -34,11 +97,11 @@ export function CaseStudyNavigation({ previous, next }: CaseStudyNavigationProps
             }}
           >
             {/* Background Image */}
-            {previous.image && (
+            {displayPrevious.image && (
               <div 
                 className="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity"
                 style={{
-                  backgroundImage: `url(${previous.image.startsWith('/') ? previous.image : `/${previous.image}`})`,
+                  backgroundImage: `url(${displayPrevious.image.startsWith('/') ? displayPrevious.image : `/${displayPrevious.image}`})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
@@ -69,7 +132,7 @@ export function CaseStudyNavigation({ previous, next }: CaseStudyNavigationProps
               </div>
               <div className="flex flex-col gap-[4px] mt-4">
                 <p className="font-instrument-serif text-base md:text-lg uppercase leading-[1.5] tracking-[0.2052px] no-underline group-hover:opacity-80 transition-opacity" style={{ color: 'var(--text)' }}>
-                  {previous.title}
+                  {displayPrevious.title}
                 </p>
               </div>
             </div>
@@ -79,9 +142,9 @@ export function CaseStudyNavigation({ previous, next }: CaseStudyNavigationProps
         )}
 
         {/* Next Case Study */}
-        {next ? (
+        {displayNext ? (
           <Link 
-            href={`/case-studies/${next.slug}`}
+            href={`/case-studies/${displayNext.slug}`}
             prefetch={true}
             className="group relative flex flex-col gap-4 p-6 md:p-8 rounded-lg transition-all hover:opacity-90 md:text-right overflow-hidden"
             style={{ 
@@ -89,11 +152,11 @@ export function CaseStudyNavigation({ previous, next }: CaseStudyNavigationProps
             }}
           >
             {/* Background Image */}
-            {next.image && (
+            {displayNext.image && (
               <div 
                 className="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity"
                 style={{
-                  backgroundImage: `url(${next.image.startsWith('/') ? next.image : `/${next.image}`})`,
+                  backgroundImage: `url(${displayNext.image.startsWith('/') ? displayNext.image : `/${displayNext.image}`})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
@@ -124,7 +187,7 @@ export function CaseStudyNavigation({ previous, next }: CaseStudyNavigationProps
               </div>
               <div className="flex flex-col gap-[4px] mt-4">
                 <p className="font-instrument-serif text-base md:text-lg uppercase leading-[1.5] tracking-[0.2052px] no-underline group-hover:opacity-80 transition-opacity" style={{ color: 'var(--text)' }}>
-                  {next.title}
+                  {displayNext.title}
                 </p>
               </div>
             </div>

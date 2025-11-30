@@ -26,6 +26,11 @@ interface CaseStudyPageClientProps {
     image?: string
   }
   slug?: string // Add slug to help with remounting
+  allCaseStudies?: Array<{
+    slug: string
+    title: string
+    client?: string
+  }>
 }
 
 export function CaseStudyPageClient({
@@ -39,6 +44,7 @@ export function CaseStudyPageClient({
   previous,
   next,
   slug,
+  allCaseStudies,
 }: CaseStudyPageClientProps) {
   const [textVisible, setTextVisible] = useState(false)
   const [imagesVisible, setImagesVisible] = useState(false)
@@ -197,7 +203,12 @@ export function CaseStudyPageClient({
           pointerEvents: imagesVisible ? 'auto' : 'none',
         }}
       >
-        <CaseStudyNavigation previous={previous} next={next} />
+        <CaseStudyNavigation 
+          previous={previous} 
+          next={next} 
+          currentSlug={slug}
+          allCaseStudies={allCaseStudies}
+        />
       </div>
     </div>
   )

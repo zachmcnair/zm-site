@@ -199,9 +199,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const allCaseStudies = getAllPosts('case-studies')
   const currentIndex = allCaseStudies.findIndex(cs => cs.slug === slug)
   
-  // Get previous and next case studies
-  const previousCaseStudy = currentIndex > 0 ? allCaseStudies[currentIndex - 1] : null
-  const nextCaseStudy = currentIndex < allCaseStudies.length - 1 ? allCaseStudies[currentIndex + 1] : null
+  // Get previous and next case studies with infinite loop
+  const previousIndex = currentIndex > 0 ? currentIndex - 1 : allCaseStudies.length - 1
+  const nextIndex = currentIndex < allCaseStudies.length - 1 ? currentIndex + 1 : 0
+  
+  const previousCaseStudy = allCaseStudies[previousIndex]
+  const nextCaseStudy = allCaseStudies[nextIndex]
 
   // Extract first image from previous/next case studies
   const extractFirstImage = (content: string): string | undefined => {
@@ -238,6 +241,17 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     client: nextCaseStudy.meta.client,
     image: extractFirstImage(nextCaseStudy.content),
   } : undefined
+
+  // Extract images for all case studies for navigation component
+  const allCaseStudiesWithImages = allCaseStudies.map(cs => {
+    const image = extractFirstImage(cs.content)
+    return {
+      slug: cs.slug,
+      title: cs.meta.title,
+      client: cs.meta.client,
+      image,
+    }
+  })
 
   // Build structured data for case study
   const structuredData = {
@@ -289,6 +303,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         previous={previous}
         next={next}
         slug={slug}
+        allCaseStudies={allCaseStudiesWithImages}
       />
     </>
   )
