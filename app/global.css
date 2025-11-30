@@ -611,4 +611,67 @@ div[style*="background-color: #333333"] {
   color: #fefcf4; /* White in dark mode */
 }
 
+/* Gradient Border Button */
+.gradient-border-button {
+  position: relative;
+  background: var(--background);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+  isolation: isolate;
+  padding: 0.75rem 1.5rem;
+  color: var(--text);
+  text-align: center;
+  display: inline-block;
+}
+
+.gradient-border-button::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, 
+    #A4A4F1 0%, 
+    #E0D9C3 50%, 
+    #9B9581 74%, 
+    #21232B 100%);
+  background-size: 200% 100%;
+  animation: animate-gradient-border 8s ease-in-out infinite;
+  z-index: -2;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  padding: 1px;
+}
+
+.gradient-border-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--background);
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.gradient-border-button:hover {
+  color: var(--background);
+}
+
+.gradient-border-button:hover::after {
+  background: linear-gradient(90deg, 
+    #A4A4F1 0%, 
+    #E0D9C3 50%, 
+    #9B9581 74%, 
+    #21232B 100%);
+  background-size: 200% 100%;
+  animation: animate-gradient-border 8s ease-in-out infinite;
+}
+
+@keyframes animate-gradient-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
