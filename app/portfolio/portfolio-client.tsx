@@ -43,7 +43,7 @@ export default function PortfolioPageClient() {
                       transition: 'opacity 0.5s ease-out',
                     }}
                   >
-                    <p className="font-faktum-light text-[24px] md:text-[24px] leading-[1.5] max-w-[613px]" style={{ color: 'var(--text)' }}>
+                    <p className="font-faktum-light text-[21px] md:text-[24px] leading-[1.5] max-w-[613px]" style={{ color: 'var(--text)' }}>
                     Since 1998, I design and ship brands, sites, and software that connect artists, communities, and companies to their fans.
                     </p>
                   </div>
