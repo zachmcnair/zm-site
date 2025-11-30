@@ -75,6 +75,38 @@
   },
   {
     "id": "5",
+    "src": "/portfolio/caleb-mabrey-cover.webp",
+    "alt": "Caleb Mabrey - Album Cover",
+    "title": "Caleb Mabrey",
+    "client": "Caleb Mabrey",
+    "metatags": [
+      "Creative Direction",
+      "Album Packaging"
+    ],
+    "aspectRatio": "square",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "caleb-mabrey",
+    "category": "music"
+  },
+  {
+    "id": "6",
+    "src": "/portfolio/caleb-mabrey-cover-2.webp",
+    "alt": "Caleb Mabrey - Album Cover - In The Spaces",
+    "title": "In The Spaces",
+    "client": "Caleb Mabrey",
+    "metatags": [
+      "Creative Direction",
+      "Album Packaging"
+    ],
+    "aspectRatio": "square",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "caleb-mabrey",
+    "category": "music"
+  },
+  {
+    "id": "7",
     "src": "/portfolio/creative-market-video.webp",
     "alt": "Creative Market Video",
     "title": "Community Matters Campaign",
@@ -91,7 +123,24 @@
     "category": "ai"
   },
   {
-    "id": "6",
+    "id": "8",
+    "src": "/portfolio/forenn-forenn.webp",
+    "alt": "Forenn",
+    "title": "How far can you take a dream?",
+    "client": "Forenn",
+    "metatags": [
+      "Creative Direction",
+      "Visual Identity",
+      "Packaging"
+    ],
+    "aspectRatio": "square",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "forenn",
+    "category": "music"
+  },
+  {
+    "id": "9",
     "src": "/portfolio/hammock-litv.webp",
     "alt": "Hammock - Love In The Void",
     "title": "Love In The Void",
@@ -108,7 +157,24 @@
     "category": "music"
   },
   {
-    "id": "7",
+    "id": "10",
+    "src": "/portfolio/hank-booth-fire-star.webp",
+    "alt": "Hank & Booth - Five Star",
+    "title": "Five Star",
+    "client": "Hank & Booth",
+    "metatags": [
+      "Title Design",
+      "Movie Poster Design",
+      "Art Direction"
+    ],
+    "aspectRatio": "portrait",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "hank-booth",
+    "category": "brand"
+  },
+  {
+    "id": "11",
     "src": "/portfolio/HCA.png",
     "alt": "HCA Healthcare - Humanizing Healthcare",
     "title": "Humanizing Healthcare",
@@ -125,7 +191,24 @@
     "category": "ai"
   },
   {
-    "id": "8",
+    "id": "12",
+    "src": "/portfolio/humin-web.avif",
+    "alt": "Humin Web",
+    "title": "Humin Platform",
+    "client": "Humin",
+    "metatags": [
+      "Creative Direction",
+      "Website Design",
+      "UX Design"
+    ],
+    "aspectRatio": "portrait",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "humin",
+    "category": "brand"
+  },
+  {
+    "id": "13",
     "src": "/portfolio/indeed.png",
     "alt": "Indeed - Balancing The Art & Science Of Recruiting",
     "title": "The Art & Science of Recruiting",
@@ -142,7 +225,7 @@
     "category": "brand"
   },
   {
-    "id": "9",
+    "id": "14",
     "src": "/portfolio/iai.png",
     "alt": "IAI - Independent AI Institute",
     "title": "A Consortium for De/AI",
@@ -159,7 +242,7 @@
     "category": "ai"
   },
   {
-    "id": "10",
+    "id": "15",
     "src": "/portfolio/lemburg-house.jpeg",
     "alt": "Lemburg House",
     "title": "Building a Legacy",
@@ -176,7 +259,7 @@
     "category": "brand"
   },
   {
-    "id": "11",
+    "id": "16",
     "src": "/portfolio/monkz-xyz-studio.png",
     "alt": "Mindful Monkz - Studio",
     "title": "NFT Customization Studio",
@@ -195,7 +278,7 @@
     "category": "web3"
   },
   {
-    "id": "12",
+    "id": "17",
     "src": "/portfolio/mor-swap.png",
     "alt": "MOR Swap - DeFi Interface",
     "title": "$MOR Token Swap",
@@ -212,7 +295,7 @@
     "category": "web3"
   },
   {
-    "id": "13",
+    "id": "18",
     "src": "/portfolio/mutemath-playdead.webp",
     "alt": "Mutemath - Playdead",
     "title": "PLAY DEAD Album and Tour Campaign",
@@ -229,7 +312,7 @@
     "category": "music"
   },
   {
-    "id": "14",
+    "id": "19",
     "src": "/portfolio/son-lux.png",
     "alt": "Son Lux - Remnants",
     "title": "Remnants",
@@ -246,7 +329,7 @@
     "category": "music"
   },
   {
-    "id": "15",
+    "id": "20",
     "src": "/portfolio/SOULS-1c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Localized Agent Consumer Experience",
@@ -265,7 +348,7 @@
     "category": "ai"
   },
   {
-    "id": "16",
+    "id": "21",
     "src": "/portfolio/SOULS-2c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "NFI Agentic Research UI",
@@ -284,7 +367,7 @@
     "category": "ai"
   },
   {
-    "id": "17",
+    "id": "22",
     "src": "/portfolio/SOULS-3c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Interoperable AI Interface",
@@ -303,7 +386,7 @@
     "category": "ai"
   },
   {
-    "id": "18",
+    "id": "23",
     "src": "/portfolio/think-agents.png",
     "alt": "THINK Agents - AI Platform Homepage",
     "title": "AI You Own",
@@ -322,7 +405,7 @@
     "category": "ai"
   },
   {
-    "id": "19",
+    "id": "24",
     "src": "/portfolio/think-agents-dashboard.png",
     "alt": "THINK Agents - Dashboard",
     "title": "A dashboard for independent AI",
@@ -341,7 +424,7 @@
     "category": "ai"
   },
   {
-    "id": "20",
+    "id": "25",
     "src": "/portfolio/think-agents-claim.png",
     "alt": "THINK Agents - Claim Interface",
     "title": "$THINK Token Claim Interface",
@@ -360,7 +443,7 @@
     "category": "web3"
   },
   {
-    "id": "21",
+    "id": "26",
     "src": "/portfolio/thinkagents-ai-products-thinkubator.png",
     "alt": "THINK Agents - Thinkubator Products",
     "title": "Incubator Platform for THINK",
@@ -378,7 +461,7 @@
     "category": "ai"
   },
   {
-    "id": "22",
+    "id": "27",
     "src": "/portfolio/think-agents-token-claimed.png",
     "alt": "THINK Agents - Token Claimed",
     "title": "$THINK Token Claim Interface",
@@ -397,7 +480,7 @@
     "category": "web3"
   },
   {
-    "id": "23",
+    "id": "28",
     "src": "/portfolio/think-agents-token-claimed-2.png",
     "alt": "THINK Agents - Token Claimed 2",
     "title": "$THINK Token Claim Interface",
@@ -416,7 +499,58 @@
     "category": "web3"
   },
   {
-    "id": "24",
+    "id": "29",
+    "src": "/portfolio/ThinkOS-Browser-Landing.png",
+    "alt": "ThinkOS - Browser Landing",
+    "title": "ThinkOS Browser",
+    "client": "ThinkOS",
+    "metatags": [
+      "Product Design",
+      "Browser Design",
+      "UX Design"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "thinkos",
+    "projectId": "thinkos-browser"
+  },
+  {
+    "id": "30",
+    "src": "/portfolio/ThinkOS-Extension.png",
+    "alt": "ThinkOS - Extension",
+    "title": "ThinkOS Extension",
+    "client": "ThinkOS",
+    "metatags": [
+      "Product Design",
+      "UX Design",
+      "Front-end Engineering"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "thinkos",
+    "projectId": "thinkos-extension"
+  },
+  {
+    "id": "31",
+    "src": "/portfolio/ThinkOS-Extension-2.png",
+    "alt": "ThinkOS - Extension 2",
+    "title": "ThinkOS Extension Interface",
+    "client": "ThinkOS",
+    "metatags": [
+      "Product Design",
+      "UX Design",
+      "Front-end Engineering"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "thinkos",
+    "projectId": "thinkos-extension"
+  },
+  {
+    "id": "32",
     "src": "/portfolio/underoath.png",
     "alt": "Underoath",
     "title": "Erase Me Album Website",
@@ -432,7 +566,7 @@
     "category": "music"
   },
   {
-    "id": "25",
+    "id": "33",
     "src": "/portfolio/w-co.jpeg",
     "alt": "W-Co",
     "title": "Merchline Design",
@@ -447,7 +581,7 @@
     "category": "brand"
   },
   {
-    "id": "26",
+    "id": "34",
     "src": "/portfolio/wire-network.png",
     "alt": "Wire Network - Decentralized Infrastructure",
     "title": "L1 Blockchain Explorer",
@@ -463,7 +597,7 @@
     "category": "ai"
   },
   {
-    "id": "27",
+    "id": "35",
     "src": "/portfolio/wistia-talking-too-loud.png",
     "alt": "Wistia - Talking Too Loud",
     "title": "Talking Too Loud Design System",
@@ -480,7 +614,7 @@
     "category": "ai"
   },
   {
-    "id": "28",
+    "id": "36",
     "src": "/portfolio/wistia-talking-too-loud.png",
     "alt": "Wistia - Talking Too Loud",
     "title": "Talking Too Loud Design System",
