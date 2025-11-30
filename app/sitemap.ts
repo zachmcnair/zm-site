@@ -39,7 +39,7 @@ export default async function sitemap() {
         lastModified: caseStudy.meta.date 
           ? new Date(caseStudy.meta.date).toISOString().split('T')[0]
           : new Date().toISOString().split('T')[0],
-        changeFrequency: 'monthly' as const,
+        changeFrequency: 'weekly' as const,
         priority: 0.8,
       })
     }
@@ -54,7 +54,7 @@ export default async function sitemap() {
         lastModified: post.meta.date 
           ? new Date(post.meta.date).toISOString().split('T')[0]
           : new Date().toISOString().split('T')[0],
-        changeFrequency: 'monthly' as const,
+        changeFrequency: 'weekly' as const,
         priority: 0.7,
       })
     }
