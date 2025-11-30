@@ -202,7 +202,12 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
       {displayItems.map((item) => {
         const spanTwo = shouldSpanTwoColumns(item)
         const isVisible = visibleImages.has(item.id)
-        const buttonText = item.caseStudyUrl?.startsWith('http') ? 'VIEW LIVE SITE' : 'VIEW CASE STUDY'
+        // Determine link destination: internal portfolio page or external URL
+        const linkHref = item.caseStudyUrl?.startsWith('http') 
+          ? item.caseStudyUrl 
+          : item.caseStudyUrl || `/portfolio/${item.id}`
+        const isExternal = item.caseStudyUrl?.startsWith('http') || false
+        const buttonText = isExternal ? 'VIEW LIVE SITE' : 'VIEW PROJECT'
 
         const cardContent = (
           <div className="flex flex-col gap-[4px] group">
@@ -225,17 +230,13 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
                 fetchPriority={displayItems.indexOf(item) < 6 ? 'high' : 'low'}
               />
               
-              {/* Hover overlay */}
-              {item.caseStudyUrl && (
-                <>
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="gradient-border-button px-6 py-3 text-sm font-faktum-medium">
-                      {buttonText}
-                    </div>
-                  </div>
-                </>
-              )}
+              {/* Hover overlay - show for all items */}
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="gradient-border-button px-6 py-3 text-sm font-faktum-medium">
+                  {buttonText}
+                </div>
+              </div>
             </div>
             
             {/* Content */}
@@ -258,17 +259,13 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
             key={item.id}
             className={spanTwo ? 'col-span-1 md:col-span-2' : 'col-span-1'}
           >
-            {item.caseStudyUrl ? (
-              <Link
-                href={item.caseStudyUrl}
-                target={item.caseStudyUrl.startsWith('http') ? '_blank' : '_self'}
-                rel={item.caseStudyUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                {cardContent}
-              </Link>
-            ) : (
-              cardContent
-            )}
+            <Link
+              href={linkHref}
+              target={isExternal ? '_blank' : '_self'}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
+            >
+              {cardContent}
+            </Link>
           </div>
         )
       })}
