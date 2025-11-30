@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "src": "/portfolio/6079-home.png",
+    "src": "/portfolio/6079-nodeshifter.png",
     "alt": "6079 - NodeShifter Interface",
     "title": "NodeShifting for independent AI",
     "client": "6079",
@@ -126,7 +126,7 @@
   },
   {
     "id": "8",
-    "src": "/portfolio/think-agents.png",
+    "src": "/portfolio/think-agents-dashboard.png",
     "alt": "THINK Agents - Dashboard",
     "title": "A dashboard for independent AI",
     "client": "THINK Agents",
@@ -162,7 +162,7 @@
   },
   {
     "id": "10",
-    "src": "/portfolio/SOULS-1c.jpg",
+    "src": "/portfolio/SOULS-2c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Designing independent AI for the consumer market",
     "client": "SOU.LS",
@@ -233,7 +233,7 @@
   },
   {
     "id": "14",
-    "src": "/portfolio/think-agents.png",
+    "src": "/portfolio/think-agents-claim.png",
     "alt": "THINK Agents - Claim Interface",
     "title": "$THINK token claim interface",
     "client": "THINK Agents",
@@ -252,7 +252,7 @@
   },
   {
     "id": "16",
-    "src": "/portfolio/SOULS-1c.jpg",
+    "src": "/portfolio/SOULS-3c.jpg",
     "alt": "Souls - AI Agent Experience",
     "title": "Designing independent AI for the consumer market",
     "client": "SOU.LS",
@@ -290,7 +290,7 @@
   },
   {
     "id": "18",
-    "src": "/portfolio/6079-home.png",
+    "src": "/portfolio/6079-S1.png",
     "alt": "6079 - S1 Interface",
     "title": "The end is the beginning",
     "client": "6079",
@@ -326,7 +326,7 @@
   },
   {
     "id": "20",
-    "src": "/portfolio/think-agents.png",
+    "src": "/portfolio/thinkagents-ai-products-thinkubator.png",
     "alt": "THINK Agents - Thinkubator",
     "title": "Thinkubator",
     "client": "THINK Agents",
@@ -378,7 +378,7 @@
   },
   {
     "id": "24",
-    "src": "/portfolio/think-agents.png",
+    "src": "/portfolio/think-agents-token-claimed.png",
     "alt": "THINK Agents - Token Claimed",
     "title": "$THINK token claim interface",
     "client": "THINK Agents",
@@ -444,7 +444,7 @@
   },
   {
     "id": "28",
-    "src": "/portfolio/think-agents.png",
+    "src": "/portfolio/think-agents-token-claimed-2.png",
     "alt": "THINK Agents - Token Claimed 2",
     "title": "$THINK token claim interface",
     "client": "THINK Agents",
