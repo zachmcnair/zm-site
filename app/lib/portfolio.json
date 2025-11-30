@@ -4,7 +4,7 @@
     "src": "/portfolio/6079-nodeshifter.png",
     "alt": "6079 - NodeShifter Interface",
     "title": "NodeShifting for independent AI",
-    "client": "6079",
+    "client": "6079 AI",
     "metatags": [
       "Product Design",
       "Interface Design",
@@ -13,30 +13,85 @@
     "aspectRatio": "portrait",
     "hidden": false,
     "featured": true,
-    "projectId": "6079-ai-platform",
-    "category": "ai",
+    "caseStudySlug": "6079-ai",
     "caseStudyUrl": "https://6079.ai/game",
-    "caseStudySlug": "6079-ai"
+    "projectId": "6079-ai-platform",
+    "category": "ai"
   },
   {
     "id": "2",
-    "src": "/portfolio/janes-dine-inn.avif",
-    "alt": "Jane's Dine Inn - Manifest your palate",
-    "title": "Manifest Your Palate",
-    "client": "Jane's Dine Inn",
+    "src": "/portfolio/6079-home.png",
+    "alt": "6079 - Home Interface",
+    "title": "Securing Independent AI",
+    "client": "6079 AI",
     "metatags": [
-      "Visual Identity",
-      "Website Design",
-      "Ecommerce"
+      "Product Design",
+      "Interface Design",
+      "UX Design"
     ],
     "aspectRatio": "portrait",
-    "hidden": true,
+    "hidden": false,
     "featured": false,
-    "category": "hospitality",
-    "caseStudySlug": "janes-dine-inn"
+    "caseStudySlug": "6079-ai",
+    "caseStudyUrl": "https://6079.ai",
+    "projectId": "6079-ai-platform",
+    "category": "ai"
   },
   {
     "id": "3",
+    "src": "/portfolio/6079-S1.png",
+    "alt": "6079 - S1 Interface",
+    "title": "The end is the beginning",
+    "client": "6079 AI",
+    "metatags": [
+      "Product Design",
+      "Interface Design",
+      "UX Design"
+    ],
+    "aspectRatio": "portrait",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "6079-ai",
+    "caseStudyUrl": "https://6079.ai/dashboard",
+    "projectId": "6079-ai-platform",
+    "category": "ai"
+  },
+  {
+    "id": "4",
+    "src": "/portfolio/avaere.png",
+    "alt": "Avaere",
+    "title": "Avaere",
+    "client": "Avaere",
+    "metatags": [
+      "Creative Direction",
+      "Website Design",
+      "Visual Identity"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "avaere",
+    "category": "brand"
+  },
+  {
+    "id": "5",
+    "src": "/portfolio/creative-market-video.webp",
+    "alt": "Creative Market Video",
+    "title": "Community Matters campaign",
+    "client": "Creative Market",
+    "metatags": [
+      "Creative Direction",
+      "Marketing",
+      "Film"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "creative-market",
+    "category": "brand"
+  },
+  {
+    "id": "6",
     "src": "/portfolio/hammock-litv.webp",
     "alt": "Hammock - Love In The Void",
     "title": "Love In The Void",
@@ -49,102 +104,11 @@
     "aspectRatio": "square",
     "hidden": false,
     "featured": true,
-    "category": "music",
-    "caseStudySlug": "hammock"
-  },
-  {
-    "id": "4",
-    "src": "/portfolio/SOULS-1c.jpg",
-    "alt": "Souls - AI Agent Experience",
-    "title": "Designing independent AI for the consumer market",
-    "client": "SOU.LS",
-    "metatags": [
-      "AI",
-      "UX Design",
-      "Product Design"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": true,
-    "projectId": "souls",
-    "category": "ai",
-    "caseStudyUrl": "https://sou.ls",
-    "caseStudySlug": "souls"
-  },
-  {
-    "id": "5",
-    "src": "/portfolio/wistia-talking-too-loud.png",
-    "alt": "Wistia - Talking Too Loud",
-    "title": "Talking Too Loud",
-    "client": "Wistia",
-    "metatags": [
-      "Brand Campaign",
-      "Art Direction",
-      "Podcast"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "category": "brand",
-    "caseStudySlug": "wistia"
-  },
-  {
-    "id": "6",
-    "src": "/portfolio/think-agents.png",
-    "alt": "THINK Agents - AI Platform Homepage",
-    "title": "AI you own",
-    "client": "THINK Agents",
-    "metatags": [
-      "AI",
-      "Platform Design",
-      "Product Design"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": true,
-    "projectId": "think-agents",
-    "category": "ai",
-    "caseStudySlug": "think-agents",
-    "caseStudyUrl": "https://thinkagents.ai"
+    "caseStudySlug": "hammock",
+    "category": "music"
   },
   {
     "id": "7",
-    "src": "/portfolio/indeed.png",
-    "alt": "Indeed - Balancing The Art & Science Of Recruiting",
-    "title": "The Art & Science of Recruiting",
-    "client": "Indeed",
-    "metatags": [
-      "Art Direction",
-      "Book Design",
-      "Brand Strategy"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "category": "brand",
-    "caseStudySlug": "indeed"
-  },
-  {
-    "id": "8",
-    "src": "/portfolio/think-agents-dashboard.png",
-    "alt": "THINK Agents - Dashboard",
-    "title": "A dashboard for independent AI",
-    "client": "THINK Agents",
-    "metatags": [
-      "Web3",
-      "Dashboard Design",
-      "UX Design"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "projectId": "think-agents",
-    "category": "ai",
-    "caseStudyUrl": "https://thinkagents.ai",
-    "caseStudySlug": "think-agents"
-  },
-  {
-    "id": "9",
     "src": "/portfolio/HCA.png",
     "alt": "HCA Healthcare - Humanizing Healthcare",
     "title": "Humanizing Healthcare",
@@ -157,193 +121,45 @@
     "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
-    "category": "brand",
-    "caseStudySlug": "hca-healthcare"
+    "caseStudySlug": "hca-healthcare",
+    "category": "brand"
+  },
+  {
+    "id": "8",
+    "src": "/portfolio/indeed.png",
+    "alt": "Indeed - Balancing The Art & Science Of Recruiting",
+    "title": "The Art & Science of Recruiting",
+    "client": "Indeed",
+    "metatags": [
+      "Art Direction",
+      "Book Design",
+      "Brand Strategy"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "indeed",
+    "category": "brand"
+  },
+  {
+    "id": "9",
+    "src": "/portfolio/iai.png",
+    "alt": "IAI - Independent AI Institute",
+    "title": "Making Independent AI the global standard",
+    "client": "Independent AI Institute",
+    "metatags": [
+      "Website Design",
+      "UX"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "independent-ai-institute",
+    "caseStudyUrl": "https://independentai.institute",
+    "category": "ai"
   },
   {
     "id": "10",
-    "src": "/portfolio/SOULS-2c.jpg",
-    "alt": "Souls - AI Agent Experience",
-    "title": "Designing independent AI for the consumer market",
-    "client": "SOU.LS",
-    "metatags": [
-      "AI",
-      "Dashboard Design",
-      "UX Design"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "projectId": "souls",
-    "category": "ai",
-    "caseStudyUrl": "https://sou.ls",
-    "caseStudySlug": "souls"
-  },
-  {
-    "id": "11",
-    "src": "/portfolio/underoath.png",
-    "alt": "Underoath",
-    "title": "Erase Me",
-    "client": "Underoath",
-    "metatags": [
-      "Website Design",
-      "Front-end"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "category": "music",
-    "caseStudySlug": "underoath"
-  },
-  {
-    "id": "12",
-    "src": "/portfolio/6079-home.png",
-    "alt": "6079 - Home Interface",
-    "title": "Securing Independent AI",
-    "client": "6079",
-    "metatags": [
-      "Product Design",
-      "Interface Design",
-      "UX Design"
-    ],
-    "aspectRatio": "portrait",
-    "hidden": false,
-    "featured": false,
-    "projectId": "6079-ai-platform",
-    "category": "ai",
-    "caseStudyUrl": "https://6079.ai",
-    "caseStudySlug": "6079-ai"
-  },
-  {
-    "id": "13",
-    "src": "/portfolio/son-lux.png",
-    "alt": "Son Lux - Remnants",
-    "title": "Remnants",
-    "client": "Son Lux",
-    "metatags": [
-      "Creative Direction",
-      "Photography",
-      "Album Art"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "category": "music",
-    "caseStudySlug": "son-lux"
-  },
-  {
-    "id": "14",
-    "src": "/portfolio/think-agents-claim.png",
-    "alt": "THINK Agents - Claim Interface",
-    "title": "$THINK token claim interface",
-    "client": "THINK Agents",
-    "metatags": [
-      "Web3",
-      "Interface Design",
-      "Front-end Development"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "projectId": "think-agents",
-    "category": "ai",
-    "caseStudyUrl": "https://thinkagents.ai/claim",
-    "caseStudySlug": "think-agents"
-  },
-  {
-    "id": "16",
-    "src": "/portfolio/SOULS-3c.jpg",
-    "alt": "Souls - AI Agent Experience",
-    "title": "Designing independent AI for the consumer market",
-    "client": "SOU.LS",
-    "metatags": [
-      "AI",
-      "Interface Design",
-      "Product Design"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "projectId": "souls",
-    "category": "ai",
-    "caseStudyUrl": "https://sou.ls",
-    "caseStudySlug": "souls"
-  },
-  {
-    "id": "17",
-    "src": "/portfolio/monkz-xyz-studio.png",
-    "alt": "Mindful Monkz - NFT Community Platform",
-    "title": "Mindful NFT art generator",
-    "client": "Mindful Monkz",
-    "metatags": [
-      "Art Direction",
-      "Product Design",
-      "Community Platform"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": true,
-    "projectId": "mindful-monkz",
-    "category": "web3",
-    "caseStudyUrl": "https://monkz.xyz/studio",
-    "caseStudySlug": "mindful-monkz"
-  },
-  {
-    "id": "18",
-    "src": "/portfolio/6079-S1.png",
-    "alt": "6079 - S1 Interface",
-    "title": "The end is the beginning",
-    "client": "6079",
-    "metatags": [
-      "Product Design",
-      "Interface Design",
-      "UX Design"
-    ],
-    "aspectRatio": "portrait",
-    "hidden": false,
-    "featured": false,
-    "projectId": "6079-ai-platform",
-    "category": "ai",
-    "caseStudyUrl": "https://6079.ai/dashboard",
-    "caseStudySlug": "6079-ai"
-  },
-  {
-    "id": "19",
-    "src": "/portfolio/mutemath-playdead.webp",
-    "alt": "Mutemath - Playdead",
-    "title": "PLAY DEAD album and tour campaign",
-    "client": "Mutemath",
-    "metatags": [
-      "Creative Direction",
-      "Campaign Design",
-      "Packaging"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "category": "music",
-    "caseStudySlug": "mutemath"
-  },
-  {
-    "id": "20",
-    "src": "/portfolio/thinkagents-ai-products-thinkubator.png",
-    "alt": "THINK Agents - Thinkubator",
-    "title": "Thinkubator",
-    "client": "THINK Agents",
-    "metatags": [
-      "Product Design",
-      "Front-end Development"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "projectId": "think-agents",
-    "category": "ai",
-    "caseStudyUrl": "https://thinkagents.ai/products/thinkubator",
-    "caseStudySlug": "think-agents"
-  },
-  {
-    "id": "21",
     "src": "/portfolio/lemburg-house.jpeg",
     "alt": "Lemburg House",
     "title": "Building a legacy",
@@ -356,32 +172,217 @@
     "aspectRatio": "portrait",
     "hidden": false,
     "featured": false,
-    "category": "hospitality",
-    "caseStudySlug": "lemburg-house"
+    "caseStudySlug": "lemburg-house",
+    "category": "hospitality"
+  },
+  {
+    "id": "11",
+    "src": "/portfolio/monkz-xyz-studio.png",
+    "alt": "Mindful Monkz - NFT Community Platform",
+    "title": "Mindful NFT art generator",
+    "client": "Mindful Monkz",
+    "metatags": [
+      "Art Direction",
+      "Product Design",
+      "Community Platform"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": true,
+    "caseStudySlug": "mindful-monkz",
+    "caseStudyUrl": "https://monkz.xyz/studio",
+    "projectId": "mindful-monkz",
+    "category": "web3"
+  },
+  {
+    "id": "12",
+    "src": "/portfolio/mor-swap.png",
+    "alt": "MOR Swap - DeFi Interface",
+    "title": "MOR Token Swap",
+    "client": "Mor.org",
+    "metatags": [
+      "DeFi",
+      "Interface Design",
+      "Web3"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "mororg",
+    "category": "web3"
+  },
+  {
+    "id": "13",
+    "src": "/portfolio/mutemath-playdead.webp",
+    "alt": "Mutemath - Playdead",
+    "title": "PLAY DEAD album and tour campaign",
+    "client": "Mutemath",
+    "metatags": [
+      "Creative Direction",
+      "Campaign Design",
+      "Packaging"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "mutemath",
+    "category": "music"
+  },
+  {
+    "id": "14",
+    "src": "/portfolio/son-lux.png",
+    "alt": "Son Lux - Remnants",
+    "title": "Remnants",
+    "client": "Son Lux",
+    "metatags": [
+      "Creative Direction",
+      "Photography",
+      "Album Art"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "son-lux",
+    "category": "music"
+  },
+  {
+    "id": "15",
+    "src": "/portfolio/SOULS-1c.jpg",
+    "alt": "Souls - AI Agent Experience",
+    "title": "Designing independent AI for the consumer market",
+    "client": "SOU.LS",
+    "metatags": [
+      "AI",
+      "UX Design",
+      "Product Design"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": true,
+    "caseStudySlug": "souls",
+    "caseStudyUrl": "https://sou.ls",
+    "projectId": "souls",
+    "category": "ai"
+  },
+  {
+    "id": "16",
+    "src": "/portfolio/SOULS-2c.jpg",
+    "alt": "Souls - AI Agent Experience",
+    "title": "Designing independent AI for the consumer market",
+    "client": "SOU.LS",
+    "metatags": [
+      "AI",
+      "Dashboard Design",
+      "UX Design"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "souls",
+    "caseStudyUrl": "https://sou.ls",
+    "projectId": "souls",
+    "category": "ai"
+  },
+  {
+    "id": "17",
+    "src": "/portfolio/SOULS-3c.jpg",
+    "alt": "Souls - AI Agent Experience",
+    "title": "Designing independent AI for the consumer market",
+    "client": "SOU.LS",
+    "metatags": [
+      "AI",
+      "Interface Design",
+      "Product Design"
+    ],
+    "aspectRatio": "wide",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "souls",
+    "caseStudyUrl": "https://sou.ls",
+    "projectId": "souls",
+    "category": "ai"
+  },
+  {
+    "id": "18",
+    "src": "/portfolio/think-agents.png",
+    "alt": "THINK Agents - AI Platform Homepage",
+    "title": "AI you own",
+    "client": "THINK Foundation",
+    "metatags": [
+      "AI",
+      "Platform Design",
+      "Product Design"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": true,
+    "caseStudySlug": "think-agents",
+    "caseStudyUrl": "https://thinkagents.ai",
+    "projectId": "think-agents",
+    "category": "ai"
+  },
+  {
+    "id": "19",
+    "src": "/portfolio/think-agents-dashboard.png",
+    "alt": "THINK Agents - Dashboard",
+    "title": "A dashboard for independent AI",
+    "client": "THINK Foundation",
+    "metatags": [
+      "Web3",
+      "Dashboard Design",
+      "UX Design"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "think-agents",
+    "caseStudyUrl": "https://thinkagents.ai",
+    "projectId": "think-agents",
+    "category": "ai"
+  },
+  {
+    "id": "20",
+    "src": "/portfolio/think-agents-claim.png",
+    "alt": "THINK Agents - Claim Interface",
+    "title": "$THINK token claim interface",
+    "client": "THINK Foundation",
+    "metatags": [
+      "Web3",
+      "Interface Design",
+      "Front-end Development"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "think-agents",
+    "caseStudyUrl": "https://thinkagents.ai/claim",
+    "projectId": "think-agents",
+    "category": "ai"
+  },
+  {
+    "id": "21",
+    "src": "/portfolio/thinkagents-ai-products-thinkubator.png",
+    "alt": "THINK Agents - Thinkubator",
+    "title": "Thinkubator",
+    "client": "THINK Foundation",
+    "metatags": [
+      "Product Design",
+      "Front-end Development"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "think-agents",
+    "caseStudyUrl": "https://thinkagents.ai/products/thinkubator",
+    "projectId": "think-agents",
+    "category": "ai"
   },
   {
     "id": "22",
-    "src": "/portfolio/wistia-talking-too-loud.png",
-    "alt": "Wistia - Talking Too Loud Website",
-    "title": "Talking Too Loud",
-    "client": "Wistia",
-    "metatags": [
-      "Web Design",
-      "Art Direction"
-    ],
-    "aspectRatio": "square",
-    "hidden": false,
-    "featured": false,
-    "category": "brand",
-    "caseStudyUrl": "https://wistia.com/series/talking-too-loud",
-    "caseStudySlug": "wistia"
-  },
-  {
-    "id": "24",
     "src": "/portfolio/think-agents-token-claimed.png",
     "alt": "THINK Agents - Token Claimed",
     "title": "$THINK token claim interface",
-    "client": "THINK Agents",
+    "client": "THINK Foundation",
     "metatags": [
       "Web3",
       "Product Design",
@@ -390,26 +391,60 @@
     "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
-    "projectId": "think-agents",
-    "category": "ai",
+    "caseStudySlug": "think-agents",
     "caseStudyUrl": "https://thinkagents.ai/claim",
-    "caseStudySlug": "think-agents"
+    "projectId": "think-agents",
+    "category": "ai"
+  },
+  {
+    "id": "23",
+    "src": "/portfolio/think-agents-token-claimed-2.png",
+    "alt": "THINK Agents - Token Claimed 2",
+    "title": "$THINK token claim interface",
+    "client": "THINK Foundation",
+    "metatags": [
+      "Web3",
+      "Product Design",
+      "Front-end Development"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "think-agents",
+    "caseStudyUrl": "https://thinkagents.ai/claim",
+    "projectId": "think-agents",
+    "category": "ai"
+  },
+  {
+    "id": "24",
+    "src": "/portfolio/underoath.png",
+    "alt": "Underoath",
+    "title": "Erase Me",
+    "client": "Underoath",
+    "metatags": [
+      "Website Design",
+      "Front-end"
+    ],
+    "aspectRatio": "landscape",
+    "hidden": false,
+    "featured": false,
+    "caseStudySlug": "underoath",
+    "category": "music"
   },
   {
     "id": "25",
-    "src": "/portfolio/forenn-forenn.webp",
-    "alt": "Forenn",
-    "title": "How far can you take a dream?",
-    "client": "Forenn",
+    "src": "/portfolio/w-co.jpeg",
+    "alt": "W-Co",
+    "title": "Merchline Design",
+    "client": "W-Co",
     "metatags": [
-      "Creative Direction",
-      "Visual Identity",
-      "Packaging"
+      "Merch Design"
     ],
-    "aspectRatio": "square",
+    "aspectRatio": "portrait",
     "hidden": false,
     "featured": false,
-    "category": "music"
+    "caseStudySlug": "w-co",
+    "category": "brand"
   },
   {
     "id": "26",
@@ -424,186 +459,41 @@
     "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
-    "category": "web3",
-    "caseStudySlug": "wire-network"
+    "caseStudySlug": "wire-network",
+    "category": "web3"
   },
   {
     "id": "27",
-    "src": "/portfolio/caleb-mabrey-cover.webp",
-    "alt": "Caleb Mabrey - Album Cover",
-    "title": "Caleb Mabrey",
-    "client": "Caleb Mabrey",
+    "src": "/portfolio/wistia-talking-too-loud.png",
+    "alt": "Wistia - Talking Too Loud",
+    "title": "Talking Too Loud",
+    "client": "Wistia",
     "metatags": [
-      "Creative Direction",
-      "Album Packaging"
+      "Brand Campaign",
+      "Art Direction",
+      "Podcast"
     ],
-    "aspectRatio": "square",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
-    "category": "music"
+    "caseStudySlug": "wistia",
+    "category": "brand"
   },
   {
     "id": "28",
-    "src": "/portfolio/think-agents-token-claimed-2.png",
-    "alt": "THINK Agents - Token Claimed 2",
-    "title": "$THINK token claim interface",
-    "client": "THINK Agents",
+    "src": "/portfolio/wistia-talking-too-loud.png",
+    "alt": "Wistia - Talking Too Loud Website",
+    "title": "Talking Too Loud",
+    "client": "Wistia",
     "metatags": [
-      "Web3",
-      "Product Design",
-      "Front-end Development"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "projectId": "think-agents",
-    "category": "ai",
-    "caseStudyUrl": "https://thinkagents.ai/claim",
-    "caseStudySlug": "think-agents"
-  },
-  {
-    "id": "29",
-    "src": "/portfolio/iai.png",
-    "alt": "IAI - Independent AI Institute",
-    "title": "Making Independent AI the global standard",
-    "client": "Independent AI Institute",
-    "metatags": [
-      "Website Design",
-      "UX"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "category": "ai",
-    "caseStudyUrl": "https://independentai.institute",
-    "caseStudySlug": "independent-ai-institute"
-  },
-  {
-    "id": "30",
-    "src": "/portfolio/caleb-mabrey-cover-2.webp",
-    "alt": "Caleb Mabrey - Album Cover - In The Spaces",
-    "title": "In The Spaces",
-    "client": "Caleb Mabrey",
-    "metatags": [
-      "Creative Direction",
-      "Album Packaging"
+      "Web Design",
+      "Art Direction"
     ],
     "aspectRatio": "square",
     "hidden": false,
     "featured": false,
-    "category": "music"
-  },
-  {
-    "id": "31",
-    "src": "/portfolio/mor-swap.png",
-    "alt": "MOR Swap - DeFi Interface",
-    "title": "MOR Token Swap",
-    "client": "Mor.org",
-    "metatags": [
-      "DeFi",
-      "Interface Design",
-      "Web3"
-    ],
-    "aspectRatio": "landscape",
-    "hidden": false,
-    "featured": false,
-    "category": "web3",
-    "caseStudySlug": "mororg"
-  },
-  {
-    "id": "32",
-    "src": "/portfolio/creative-market-video.webp",
-    "alt": "Creative Market Video",
-    "title": "Community Matters campaign",
-    "client": "Creative Market",
-    "metatags": [
-      "Creative Direction",
-      "Marketing",
-      "Film"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "category": "brand",
-    "caseStudySlug": "creative-market"
-  },
-  {
-    "id": "33",
-    "src": "/portfolio/humin-web.avif",
-    "alt": "Humin Web",
-    "title": "Humin Platform",
-    "client": "Humin",
-    "metatags": [
-      "Creative Direction",
-      "Website Design",
-      "UX Design"
-    ],
-    "aspectRatio": "portrait",
-    "hidden": false,
-    "featured": false,
+    "caseStudySlug": "wistia",
+    "caseStudyUrl": "https://wistia.com/series/talking-too-loud",
     "category": "brand"
-  },
-  {
-    "id": "35",
-    "src": "/portfolio/avaere.png",
-    "alt": "Avaere",
-    "title": "Avaere",
-    "client": "Avaere",
-    "metatags": [
-      "Creative Direction",
-      "Website Design",
-      "Visual Identity"
-    ],
-    "aspectRatio": "wide",
-    "hidden": false,
-    "featured": false,
-    "category": "brand",
-    "caseStudySlug": "avaere"
-  },
-  {
-    "id": "36",
-    "src": "/portfolio/w-co.jpeg",
-    "alt": "W-Co",
-    "title": "Merchline Design",
-    "client": "W-Co",
-    "metatags": [
-      "Merch Design"
-    ],
-    "aspectRatio": "portrait",
-    "hidden": false,
-    "featured": false,
-    "category": "brand",
-    "caseStudySlug": "w-co"
-  },
-  {
-    "id": "37",
-    "src": "/portfolio/hank-booth-fire-star.webp",
-    "alt": "Hank & Booth - Five Star",
-    "title": "Five Star",
-    "client": "Hank & Booth",
-    "metatags": [
-      "Title Design",
-      "Movie Poster Design",
-      "Art Direction"
-    ],
-    "aspectRatio": "portrait",
-    "hidden": false,
-    "featured": false,
-    "category": "brand"
-  },
-  {
-    "id": "38",
-    "src": "/portfolio/arrow-pattern.webp",
-    "alt": "Arrow Pattern",
-    "title": "Arrow Pattern",
-    "client": "Pattern Design",
-    "metatags": [
-      "Pattern Design",
-      "Visual Identity",
-      "Creative Direction"
-    ],
-    "aspectRatio": "wide",
-    "hidden": true,
-    "featured": false
   }
 ]
