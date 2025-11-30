@@ -188,12 +188,13 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
 
   // Determine if item should span 2 columns
   const shouldSpanTwoColumns = (item: PortfolioItem): boolean => {
-    // Check aspectRatio first
+    // Check aspectRatio first (if provided)
     if (item.aspectRatio === 'wide' || item.aspectRatio === 'ultra-wide') {
       return true
     }
 
-    // Use hash-based pattern for variety (~25% span 2 columns)
+    // If no aspectRatio, use hash-based pattern for variety (~25% span 2 columns)
+    // This allows items without aspectRatio to still have some variety
     const hash = hashString(item.id)
     return hash % 4 === 0
   }

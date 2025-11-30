@@ -10,7 +10,7 @@
       "Interface Design",
       "UX Design"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "portrait",
     "hidden": false,
     "featured": true,
     "projectId": "6079-ai-platform",
@@ -46,7 +46,7 @@
       "Album Packaging",
       "Visual Identity"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "square",
     "hidden": false,
     "featured": true,
     "category": "music",
@@ -63,7 +63,7 @@
       "UX Design",
       "Product Design"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": true,
     "projectId": "souls",
@@ -82,7 +82,7 @@
       "Art Direction",
       "Podcast"
     ],
-    "aspectRatio": "landscape",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "category": "brand",
@@ -99,7 +99,7 @@
       "Platform Design",
       "Product Design"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": true,
     "projectId": "think-agents",
@@ -118,7 +118,7 @@
       "Book Design",
       "Brand Strategy"
     ],
-    "aspectRatio": "landscape",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "category": "brand",
@@ -135,7 +135,7 @@
       "Dashboard Design",
       "UX Design"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "projectId": "think-agents",
@@ -154,7 +154,7 @@
       "Photography",
       "Film"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "category": "brand",
@@ -171,7 +171,7 @@
       "Dashboard Design",
       "UX Design"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "projectId": "souls",
@@ -189,7 +189,7 @@
       "Website Design",
       "Front-end"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "category": "music",
@@ -206,7 +206,7 @@
       "Interface Design",
       "UX Design"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "portrait",
     "hidden": false,
     "featured": false,
     "projectId": "6079-ai-platform",
@@ -225,7 +225,7 @@
       "Photography",
       "Album Art"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "category": "music",
@@ -242,7 +242,7 @@
       "Interface Design",
       "Front-end Development"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "projectId": "think-agents",
@@ -261,7 +261,7 @@
       "Interface Design",
       "Product Design"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "projectId": "souls",
@@ -280,7 +280,7 @@
       "Product Design",
       "Community Platform"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": true,
     "projectId": "mindful-monkz",
@@ -299,7 +299,7 @@
       "Interface Design",
       "UX Design"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "portrait",
     "hidden": false,
     "featured": false,
     "projectId": "6079-ai-platform",
@@ -318,7 +318,7 @@
       "Campaign Design",
       "Packaging"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "category": "music",
@@ -334,7 +334,7 @@
       "Product Design",
       "Front-end Development"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "projectId": "think-agents",
@@ -369,7 +369,7 @@
       "Web Design",
       "Art Direction"
     ],
-    "aspectRatio": "landscape",
+    "aspectRatio": "square",
     "hidden": false,
     "featured": false,
     "category": "brand",
@@ -387,7 +387,7 @@
       "Product Design",
       "Front-end Development"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "projectId": "think-agents",
@@ -406,7 +406,7 @@
       "Visual Identity",
       "Packaging"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "square",
     "hidden": false,
     "featured": false,
     "category": "music"
@@ -421,7 +421,7 @@
       "Product Design",
       "UX Design"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "category": "web3",
@@ -437,7 +437,7 @@
       "Creative Direction",
       "Album Packaging"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "square",
     "hidden": false,
     "featured": false,
     "category": "music"
@@ -453,7 +453,7 @@
       "Product Design",
       "Front-end Development"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "projectId": "think-agents",
@@ -471,7 +471,7 @@
       "Website Design",
       "UX"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "category": "ai",
@@ -488,7 +488,7 @@
       "Creative Direction",
       "Album Packaging"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "square",
     "hidden": false,
     "featured": false,
     "category": "music"
@@ -504,7 +504,7 @@
       "Interface Design",
       "Web3"
     ],
-    "aspectRatio": "wide",
+    "aspectRatio": "landscape",
     "hidden": false,
     "featured": false,
     "category": "web3",
@@ -521,7 +521,7 @@
       "Marketing",
       "Film"
     ],
-    "aspectRatio": "landscape",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "category": "brand",
@@ -538,7 +538,7 @@
       "Website Design",
       "UX Design"
     ],
-    "aspectRatio": "landscape",
+    "aspectRatio": "portrait",
     "hidden": false,
     "featured": false,
     "category": "brand"
@@ -554,7 +554,7 @@
       "Website Design",
       "Visual Identity"
     ],
-    "aspectRatio": "portrait",
+    "aspectRatio": "wide",
     "hidden": false,
     "featured": false,
     "category": "brand",
@@ -602,7 +602,7 @@
       "Visual Identity",
       "Creative Direction"
     ],
-    "aspectRatio": "square",
+    "aspectRatio": "wide",
     "hidden": true,
     "featured": false
   }
