@@ -141,7 +141,8 @@ node scripts/update-aspect-ratios.js
 node scripts/update-portfolio-thumbnails.js
 ```
 **When to run:** When case study featured images change  
-**What it does:** Updates portfolio thumbnails to match case study featured images
+**What it does:** Updates the **primary/featured** portfolio item thumbnail to match case study featured image  
+**Note:** Only updates the first/featured item per project. Other items keep their specific images to highlight different aspects.
 
 ### Preview Aspect Ratios (Optional)
 ```bash

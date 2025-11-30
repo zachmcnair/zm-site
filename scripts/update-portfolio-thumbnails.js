@@ -48,30 +48,34 @@ caseStudies.forEach(file => {
   // Find all portfolio items for this case study
   const portfolioItems = portfolio.filter(item => item.caseStudySlug === slug);
   
-  portfolioItems.forEach(item => {
-    if (item.src !== firstImage) {
-      const oldSrc = item.src;
-      item.src = firstImage;
-      updated++;
-      updates.push({
-        id: item.id,
-        title: item.title,
-        old: oldSrc,
-        new: firstImage
-      });
-    }
-  });
+  // Only update the FIRST item (primary/featured item) for each project
+  // This allows other items to use specific images for different aspects
+  const primaryItem = portfolioItems.find(item => item.featured) || portfolioItems[0];
+  
+  if (primaryItem && primaryItem.src !== firstImage) {
+    const oldSrc = primaryItem.src;
+    primaryItem.src = firstImage;
+    updated++;
+    updates.push({
+      id: primaryItem.id,
+      title: primaryItem.title,
+      old: oldSrc,
+      new: firstImage
+    });
+  }
 });
 
 if (updated > 0) {
   fs.writeFileSync(portfolioPath, JSON.stringify(portfolio, null, 2) + '\n');
-  console.log(`✅ Updated ${updated} portfolio thumbnails:\n`);
+  console.log(`✅ Updated ${updated} primary portfolio thumbnails:\n`);
   updates.forEach(u => {
     console.log(`  ${u.id}: ${u.title}`);
     console.log(`    ${u.old} → ${u.new}`);
   });
-  console.log(`\n✨ All thumbnails now match case study featured images!`);
+  console.log(`\n✨ Primary thumbnails updated!`);
+  console.log(`\nNote: Only the primary/featured item for each project was updated.`);
+  console.log(`Other items can use specific images to highlight different aspects.`);
 } else {
-  console.log('✅ All portfolio thumbnails already match case study featured images');
+  console.log('✅ All primary portfolio thumbnails already match case study featured images');
 }
 
