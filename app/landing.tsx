@@ -3,17 +3,17 @@ import { PortfolioCarousel } from './components/portfolio-carousel'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Zach McNair — Brand & Product Design Consultant',
-  description: 'Brand & product design consultant with over 27 years of experience. Specializing in AI, Web3, and digital product design. Currently working on THINK, Mindful Monkz, and music production.',
+  title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
+  description: '0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.',
   openGraph: {
-    title: 'Zach McNair — Brand & Product Design Consultant',
-    description: 'Brand & product design consultant with over 27 years of experience. Specializing in AI, Web3, and digital product design.',
+    title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
+    description: '0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zach McNair — Brand & Product Design Consultant',
-    description: 'Brand & product design consultant with over 27 years of experience. Specializing in AI, Web3, and digital product design.',
+    title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
+    description: '0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.',
   },
 }
 

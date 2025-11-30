@@ -611,6 +611,21 @@ div[style*="background-color: #333333"] {
   color: #fefcf4; /* White in dark mode */
 }
 
+/* Xanh Mono font utility classes */
+.font-xanh-mono {
+  font-family: 'Xanh Mono', monospace !important;
+}
+
+/* VT323 font utility classes */
+.font-vt323 {
+  font-family: var(--font-vt323), 'VT323', 'Courier New', Courier, monospace !important;
+}
+
+/* Instrument Serif font utility classes */
+.font-instrument-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
 /* Gradient Border Button */
 .gradient-border-button {
   position: relative;
