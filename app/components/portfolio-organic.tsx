@@ -15,6 +15,7 @@ interface PortfolioItem {
   hidden?: boolean
   featured?: boolean
   caseStudyUrl?: string
+  caseStudySlug?: string
   projectId?: string
   category?: string
 }
@@ -202,12 +203,23 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
       {displayItems.map((item) => {
         const spanTwo = shouldSpanTwoColumns(item)
         const isVisible = visibleImages.has(item.id)
-        // Determine link destination: internal portfolio page or external URL
-        const linkHref = item.caseStudyUrl?.startsWith('http') 
-          ? item.caseStudyUrl 
-          : item.caseStudyUrl || `/portfolio/${item.id}`
-        const isExternal = item.caseStudyUrl?.startsWith('http') || false
-        const buttonText = isExternal ? 'VIEW LIVE SITE' : 'VIEW PROJECT'
+        
+        // Determine link destination: case study (priority) > external URL > no link
+        let linkHref: string | null = null
+        let isExternal = false
+        let buttonText = 'VIEW PROJECT'
+        
+        if (item.caseStudySlug) {
+          // Priority 1: Case study page
+          linkHref = `/case-studies/${item.caseStudySlug}`
+          buttonText = 'VIEW CASE STUDY'
+        } else if (item.caseStudyUrl?.startsWith('http')) {
+          // Priority 2: External URL
+          linkHref = item.caseStudyUrl
+          isExternal = true
+          buttonText = 'VIEW LIVE SITE'
+        }
+        // Priority 3: No link (linkHref remains null)
 
         const cardContent = (
           <div className="flex flex-col gap-[4px] group">
@@ -230,13 +242,17 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
                 fetchPriority={displayItems.indexOf(item) < 6 ? 'high' : 'low'}
               />
               
-              {/* Hover overlay - show for all items */}
-              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="gradient-border-button px-6 py-3 text-sm font-faktum-medium">
-                  {buttonText}
-                </div>
-              </div>
+              {/* Hover overlay - only show if there's a link */}
+              {linkHref && (
+                <>
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="gradient-border-button px-6 py-3 text-sm font-faktum-medium">
+                      {buttonText}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
             
             {/* Content */}
@@ -259,13 +275,17 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
             key={item.id}
             className={spanTwo ? 'col-span-1 md:col-span-2' : 'col-span-1'}
           >
-            <Link
-              href={linkHref}
-              target={isExternal ? '_blank' : '_self'}
-              rel={isExternal ? 'noopener noreferrer' : undefined}
-            >
-              {cardContent}
-            </Link>
+            {linkHref ? (
+              <Link
+                href={linkHref}
+                target={isExternal ? '_blank' : '_self'}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+              >
+                {cardContent}
+              </Link>
+            ) : (
+              cardContent
+            )}
           </div>
         )
       })}
