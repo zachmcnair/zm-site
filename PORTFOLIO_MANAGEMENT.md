@@ -8,57 +8,69 @@
 
 ## 🚀 Quick Workflows
 
-### Add New Portfolio Item
+### Edit Portfolio Items for a Project
 
-```
-1. Add image to /public/portfolio/
-2. Add entry to app/lib/portfolio.json
-3. Run: node scripts/update-aspect-ratios.js  ← DON'T FORGET THIS!
-```
+**All items for a project are in the case study frontmatter!**
 
-### Add Portfolio Item + Case Study (EASY MODE)
+1. Open the case study: `app/content/case-studies/project-slug.mdx`
+2. Edit the `portfolioItems` array in the frontmatter
+3. Run: `node scripts/generate-portfolio-json.js`  ← Regenerate portfolio.json
+4. Run: `node scripts/update-aspect-ratios.js`  ← Update aspect ratios
+
+### Add New Portfolio Item to Existing Project
+
+1. Open the case study: `app/content/case-studies/project-slug.mdx`
+2. Add a new item to the `portfolioItems` array:
+```yaml
+portfolioItems:
+  - src: "/portfolio/new-image.png"
+    alt: "Description"
+    title: "Project Title"
+    metatags: ["Tag 1", "Tag 2"]
+    featured: false
+    hidden: false
+```
+3. Run: `node scripts/generate-portfolio-json.js`
+4. Run: `node scripts/update-aspect-ratios.js`
+
+### Add New Project + Case Study
 
 **Use the script - it creates everything for you:**
 ```bash
 node scripts/add-project.js <project-slug> <client-name> [title]
 ```
 
-**Example:**
-```bash
-node scripts/add-project.js mindful-monkz "Mindful Monkz"
-```
-
 **Then:**
-1. Add your images to `/public/portfolio/` (use the filenames from the template)
+1. Add your images to `/public/portfolio/`
 2. Edit the case study: `app/content/case-studies/project-slug.mdx`
-3. Edit the portfolio entry in `app/lib/portfolio.json` (update metatags, etc.)
-4. Run: `node scripts/update-aspect-ratios.js`  ← DON'T FORGET THIS!
+3. Add `portfolioItems` array to frontmatter
+4. Run: `node scripts/generate-portfolio-json.js`
+5. Run: `node scripts/update-aspect-ratios.js`
 
-**Manual method (if you prefer):**
-```
-1. Add image to /public/portfolio/
-2. Create case study: app/content/case-studies/project-slug.mdx
-3. Add entry to app/lib/portfolio.json with caseStudySlug: "project-slug"
-4. Run: node scripts/update-aspect-ratios.js  ← DON'T FORGET THIS!
-```
+### Hide Entire Project
+
+**Super easy now!**
+1. Open the case study: `app/content/case-studies/project-slug.mdx`
+2. Set `published: false` in frontmatter
+3. Run: `node scripts/generate-portfolio-json.js`
 
 ### Update Existing Item's Image
 
-```
-1. Replace image in /public/portfolio/ (same filename)
-2. Run: node scripts/update-aspect-ratios.js  ← DON'T FORGET THIS!
-```
+1. Replace image in `/public/portfolio/` (same filename)
+2. Run: `node scripts/generate-portfolio-json.js` (if you changed the filename)
+3. Run: `node scripts/update-aspect-ratios.js`
 
 ---
 
-## ⚠️ REMINDER: Aspect Ratios
+## ⚠️ REMINDER: Workflow
 
-**After ANY change to portfolio items, run:**
+**After editing case study frontmatter, always run:**
 ```bash
-node scripts/update-aspect-ratios.js
+node scripts/generate-portfolio-json.js  # Regenerate portfolio.json
+node scripts/update-aspect-ratios.js     # Update aspect ratios
 ```
 
-This auto-detects aspect ratios from image dimensions. **Don't skip this step!**
+**Don't skip these steps!** portfolio.json is generated, not manually edited.
 
 ---
 
@@ -82,38 +94,36 @@ portfolioItems:
 
 ---
 
-## 🎯 Common Fields Explained
+## 🎯 Portfolio Item Fields (in Case Study Frontmatter)
 
 | Field | What It Does | Required? |
 |-------|-------------|-----------|
-| `id` | Unique identifier | ✅ Yes |
 | `src` | Image path (`/portfolio/filename.jpg`) | ✅ Yes |
 | `alt` | Alt text for accessibility | ✅ Yes |
 | `title` | Project title | ✅ Yes |
-| `client` | Client name | ✅ Yes |
 | `metatags` | Array of tags | ✅ Yes |
-| `aspectRatio` | Auto-detected by script | ❌ No |
-| `hidden` | Hide from portfolio | ❌ No (default: false) |
 | `featured` | Show in carousel | ❌ No (default: false) |
-| `caseStudySlug` | Link to case study | ❌ No |
-| `caseStudyUrl` | External link | ❌ No |
+| `hidden` | Hide from portfolio | ❌ No (default: false) |
+| `aspectRatio` | Auto-detected by script | ❌ No |
+| `caseStudyUrl` | External link (optional) | ❌ No |
+| `projectId` | Groups related items (optional) | ❌ No |
+| `category` | Project category (optional) | ❌ No |
+
+**Note:** `id`, `client`, and `caseStudySlug` are automatically added when generating portfolio.json
 
 ---
 
 ## 🔗 Linking to Case Studies
 
-**Internal case study (recommended):**
-```json
-"caseStudySlug": "project-name"
-```
-- Links to `/case-studies/project-name`
-- Case study must exist in `app/content/case-studies/project-name.mdx`
+**Automatic!** Portfolio items in a case study automatically link to that case study.
 
-**External link (fallback):**
-```json
-"caseStudyUrl": "https://external-site.com"
+**External link (optional):**
+```yaml
+portfolioItems:
+  - src: "/portfolio/image.png"
+    caseStudyUrl: "https://external-site.com"  # Optional external link
 ```
-- Only used if `caseStudySlug` is not set
+- Only used if you want to override the case study link
 
 ---
 
@@ -153,10 +163,11 @@ node scripts/detect-aspect-ratios.js
 
 ## 📂 File Locations
 
-- **Portfolio data:** `app/lib/portfolio.json`
+- **Portfolio data (EDIT HERE):** `app/content/case-studies/*.mdx` (frontmatter)
+- **Portfolio data (GENERATED):** `app/lib/portfolio.json` (don't edit manually!)
 - **Portfolio images:** `public/portfolio/`
 - **Case studies:** `app/content/case-studies/*.mdx`
-- **Scripts:** `scripts/update-aspect-ratios.js`
+- **Scripts:** `scripts/generate-portfolio-json.js`, `scripts/update-aspect-ratios.js`
 
 ---
 
@@ -189,9 +200,9 @@ node scripts/detect-aspect-ratios.js
 
 ## ⚡ One-Liner Reminder
 
-**After adding ANY portfolio item:**
+**After editing case study frontmatter:**
 ```bash
-node scripts/update-aspect-ratios.js
+node scripts/generate-portfolio-json.js && node scripts/update-aspect-ratios.js
 ```
 
 That's it! 🎉
