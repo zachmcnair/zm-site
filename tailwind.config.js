@@ -6,6 +6,14 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontSize: {
+        'unit-xs': 'var(--unit-xs)',
+        'unit-sm': 'var(--unit-sm)',
+        'unit-md': 'var(--unit-md)',
+        'unit-lg': 'var(--unit-lg)',
+        'unit-xl': 'var(--unit-xl)',
+        'unit-xxl': 'var(--unit-xxl)',
+      },
       animation: {
         'scroll-left': 'scroll-left 12s linear infinite',
         'scroll-right': 'scroll-right 12s linear infinite',

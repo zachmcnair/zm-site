@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from 'app/lib/mdx'
-import { SimpleContent } from 'app/components/simple-content'
-import { ShareButtons } from 'app/components/share-buttons'
+import { CaseStudyPageClient } from 'app/components/case-study-page-client'
 import { Metadata } from 'next'
-import Link from 'next/link'
 import { baseUrl } from 'app/sitemap'
+import Script from 'next/script'
+import portfolioData from 'app/lib/portfolio.json'
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -29,21 +29,78 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     }
   }
 
+  // Extract description from content body
+  const contentLines = caseStudy.content.split('\n')
+  const initialDescription: string[] = []
+  for (const line of contentLines) {
+    if (line.startsWith('## ')) break
+    if (line.trim() && !line.trim().startsWith('#')) {
+      initialDescription.push(line.trim())
+    }
+  }
+  const description = initialDescription.length > 0 
+    ? initialDescription.join(' ') 
+    : caseStudy.meta.description || `Case study: ${caseStudy.meta.title}`
+
+  // Extract first image for Open Graph
+  let ogImage: string | undefined
+  let inImagesSection = false
+  for (const line of contentLines) {
+    if (line.startsWith('## Project Images')) {
+      inImagesSection = true
+      continue
+    }
+    if (inImagesSection && line.startsWith('## ')) {
+      break
+    }
+    if (inImagesSection && line.trim()) {
+      const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/)
+      if (imageMatch) {
+        const [, , src] = imageMatch
+        ogImage = src.startsWith('http') ? src : `${baseUrl}${src.startsWith('/') ? '' : '/'}${src}`
+        break
+      }
+    }
+  }
+
+  const title = caseStudy.meta.client 
+    ? `${caseStudy.meta.title} — ${caseStudy.meta.client}`
+    : caseStudy.meta.title
+
+  const url = `${baseUrl}/case-studies/${slug}`
+
   return {
-    title: caseStudy.meta.title,
-    description: caseStudy.meta.description,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: caseStudy.meta.title,
-      description: caseStudy.meta.description,
-      url: `${baseUrl}/case-studies/${slug}`,
+      title,
+      description,
+      url,
       type: 'article',
-      publishedTime: caseStudy.meta.date,
-      tags: caseStudy.meta.tags,
+      images: ogImage ? [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: caseStudy.meta.title,
+        }
+      ] : [
+        {
+          url: `${baseUrl}/zm-social-share.jpg`,
+          width: 1200,
+          height: 630,
+          alt: caseStudy.meta.title,
+        }
+      ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: caseStudy.meta.title,
-      description: caseStudy.meta.description,
+      title,
+      description,
+      images: ogImage ? [ogImage] : [`${baseUrl}/zm-social-share.jpg`],
     },
   }
 }
@@ -52,59 +109,222 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = await params
   const caseStudy = getPostBySlug(slug, 'case-studies')
 
-  if (!caseStudy) {
+  if (!caseStudy || (caseStudy.meta.published === false && process.env.NODE_ENV !== 'development')) {
     notFound()
   }
 
-  const caseStudyUrl = `${baseUrl}/case-studies/${slug}`
+  // Extract roles/deliverables from content
+  const roles: string[] = []
+  const lines = caseStudy.content.split('\n')
+  let inRoleSection = false
+  for (const line of lines) {
+    if (line.startsWith('## Role / Deliverables')) {
+      inRoleSection = true
+      continue
+    }
+    if (inRoleSection && line.startsWith('## ')) {
+      break
+    }
+    if (inRoleSection && line.trim() && !line.trim().startsWith('*') && !line.toLowerCase().includes('add roles')) {
+      // Check if it's a JSON array format (handles various spacing)
+      const trimmedLine = line.trim()
+      if (trimmedLine.startsWith('[') && trimmedLine.endsWith(']')) {
+        // Extract all roles from JSON array
+        const rolesStr = trimmedLine.match(/"([^"]+)"/g)
+        if (rolesStr) {
+          roles.push(...rolesStr.map(r => r.replace(/"/g, '')))
+        }
+      } else {
+        // Regular text line - add as role
+        if (trimmedLine) {
+          roles.push(trimmedLine)
+        }
+      }
+    }
+  }
+
+  // Extract collaborators from content
+  const collaborators: string[] = []
+  let inCollaboratorsSection = false
+  for (const line of lines) {
+    if (line.startsWith('## Collaborators')) {
+      inCollaboratorsSection = true
+      continue
+    }
+    if (inCollaboratorsSection && line.startsWith('## ')) {
+      break
+    }
+    if (inCollaboratorsSection && line.trim() && !line.trim().startsWith('*') && !line.toLowerCase().includes('optional') && !line.toLowerCase().includes('add collaborators')) {
+      collaborators.push(line.trim())
+    }
+  }
+
+  // Extract description from content body
+  const contentLines = caseStudy.content.split('\n')
+  const initialDescription: string[] = []
+  for (const line of contentLines) {
+    if (line.startsWith('## ')) break
+    if (line.trim() && !line.trim().startsWith('#')) {
+      initialDescription.push(line.trim())
+    }
+  }
+  const displayDescription = initialDescription.length > 0 ? initialDescription.join(' ') : caseStudy.meta.description
+
+  // Get featured image from portfolio.json (single source of truth)
+  // Look up portfolio item by caseStudySlug
+  let featuredImage: { src: string; alt: string } | undefined
+  const portfolioItem = portfolioData.find(item => item.caseStudySlug === slug)
+  
+  if (portfolioItem) {
+    // Use portfolio.json src as featured thumbnail
+    featuredImage = {
+      src: portfolioItem.src,
+      alt: portfolioItem.alt,
+    }
+  } else {
+    // Fallback: Extract first image from MDX if no portfolio.json match
+    let inImagesSection = false
+    for (const line of contentLines) {
+      if (line.startsWith('## Project Images')) {
+        inImagesSection = true
+        continue
+      }
+      if (inImagesSection && line.startsWith('## ')) {
+        break
+      }
+      if (inImagesSection && line.trim()) {
+        const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/)
+        if (imageMatch) {
+          const [, alt, src] = imageMatch
+          featuredImage = { src, alt: alt || '' }
+          break
+        }
+      }
+    }
+  }
+
+  const url = `${baseUrl}/case-studies/${slug}`
+  const ogImage = featuredImage?.src 
+    ? (featuredImage.src.startsWith('http') ? featuredImage.src : `${baseUrl}${featuredImage.src.startsWith('/') ? '' : '/'}${featuredImage.src}`)
+    : `${baseUrl}/zm-social-share.jpg`
+
+  // Get all case studies for navigation
+  const allCaseStudies = getAllPosts('case-studies')
+  const currentIndex = allCaseStudies.findIndex(cs => cs.slug === slug)
+  
+  // Get previous and next case studies with infinite loop
+  const previousIndex = currentIndex > 0 ? currentIndex - 1 : allCaseStudies.length - 1
+  const nextIndex = currentIndex < allCaseStudies.length - 1 ? currentIndex + 1 : 0
+  
+  const previousCaseStudy = allCaseStudies[previousIndex]
+  const nextCaseStudy = allCaseStudies[nextIndex]
+
+  // Get featured images from portfolio.json for navigation
+  // Look up portfolio items by caseStudySlug
+  const getFeaturedImageFromPortfolio = (caseStudySlug: string): string | undefined => {
+    const portfolioItem = portfolioData.find(item => item.caseStudySlug === caseStudySlug)
+    return portfolioItem?.src
+  }
+
+  // Fallback: Extract first image from MDX if no portfolio.json match
+  const extractFirstImage = (content: string): string | undefined => {
+    let inImagesSection = false
+    for (const line of content.split('\n')) {
+      if (line.startsWith('## Project Images')) {
+        inImagesSection = true
+        continue
+      }
+      if (inImagesSection && line.startsWith('## ')) {
+        break
+      }
+      if (inImagesSection && line.trim()) {
+        const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/)
+        if (imageMatch) {
+          const [, , src] = imageMatch
+          return src
+        }
+      }
+    }
+    return undefined
+  }
+
+  const previous = previousCaseStudy ? {
+    slug: previousCaseStudy.slug,
+    title: previousCaseStudy.meta.title,
+    client: previousCaseStudy.meta.client,
+    image: getFeaturedImageFromPortfolio(previousCaseStudy.slug) || extractFirstImage(previousCaseStudy.content),
+  } : undefined
+
+  const next = nextCaseStudy ? {
+    slug: nextCaseStudy.slug,
+    title: nextCaseStudy.meta.title,
+    client: nextCaseStudy.meta.client,
+    image: getFeaturedImageFromPortfolio(nextCaseStudy.slug) || extractFirstImage(nextCaseStudy.content),
+  } : undefined
+
+  // Extract images for all case studies for navigation component
+  const allCaseStudiesWithImages = allCaseStudies.map(cs => {
+    const image = getFeaturedImageFromPortfolio(cs.slug) || extractFirstImage(cs.content)
+    return {
+      slug: cs.slug,
+      title: cs.meta.title,
+      client: cs.meta.client,
+      image,
+    }
+  })
+
+  // Build structured data for case study
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": caseStudy.meta.title,
+    "description": displayDescription || caseStudy.meta.description || '',
+    "url": url,
+    "image": ogImage,
+    "creator": {
+      "@type": "Person",
+      "name": "Zach McNair",
+      "url": baseUrl
+    },
+    ...(caseStudy.meta.client && {
+      "client": {
+        "@type": "Organization",
+        "name": caseStudy.meta.client
+      }
+    }),
+    ...(roles.length > 0 && {
+      "keywords": roles.join(", ")
+    }),
+    ...(caseStudy.meta.tags && caseStudy.meta.tags.length > 0 && {
+      "about": caseStudy.meta.tags.map(tag => ({
+        "@type": "Thing",
+        "name": tag
+      }))
+    })
+  }
 
   return (
-    <article className="max-w-4xl mx-auto">
-      <header className="mb-8">
-        <Link 
-          href="/case-studies" 
-          className="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block"
-        >
-          ← Back to Case Studies
-        </Link>
-        
-        <h1 className="text-4xl font-faktum-medium tracking-tight mb-4">
-          {caseStudy.meta.title}
-        </h1>
-        
-        <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
-          <time dateTime={caseStudy.meta.date}>
-            {caseStudy.meta.date}
-          </time>
-          {caseStudy.meta.tags && caseStudy.meta.tags.length > 0 && (
-            <div className="flex gap-2">
-              {caseStudy.meta.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-        
-        {caseStudy.meta.description && (
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-            {caseStudy.meta.description}
-          </p>
-        )}
-      </header>
-
-      <SimpleContent content={caseStudy.content} />
-
-      <ShareButtons 
-        title={caseStudy.meta.title}
-        url={caseStudyUrl}
-        description={caseStudy.meta.description}
-        tags={caseStudy.meta.tags}
+    <>
+      <Script
+        id={`structured-data-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }}
       />
-    </article>
+      <CaseStudyPageClient
+        title={caseStudy.meta.title}
+        client={caseStudy.meta.client}
+        roles={roles}
+        description={displayDescription || ''}
+        collaborators={collaborators}
+        featuredImage={featuredImage}
+        content={caseStudy.content}
+        previous={previous}
+        next={next}
+        slug={slug}
+        allCaseStudies={allCaseStudiesWithImages}
+      />
+    </>
   )
-} 
+}

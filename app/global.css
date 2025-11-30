@@ -21,7 +21,7 @@
   
   /* Brand Colors */
   --off-white: #FEFCF4;
-  --off-black: #0E0F12;
+  --off-black: #050607;
   --light-digital-blue: #A4A4F1;
   --digital-blue-primary: #9191C9;
   --dark-digital-blue: #21232B;
@@ -46,6 +46,18 @@
   
   /* Signature filter for light mode */
   --signature-filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1234%) hue-rotate(202deg) brightness(94%) contrast(86%);
+  
+  /* Type Units */
+  --unit-xs: 0.5rem;
+  --unit-sm: 0.875rem;
+  --unit-md: 1rem;
+  --unit-lg: 1.125rem;
+  --unit-xl: 1.5rem;
+  --unit-xxl: 4rem;
+  --unit-gutter: 4rem;
+  --unit-textmax: 42rem;
+  --unit-corner: 0.5rem;
+  --unit-layoutmax: 60rem;
 }
 
 .dark {
@@ -56,7 +68,7 @@
   --logo-color: #ffffff;
   
   /* Dark Mode Colors */
-  --background: #0E0F12;
+  --background: #050607;
   --raised: #2A2D36;
   --raised-tertiary: #1A1D26;
   --text: #FEFCF4;
@@ -75,14 +87,14 @@
 html {
   min-width: 360px;
   font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 body {
   color: var(--text);
   background-color: var(--background);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -121,7 +133,7 @@ body {
 }
 
 .dark .nav-backdrop {
-  background-color: rgba(14, 15, 18, 0.8);
+  background-color: rgba(5, 6, 7, 0.8);
 }
 
 /* Page transition animations */
@@ -413,10 +425,22 @@ h2 {
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Override for section headings that should be regular weight */
+h2.font-faktum-regular {
+  font-weight: 400 !important;
+  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
 h3 {
   @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 400;
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Override for footer headings that should be regular weight */
+h3.font-faktum-regular {
+  font-weight: 400 !important;
+  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 p {
@@ -472,8 +496,10 @@ li {
 }
 
 .expertise-item {
-  @apply px-0 py-1 text-sm font-medium transition-colors text-left;
-  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  @apply px-0 py-1 transition-colors text-left;
+  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--unit-sm);
+  font-weight: 400; /* Regular weight */
   background: none !important;
   border: none !important;
   border-radius: 0 !important;
@@ -576,6 +602,8 @@ div[style*="background-color: #333333"] {
 /* Memo text styling */
 .memo-text {
   color: var(--text); /* Off-black in light mode */
+  font-size: var(--unit-sm);
+  line-height: 1.5;
 }
 
 .dark .memo-text {
@@ -585,6 +613,8 @@ div[style*="background-color: #333333"] {
 /* Body text styling - consistent across the site */
 .body-text {
   color: var(--text); /* Off-black in light mode */
+  font-size: var(--unit-sm);
+  line-height: 1.5;
 }
 
 .dark .body-text {
@@ -594,6 +624,8 @@ div[style*="background-color: #333333"] {
 /* Experience body text - same as job titles */
 .experience-body-text {
   color: var(--text); /* Dark text in light mode */
+  font-size: var(--unit-sm);
+  line-height: 1.5;
 }
 
 .dark .experience-body-text {
@@ -609,6 +641,84 @@ div[style*="background-color: #333333"] {
 .dark .experience-body-text ul,
 .dark .experience-body-text li {
   color: #fefcf4; /* White in dark mode */
+}
+
+/* Xanh Mono font utility classes */
+.font-xanh-mono {
+  font-family: 'Xanh Mono', monospace !important;
+}
+
+/* VT323 font utility classes */
+.font-vt323 {
+  font-family: var(--font-vt323), 'VT323', 'Courier New', Courier, monospace !important;
+}
+
+/* Instrument Serif font utility classes */
+.font-instrument-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
+/* Gradient Border Button */
+.gradient-border-button {
+  position: relative;
+  background: var(--background);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+  isolation: isolate;
+  padding: 0.75rem 1.5rem;
+  color: var(--text);
+  text-align: center;
+  display: inline-block;
+}
+
+.gradient-border-button::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, 
+    #A4A4F1 0%, 
+    #E0D9C3 50%, 
+    #9B9581 74%, 
+    #21232B 100%);
+  background-size: 200% 100%;
+  animation: animate-gradient-border 8s ease-in-out infinite;
+  z-index: -2;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  padding: 1px;
+}
+
+.gradient-border-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--background);
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.gradient-border-button:hover {
+  color: var(--background);
+}
+
+.gradient-border-button:hover::after {
+  background: linear-gradient(90deg, 
+    #A4A4F1 0%, 
+    #E0D9C3 50%, 
+    #9B9581 74%, 
+    #21232B 100%);
+  background-size: 200% 100%;
+  animation: animate-gradient-border 8s ease-in-out infinite;
+}
+
+@keyframes animate-gradient-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 

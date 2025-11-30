@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
-import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold, dmMono, newsreader } from './fonts'
+import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold, dmMono, newsreader, vt323, xanhMono, instrumentSerif } from './fonts'
 import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
 import { LastFmProvider } from './components/lastfm-context'
@@ -19,24 +19,55 @@ const WIP = false
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Zach McNair — Brand & Product Design Consultant',
+    default: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
     template: '%s | Zach McNair',
   },
-  description: 'Brand & product design consultant with over 27 years of experience helping companies reach their intended audiences. Specializing in AI, Web3, and digital product design.',
+  description: '0→1 designer shaping AI × UX × Web3. Portfolio of 25+ case studies including THINK Agents, 6079 AI, SOU.LS, Wistia, Indeed, and more. Designing how humans and decentralized agents connect through design, technology, and play.',
   keywords: [
-    'brand design',
+    'ai x ux',
+    'decentralized ai',
+    'web3',
+    'agent design',
+    '0→1 designer',
+    'human agent experiences',
+    'design systems',
+    'web3 & blockchain',
+    'website design & development',
+    'software design & development',
     'product design',
-    'UI/UX design',
-    'AI design',
-    'Web3 design',
-    'digital product consultant',
-    'design consultant',
+    'interface design',
+    'ux design',
+    'creative direction',
+    'visual identity',
+    'brand strategy',
+    'album packaging',
+    'marketing campaigns',
+    'naming',
+    'GTM',
+    'campaigns',
+    'NFTs & tokens',
+    'user experience',
+    'agentic experience',
     'Zach McNair',
     'Austin designer',
     'AI consultant',
     'Web3 consultant',
     'music production',
-    'NFT communities'
+    'All Manner Of Us',
+    'THINK Agents',
+    'THINK Foundation',
+    '6079 AI',
+    'SOU.LS',
+    'Independent AI Institute',
+    'Wistia',
+    'Indeed',
+    'HCA Healthcare',
+    'Wire Network',
+    'Mindful Monkz',
+    'Hammock',
+    'Mutemath',
+    'Son Lux',
+    'Underoath'
   ],
   authors: [{ name: 'Zach McNair' }],
   creator: 'Zach McNair',
@@ -51,10 +82,12 @@ export const metadata: Metadata = {
     'agent-interaction': 'welcome',
     'contact-method': 'email',
     'availability': 'consulting',
-    'expertise': 'design, AI, Web3, music, mindfulness',
+    'expertise': '0→1 design, AI × UX × Web3, decentralized agent experiences, human-agent interaction',
     'location': 'Austin, Texas',
     'languages': 'English',
-    'response-time': '24-48 hours'
+    'response-time': '24-48 hours',
+    'specialization': 'agentic user experiences',
+    'collaboration-type': 'human-agent design'
   },
   icons: {
     icon: '/favicon.svg',
@@ -62,8 +95,8 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: 'Zach McNair — Brand & Product Design Consultant',
-    description: 'Brand & product design consultant with over 27 years of experience helping companies reach their intended audiences. Specializing in AI, Web3, and digital product design.',
+    title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
+    description: '0→1 designer shaping AI × UX × Web3. Portfolio of 25+ case studies including THINK Agents, 6079 AI, SOU.LS, Wistia, Indeed, and more. Designing how humans and decentralized agents connect through design, technology, and play.',
     url: baseUrl,
     siteName: 'Zach McNair',
     locale: 'en_US',
@@ -73,15 +106,15 @@ export const metadata: Metadata = {
         url: '/zm-social-share.jpg',
         width: 1200,
         height: 630,
-        alt: 'Zach McNair - Brand & Product Design Consultant',
+        alt: 'Zach McNair - 0→1 Designer shaping AI × UX × Web3',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zach McNair — Brand & Product Design Consultant',
-    description: 'Brand & product design consultant with over 27 years of experience helping companies reach their intended audiences.',
-    creator: '@zvpply',
+    title: 'Zach McNair — 0→1 Designer shaping AI × UX × Web3',
+    description: '0→1 designer shaping AI × UX × Web3. Portfolio of 25+ case studies including THINK Agents, 6079 AI, SOU.LS, Wistia, Indeed, and more.',
+    creator: '@zachmcnair',
     images: ['/zm-social-share.jpg'],
   },
   robots: {
@@ -111,9 +144,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`text-black bg-white dark:text-white dark:bg-black ${faktumRegular.variable} ${faktumMedium.variable} ${faktumBold.variable} ${faktumLight.variable} ${faktumSemiBold.variable} ${faktumExtraBold.variable} ${dmMono.variable} ${newsreader.variable} ${GeistMono.className}`}
+      className={`text-black bg-white dark:text-white dark:bg-black ${faktumRegular.variable} ${faktumMedium.variable} ${faktumBold.variable} ${faktumLight.variable} ${faktumSemiBold.variable} ${faktumExtraBold.variable} ${dmMono.variable} ${newsreader.variable} ${vt323.variable} ${xanhMono.variable} ${instrumentSerif.variable} ${GeistMono.className}`}
     >
       <head>
+        {/* Google Fonts - VT323 and Xanh Mono (fallbacks) */}
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet" />
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -126,52 +162,41 @@ export default function RootLayout({
               "image": "https://zachmcnair.com/zm-social-share.jpg",
               "email": "hello@zachmcnair.com",
               "sameAs": [
-                "https://x.com/zvpply",
+                "https://x.com/zachmcnair",
                 "https://linkedin.com/in/zachmcnair",
                 "https://pinterest.com/zachmcnair"
               ],
-              "jobTitle": "Brand & Product Design Consultant",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "All Manner Of Us",
-                "url": "https://allmannerofus.com"
-              },
-              "description": "Brand & product design consultant with over 27 years of experience helping companies reach their intended audiences. Specializing in AI, Web3, and digital product design.",
+              "jobTitle": "0→1 Designer shaping AI × UX × Web3",
+              "description": "0→1 designer shaping AI × UX × Web3. Designing how humans and decentralized agents connect through design, technology, and play.",
               "knowsAbout": [
-                "Brand Design",
-                "Product Design", 
-                "UI/UX Design",
-                "AI Design",
-                "Web3 Design",
-                "Digital Product Strategy",
-                "Music Production",
-                "NFT Communities",
-                "Mindfulness Technology"
+                "AI × UX × Web3",
+                "Decentralized Agent Experiences",
+                "Human-Agent Interaction Design",
+                "0→1 Design",
+                "Agentic User Experiences",
+                "Design Systems",
+                "Web3 & Blockchain",
+                "Website Design & Development",
+                "Software Design & Development",
+                "Naming",
+                "GTM",
+                "Campaigns",
+                "NFTs & Tokens",
+                "User Experience",
+                "Music Production"
               ],
               "hasOccupation": {
                 "@type": "Occupation",
-                "name": "Design Consultant",
+                "name": "0→1 Designer",
                 "occupationLocation": {
                   "@type": "City",
                   "name": "Austin",
                   "addressRegion": "Texas"
                 }
               },
-              "alumniOf": {
-                "@type": "Organization",
-                "name": "THINK",
-                "url": "https://thinkagents.ai"
-              },
-              "memberOf": [
-                {
-                  "@type": "Organization", 
-                  "name": "Mindful Monkz",
-                  "url": "https://monkz.xyz"
-                }
-              ],
               "makesOffer": {
                 "@type": "Offer",
-                "description": "Brand & product design consulting services",
+                "description": "0→1 design services specializing in AI × UX × Web3 and decentralized agent experiences",
                 "availability": "https://schema.org/InStock"
               }
             })

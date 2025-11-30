@@ -18,7 +18,7 @@ export async function GET() {
       <title><![CDATA[${post.meta.title}]]></title>
       <link>${baseUrl}/blog/${post.slug}</link>
       <guid>${baseUrl}/blog/${post.slug}</guid>
-      <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>
+      <pubDate>${post.meta.date ? new Date(post.meta.date).toUTCString() : new Date().toUTCString()}</pubDate>
       <description><![CDATA[${post.meta.description || ''}]]></description>
       ${post.meta.tags?.map(tag => `<category>${tag}</category>`).join('') || ''}
     </item>
