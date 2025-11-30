@@ -64,7 +64,7 @@ export default function LandingPage() {
             <div className="md:col-span-2">
               <h2 className="mb-2 md:sticky md:top-20" style={{color: 'var(--text)', display: 'none'}}>Bio</h2>
             </div>
-            <div className="md:col-span-8 md:ml-[39px]">
+            <div className="md:col-span-8 flex justify-center">
               <div className="space-y-24 max-w-[540px] w-full">
                 <div>
                   {/* Memo Section */}
@@ -127,7 +127,7 @@ export default function LandingPage() {
             <div className="md:col-span-2">
               <h2 className="mb-2 md:sticky md:top-32 md:pl-2 font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-md)'}}>Expertise</h2>
             </div>
-            <div className="md:col-span-8 md:ml-[39px]">
+            <div className="md:col-span-8 flex justify-center">
               <div className="space-y-24 max-w-[540px] w-full">
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -169,7 +169,7 @@ export default function LandingPage() {
             <div className="md:col-span-2">
               <h2 className="mb-2 md:sticky md:top-32 md:pl-2 font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-md)'}}>Experience</h2>
             </div>
-            <div className="md:col-span-8 md:ml-[39px]">
+            <div className="md:col-span-8 flex justify-center">
               <div className="space-y-24 max-w-[540px] w-full">
                 <div>
                   <div className="mb-2">
