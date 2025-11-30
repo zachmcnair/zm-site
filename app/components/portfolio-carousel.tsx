@@ -12,9 +12,10 @@ interface PortfolioImage {
   hidden?: boolean
 }
 
-// Get portfolio images from portfolio.json, filter for featured items
+// Get portfolio images from portfolio.json, filter for non-hidden items
+// Show all non-hidden items in carousel (not just featured)
 const portfolioImages: PortfolioImage[] = portfolioData
-  .filter(item => !item.hidden && item.featured)
+  .filter(item => !item.hidden)
   .map(item => ({
     id: item.id,
     src: item.src,
