@@ -16,18 +16,22 @@ interface PortfolioImage {
 // Deduplicate by src so each unique image appears only once
 const seenImages = new Set<string>()
 const portfolioImages: PortfolioImage[] = portfolioData
-  .filter(item => !item.hidden && !seenImages.has(item.src))
-  .map(item => {
-    seenImages.add(item.src) // Mark this image as seen
-    return {
-      id: item.id,
-      src: item.src,
-      alt: item.alt,
-      title: item.client || item.title,
-      aspectRatio: item.aspectRatio as PortfolioImage['aspectRatio'],
-      hidden: item.hidden,
+  .filter(item => !item.hidden)
+  .reduce((acc: PortfolioImage[], item) => {
+    // Only add if we haven't seen this image src before
+    if (!seenImages.has(item.src)) {
+      seenImages.add(item.src)
+      acc.push({
+        id: item.id,
+        src: item.src,
+        alt: item.alt,
+        title: item.client || item.title,
+        aspectRatio: item.aspectRatio as PortfolioImage['aspectRatio'],
+        hidden: item.hidden,
+      })
     }
-  })
+    return acc
+  }, [])
 
 export function PortfolioCarousel() {
   const [topRowImages, setTopRowImages] = useState<PortfolioImage[]>([])
