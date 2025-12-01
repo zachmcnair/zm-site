@@ -200,7 +200,8 @@ export default function LandingPage() {
                     <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A decentralized AI PVP Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</div>
                     <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>An independent AI news hub (IAI News)</div>
                     <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A virtual game available on iOS, Android, and Web (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</div>
-                    <div>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</div>
+                    <div>A business incubator (Thinkubator) supporting <a href="https://gamesyouwin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">WIN</a> (Leading on-chain gaming), <a href="https://supermode.ls" target="_blank" rel="noopener noreferrer" className="hover:underline">Supermode.ls</a> (Building creative tools you own), and <a href="https://money.xyz" target="_blank" rel="noopener noreferrer" className="hover:underline">Money.xyz</a> (Enabling all your assets in one place)</div>
                   </div>
                 </div>
                 

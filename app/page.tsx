@@ -177,6 +177,7 @@ export default function Page() {
                     <li>An independent AI news hub (IAI News)</li>
                     <li>A virtual game available on iOS, Android, and Web (<a href="https://6079.ai/game" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</li>
                     <li>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</li>
+                    <li>A business incubator (Thinkubator) supporting <a href="https://gamesyouwin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">WIN</a> (on-chain gaming), <a href="https://supermode.ls" target="_blank" rel="noopener noreferrer" className="hover:underline">Supermode.ls</a> (creative tools you own), and <a href="https://money.xyz" target="_blank" rel="noopener noreferrer" className="hover:underline">Money.xyz</a> (know your assets)</li>
                   </ul>
                 </div>
                 
