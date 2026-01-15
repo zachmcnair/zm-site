@@ -108,9 +108,6 @@ export default function LandingPage() {
 
                   {/* Signature and Code */}
                   <section className="flex justify-between items-center mb-12" aria-label="Signature and project code">
-                    <div className="font-dm-mono-regular" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }} data-agent-context="project-identifier">
-                      // 001
-                    </div>
                     <img 
                       src="/zm-signature.svg" 
                       alt="Zach McNair Signature" 
@@ -181,42 +178,8 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>UX & Digital Product Designer</div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>AI Layer Labs</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2024-2025</div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Remote</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="max-w-2xl">
-                    <p className="mb-2 body-text">
-                      Working to create a truly independent AI ecosystem by bridging the gap between brand and product, focusing on user experience, and utilizing Web3 and AI technologies.
-                    </p>
-                  </div>
-                  <p className="mb-2 body-text">Have helped launch:</p>
-                  <div className="body-text space-y-3 md:space-y-3">
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>THINK Protocol token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with <a href="https://futureverse.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Futureverse</a></div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A social mission game using X integration (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A blockchain hub, explorer, and node dashboard for Wire Network</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>The 6079 Foundation</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A decentralized AI PVP Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>An independent AI news hub (IAI News)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A virtual game available on iOS, Android, and Web (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</div>
-                    <div>A business incubator (Thinkubator) supporting <a href="https://gamesyouwin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">WIN</a> (Leading on-chain gaming), <a href="https://supermode.ls" target="_blank" rel="noopener noreferrer" className="hover:underline">Supermode.ls</a> (Building creative tools you own), and <a href="https://money.xyz" target="_blank" rel="noopener noreferrer" className="hover:underline">Money.xyz</a> (Enabling all your assets in one place)</div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="mb-2">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
                         <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Founder, Agentic Experience Design (AXD)</div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>All Manner Of Us</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}><a href="https://allmannerofus.com" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--text-tertiary)' }}>All Manner Of Us</a></div>
                       </div>
                       <div className="text-right">
                         <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2017-Present</div>
@@ -226,7 +189,7 @@ export default function LandingPage() {
                   </div>
                   <div className="max-w-2xl">
                     <p className="body-text mb-4">
-                      All Manner Of Us (AMOU) is a design and strategy studio shaping the next era of collaboration between people and intelligent systems.
+                      <a href="https://allmannerofus.com" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--primary)' }}>All Manner Of Us</a> (AMOU) is a design and strategy studio shaping the next era of collaboration between people and intelligent systems.
                     </p>
                     <p className="body-text mb-4">
                       We help teams translate intelligence into products people actually trust and use, designing experiences that connect humans, agents, and data into clear, coherent workflows.
@@ -245,6 +208,40 @@ export default function LandingPage() {
                     <p className="body-text">
                       Select clients: Morpheus • 6079 • THINK • AI Layer Labs • Indeed • Wistia • HCA Healthcare • Son Lux • Superset • Kistler Rods • Lemburg House • Hammock
                     </p>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>UX & Digital Product Designer</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>AI Layer Labs</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2024-2025</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="mb-2 body-text">
+                      I worked to create a truly independent AI ecosystem by bridging the gap between brand and product, focusing on user experience, and utilizing Web3 and AI technologies.
+                    </p>
+                  </div>
+                  <p className="mb-2 body-text">Have helped launch:</p>
+                  <div className="body-text space-y-3 md:space-y-3">
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>THINK Protocol token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with <a href="https://futureverse.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Futureverse</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A social mission game using X integration (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A blockchain hub, explorer, and node dashboard for Wire Network</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>The 6079 Foundation</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A decentralized AI PVP Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>An independent AI news hub (IAI News)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A virtual game available on iOS, Android, and Web (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</div>
+                    <div>A business incubator (Thinkubator) supporting <a href="https://gamesyouwin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">WIN</a> (Leading on-chain gaming), <a href="https://supermode.ls" target="_blank" rel="noopener noreferrer" className="hover:underline">Supermode.ls</a> (Building creative tools you own), and <a href="https://money.xyz" target="_blank" rel="noopener noreferrer" className="hover:underline">Money.xyz</a> (Enabling all your assets in one place)</div>
                   </div>
                 </div>
 
