@@ -128,7 +128,7 @@ export function PortfolioCarousel() {
 
   if (!isLoaded) {
     return (
-      <div className="flex justify-center items-center h-64">
+      <div className="flex justify-center items-center h-64" role="status" aria-live="polite">
         <div className="text-lg">Loading portfolio...</div>
       </div>
     )

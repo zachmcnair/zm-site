@@ -24,7 +24,8 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="px-8 md:px-20 mb-12 mt-10 md:mt-24">
+      <section className="px-8 md:px-20 mb-12 mt-10 md:mt-24" aria-labelledby="hero-heading">
+        <h1 id="hero-heading" className="sr-only">Zach McNair - 0→1 Designer</h1>
         <div className="flex items-center justify-between">
           {/* Desktop - Logo and text with fixed positioning matching header */}
           <div className="hidden md:flex items-center" style={{ gap: '142px' }}>
@@ -74,19 +75,24 @@ export default function LandingPage() {
                         Howdy,
                       </p>
                       <p className="memo-text" data-agent-context="introduction">
-                        I'm grateful you dropped by. Since 1998, I've been using design to help people hone their ideas and engage their audience.
+                        I'm grateful you dropped by. Since 1998, I've been using design to help people hone their ideas and engage their audiences.
                       </p>
 
                       <p className="memo-text" data-agent-context="freelance-work">
-                        In 2017, I founded <a href="https://allmannerofus.com" className="hover:underline" style={{ color: 'var(--primary)' }}>All Manner Of Us</a>, a creative studio built for the future of work, where I consult on brand and product design.
+                        In 2017, I founded <a href="https://allmannerofus.com" className="hover:underline" style={{ color: 'var(--primary)' }}>All Manner Of Us</a>, a design and strategy studio shaping the next era of collaboration between people and intelligent systems. Today, I consult on brand and product design for teams building what’s next.
                       </p>
 
                       <p className="memo-text" data-agent-context="current-work">
-                        More recently, I've been shaping and shipping products at the intersection of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="/case-studies/6079-ai" className="hover:underline" style={{ color: 'var(--primary)' }}>games for iOS/Android/Web</a>.
+                        Between 2024-2025, I shaped and shipped products at the intersection of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="/case-studies/6079-ai" className="hover:underline" style={{ color: 'var(--primary)' }}>games for iOS/Android/Web</a>.
+                      </p>
+
+                      <p className="memo-text" data-agent-context="spaceclip">
+                      Outside of client work, I’m building <a href="https://spaceclipapp.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Spaceclip</a>: a private, local-first app that transcribes and turns long content into short clips using AI.
                       </p>
                       
+                      
                       <p className="memo-text" data-agent-context="personal-life">
-                        Personally, you'll find me contributing to <a href="https://monkz.xyz" className="hover:underline" style={{ color: 'var(--primary)' }}>Mindful Monkz</a>, a mindfulness-driven NFT community, as well as producing music with <a href="https://forennmusic.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://emmabieniewicz.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>. When I am not making things, you will find me with my family, eating tacos, and drinking coffee.
+                        When I’m not designing, I’m usually producing music with <a href="https://open.spotify.com/artist/73c3uoSWES19r8u3pNWd2K?si=FQDUi5VsSJmLVHPYSZmZ9Q" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://open.spotify.com/artist/3Q8oea8QqbpbbgHLzDcjTo?si=VnpW9iLtR6efwN7y0suYjw" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>. And when I’m not making things at all, I’m with my family, eating tacos, and drinking coffee.
                       </p>
                       
                       <p className="memo-text" data-agent-context="contact-invitation">
@@ -179,7 +185,7 @@ export default function LandingPage() {
                         <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>AI Layer Labs</div>
                       </div>
                       <div className="text-right">
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2024-Present</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>2024-2025</div>
                         <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Remote</div>
                       </div>
                     </div>
@@ -209,30 +215,7 @@ export default function LandingPage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Freelance Consultant</div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Freelance / Self-employed</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>1998-Present</div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Austin, TX & Remote</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="max-w-2xl">
-                    <p className="body-text">
-                      I solve Brand & Product design problems to help people reach their intended audiences. While my experience is vast, I focus on using design and strategy to bridge the gap between brand and product. I currently leverage Web3 and AI technologies to help businesses and design teams work efficiently and to create work that lasts.
-                    </p>
-                    <p className="mt-2 body-text">
-                      Select clients include: Alphi.xyz, AI Layer, Ugmonk, Funsize, Hertz, Johnson & Johnson, Fjord, Accenture, Sapient Razorfish, Underoath, Mutemath, Son Lux, WeWork, Google, The Culinary Institute of America, Humin, SuperFriendly, SerialBox Presents, QRI, Sony BMG / EMI, Jeremy Cowart.
-                    </p>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="mb-2">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Founder & Executive Creative Director</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Founder, Agentic Experience Design (AXD)</div>
                         <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>All Manner Of Us</div>
                       </div>
                       <div className="text-right">
@@ -242,8 +225,25 @@ export default function LandingPage() {
                     </div>
                   </div>
                   <div className="max-w-2xl">
+                    <p className="body-text mb-4">
+                      All Manner Of Us (AMOU) is a design and strategy studio shaping the next era of collaboration between people and intelligent systems.
+                    </p>
+                    <p className="body-text mb-4">
+                      We help teams translate intelligence into products people actually trust and use, designing experiences that connect humans, agents, and data into clear, coherent workflows.
+                    </p>
+                    <p className="body-text mb-4">
+                      Blending Agentic Experience Design (AXD), product strategy, and creative direction, we build everything from AI-native interfaces to the systems and brands that support them.
+                    </p>
+                    <p className="body-text mb-2">How we help:</p>
+                    <ul className="body-text list-disc list-inside mb-4 space-y-1">
+                      <li>Product & agentic system design</li>
+                      <li>AI-native interface architecture</li>
+                      <li>Strategic design consulting + coaching</li>
+                      <li>Brand and creative direction</li>
+                      <li>Web3 + decentralized experiences</li>
+                    </ul>
                     <p className="body-text">
-                      Helping organizations and artists build deeper relationships with their audience through full-service brand design. Select clients include: Indeed, Wistia, HCA Healthcare, Kistler Rods, Lemburg House, Superset, Hammock.
+                      Select clients: Morpheus • 6079 • THINK • AI Layer Labs • Indeed • Wistia • HCA Healthcare • Son Lux • Superset • Kistler Rods • Lemburg House • Hammock
                     </p>
                   </div>
                 </div>
@@ -284,6 +284,29 @@ export default function LandingPage() {
                   <div className="max-w-2xl">
                     <p className="body-text">
                       Dbln was a web design, development, and brand studio with a focus on the wedding and hospitality industries.
+                    </p>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text)', fontSize: 'var(--unit-sm)'}}>Freelance Consultant</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Freelance / Self-employed</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>1998-Present</div>
+                        <div className="font-faktum-regular" style={{color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)'}}>Austin, TX & Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="body-text">
+                      I solve Brand & Product design problems to help people reach their intended audiences. While my experience is vast, I focus on using design and strategy to bridge the gap between brand and product. I currently leverage Web3 and AI technologies to help businesses and design teams work efficiently and to create work that lasts.
+                    </p>
+                    <p className="mt-2 body-text">
+                      Select clients include: Alphi.xyz, AI Layer, Ugmonk, Funsize, Hertz, Johnson & Johnson, Fjord, Accenture, Sapient Razorfish, Underoath, Mutemath, Son Lux, WeWork, Google, The Culinary Institute of America, Humin, SuperFriendly, SerialBox Presents, QRI, Sony BMG / EMI, Jeremy Cowart.
                     </p>
                   </div>
                 </div>

@@ -91,10 +91,11 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
           <Link 
             href={`/case-studies/${displayPrevious.slug}`}
             prefetch={true}
-            className="group relative flex flex-col gap-4 p-6 md:p-8 rounded-lg transition-all hover:opacity-90 overflow-hidden"
+            className="group relative flex flex-col gap-4 p-6 md:p-8 rounded-lg transition-all hover:opacity-90 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]"
             style={{ 
               backgroundColor: 'var(--background)',
             }}
+            aria-label={`Previous case study: ${displayPrevious.client || displayPrevious.title}`}
           >
             {/* Background Image */}
             {displayPrevious.image && (
@@ -106,6 +107,7 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                 }}
+                aria-hidden="true"
               />
             )}
             {/* Content */}
@@ -117,8 +119,9 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
                   viewBox="0 0 16 16" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
-                  className="transform group-hover:-translate-x-1 transition-transform"
+                  className="transform group-hover:-translate-x-1 transition-transform motion-reduce:transform-none"
                   style={{ color: 'var(--text-tertiary)' }}
+                  aria-hidden="true"
                 >
                   <path 
                     d="M10 12L6 8L10 4" 
@@ -146,10 +149,11 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
           <Link 
             href={`/case-studies/${displayNext.slug}`}
             prefetch={true}
-            className="group relative flex flex-col gap-4 p-6 md:p-8 rounded-lg transition-all hover:opacity-90 md:text-right overflow-hidden"
+            className="group relative flex flex-col gap-4 p-6 md:p-8 rounded-lg transition-all hover:opacity-90 md:text-right overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]"
             style={{ 
               backgroundColor: 'var(--background)',
             }}
+            aria-label={`Next case study: ${displayNext.client || displayNext.title}`}
           >
             {/* Background Image */}
             {displayNext.image && (
@@ -161,6 +165,7 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                 }}
+                aria-hidden="true"
               />
             )}
             {/* Content */}
@@ -173,8 +178,9 @@ export function CaseStudyNavigation({ previous, next, currentSlug, allCaseStudie
                   viewBox="0 0 16 16" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
-                  className="transform group-hover:translate-x-1 transition-transform"
+                  className="transform group-hover:translate-x-1 transition-transform motion-reduce:transform-none"
                   style={{ color: 'var(--text-tertiary)' }}
+                  aria-hidden="true"
                 >
                   <path 
                     d="M6 12L10 8L6 4" 

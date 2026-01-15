@@ -311,8 +311,8 @@ export function CaseStudyContent({ content }: CaseStudyContentProps) {
                       }}
                       data-image-index={idx}
                       src={image.src}
-                      alt={image.alt}
-                      className="w-full h-auto object-contain"
+                      alt={image.alt || 'Project image'}
+                      className="w-full h-auto object-contain motion-reduce:opacity-100 motion-reduce:filter-none"
                       loading={idx < 6 ? "eager" : "lazy"}
                       style={{
                         opacity: isVisible ? 1 : 0,
@@ -339,7 +339,7 @@ export function CaseStudyContent({ content }: CaseStudyContentProps) {
                           data-image-index={idx}
                           src={image.src}
                           alt={image.alt}
-                          className="w-full h-auto object-contain"
+                          className="w-full h-auto object-contain motion-reduce:opacity-100 motion-reduce:filter-none"
                           loading={idx < 6 ? "eager" : "lazy"}
                           style={{
                             opacity: isVisible ? 1 : 0,
@@ -356,7 +356,7 @@ export function CaseStudyContent({ content }: CaseStudyContentProps) {
                           data-image-index={idx + 1}
                           src={nextItem.src}
                           alt={nextItem.alt}
-                          className="w-full h-auto object-contain"
+                          className="w-full h-auto object-contain motion-reduce:opacity-100 motion-reduce:filter-none"
                           loading={idx + 1 < 6 ? "eager" : "lazy"}
                           style={{
                             opacity: isVisible2 ? 1 : 0,
@@ -379,7 +379,7 @@ export function CaseStudyContent({ content }: CaseStudyContentProps) {
                           data-image-index={idx}
                           src={image.src}
                           alt={image.alt}
-                          className="w-full h-auto object-contain"
+                          className="w-full h-auto object-contain motion-reduce:opacity-100 motion-reduce:filter-none"
                           loading={idx < 6 ? "eager" : "lazy"}
                           style={{
                             opacity: isVisible ? 1 : 0,
@@ -490,8 +490,8 @@ export function CaseStudyContent({ content }: CaseStudyContentProps) {
                       }}
                       data-image-index={idx}
                       src={image.src}
-                      alt={image.alt}
-                      className="w-full h-auto object-contain"
+                      alt={image.alt || 'Project image'}
+                      className="w-full h-auto object-contain motion-reduce:opacity-100 motion-reduce:filter-none"
                       loading={idx < 6 ? "eager" : "lazy"}
                       style={{
                         opacity: isVisible ? 1 : 0,

@@ -155,7 +155,7 @@ export default function Page() {
                         <div className="text-gray-500 dark:text-gray-500">AI Layer Labs</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>2024-Present</div>
+                        <div>2024-2025</div>
                         <div>Remote</div>
                       </div>
                     </div>
@@ -185,30 +185,7 @@ export default function Page() {
                   <div className="mb-2">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="font-medium font-faktum-medium" style={{color: '#fefcf4'}}>Freelance Consultant</div>
-                        <div className="text-gray-500 dark:text-gray-500">Freelance / Self-employed</div>
-                      </div>
-                      <div className="text-gray-500 dark:text-gray-500 text-right">
-                        <div>1998-Present</div>
-                        <div>Austin, TX & Remote</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="max-w-2xl">
-                    <p className="experience-body-text">
-                      I solve Brand & Product design problems to help people reach their intended audiences. While my experience is vast, I focus on using design and strategy to bridge the gap between brand and product. I currently leverage Web3 and AI technologies to help businesses and design teams work efficiently and to create work that lasts.
-                    </p>
-                    <p className="mt-2 experience-body-text">
-                      Select clients include: Alphi.xyz, AI Layer, Ugmonk, Funsize, Hertz, Johnson & Johnson, Fjord, Accenture, Sapient Razorfish, Underoath, Mutemath, Son Lux, WeWork, Google, The Culinary Institute of America, Humin, SuperFriendly, SerialBox Presents, QRI, Sony BMG / EMI, Jeremy Cowart.
-                    </p>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="mb-2">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <div className="font-medium font-faktum-medium" style={{color: '#fefcf4'}}>Founder & Executive Creative Director</div>
+                        <div className="font-medium font-faktum-medium" style={{color: '#fefcf4'}}>Founder, Agentic Experience Design (AXD)</div>
                         <div className="text-gray-500 dark:text-gray-500">All Manner Of Us</div>
                       </div>
                       <div className="text-gray-500 dark:text-gray-500 text-right">
@@ -218,8 +195,25 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="max-w-2xl">
+                    <p className="experience-body-text mb-4">
+                      All Manner Of Us (AMOU) is a design and strategy studio shaping the next era of collaboration between people and intelligent systems.
+                    </p>
+                    <p className="experience-body-text mb-4">
+                      We help teams translate intelligence into products people actually trust and use, designing experiences that connect humans, agents, and data into clear, coherent workflows.
+                    </p>
+                    <p className="experience-body-text mb-4">
+                      Blending Agentic Experience Design (AXD), product strategy, and creative direction, we build everything from AI-native interfaces to the systems and brands that support them.
+                    </p>
+                    <p className="experience-body-text mb-2">How we help:</p>
+                    <ul className="experience-body-text list-disc list-inside mb-4 space-y-1">
+                      <li>Product & agentic system design</li>
+                      <li>AI-native interface architecture</li>
+                      <li>Strategic design consulting + coaching</li>
+                      <li>Brand and creative direction</li>
+                      <li>Web3 + decentralized experiences</li>
+                    </ul>
                     <p className="experience-body-text">
-                      Helping organizations and artists build deeper relationships with their audience through full-service brand design. Select clients include: Indeed, Wistia, HCA Healthcare, Kistler Rods, Lemburg House, Superset, Hammock.
+                      Select clients: Morpheus • 6079 • THINK • AI Layer Labs • Indeed • Wistia • HCA Healthcare • Son Lux • Superset • Kistler Rods • Lemburg House • Hammock
                     </p>
                   </div>
                 </div>
@@ -260,6 +254,29 @@ export default function Page() {
                   <div className="max-w-2xl">
                     <p className="experience-body-text">
                       Dbln was a web design, development, and brand studio with a focus on the wedding and hospitality industries.
+                    </p>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="mb-2">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-medium font-faktum-medium" style={{color: '#fefcf4'}}>Freelance Consultant</div>
+                        <div className="text-gray-500 dark:text-gray-500">Freelance / Self-employed</div>
+                      </div>
+                      <div className="text-gray-500 dark:text-gray-500 text-right">
+                        <div>1998-Present</div>
+                        <div>Austin, TX & Remote</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-2xl">
+                    <p className="experience-body-text">
+                      I solve Brand & Product design problems to help people reach their intended audiences. While my experience is vast, I focus on using design and strategy to bridge the gap between brand and product. I currently leverage Web3 and AI technologies to help businesses and design teams work efficiently and to create work that lasts.
+                    </p>
+                    <p className="mt-2 experience-body-text">
+                      Select clients include: Alphi.xyz, AI Layer, Ugmonk, Funsize, Hertz, Johnson & Johnson, Fjord, Accenture, Sapient Razorfish, Underoath, Mutemath, Son Lux, WeWork, Google, The Culinary Institute of America, Humin, SuperFriendly, SerialBox Presents, QRI, Sony BMG / EMI, Jeremy Cowart.
                     </p>
                   </div>
                 </div>

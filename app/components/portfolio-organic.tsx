@@ -225,23 +225,23 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
         const cardContent = (
           <div className="flex flex-col group cursor-pointer">
             <div className="relative w-full overflow-hidden mb-2">
-              <img
-                ref={(el) => {
-                  if (el) {
-                    imageRefs.current.set(item.id, el)
-                    el.setAttribute('data-image-id', item.id)
-                  }
-                }}
-                src={item.src}
-                alt={item.alt}
-                className="w-full h-auto"
-                style={{
-                  filter: isVisible ? 'blur(0px)' : 'blur(20px)',
-                  transition: 'filter 0.7s ease-out',
-                }}
-                loading={displayItems.indexOf(item) < 6 ? 'eager' : 'lazy'}
-                fetchPriority={displayItems.indexOf(item) < 6 ? 'high' : 'low'}
-              />
+                      <img
+                        ref={(el) => {
+                          if (el) {
+                            imageRefs.current.set(item.id, el)
+                            el.setAttribute('data-image-id', item.id)
+                          }
+                        }}
+                        src={item.src}
+                        alt={item.alt}
+                        className="w-full h-auto motion-reduce:filter-none"
+                        style={{
+                          filter: isVisible ? 'blur(0px)' : 'blur(20px)',
+                          transition: 'filter 0.7s ease-out',
+                        }}
+                        loading={displayItems.indexOf(item) < 6 ? 'eager' : 'lazy'}
+                        fetchPriority={displayItems.indexOf(item) < 6 ? 'high' : 'low'}
+                      />
               
               {/* Hover overlay - only show if there's a link */}
               {linkHref && (
@@ -271,9 +271,13 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
               <p className="font-faktum-regular" style={{ color: 'var(--text-secondary)', fontSize: 'var(--unit-sm)' }}>
                 {item.client}
               </p>
-              <p className="font-faktum-regular" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }}>
-                {item.metatags.join(', ')}
-              </p>
+              <div className="flex flex-wrap gap-x-1 gap-y-0" style={{ color: 'var(--text-tertiary)', fontSize: 'var(--unit-sm)' }}>
+                {item.metatags.map((tag, index) => (
+                  <span key={index} className="font-faktum-regular whitespace-nowrap">
+                    {tag}{index < item.metatags.length - 1 && ','}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         )

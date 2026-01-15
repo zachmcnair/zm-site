@@ -4,7 +4,7 @@ interface YouTubeEmbedProps {
   className?: string
 }
 
-export function YouTubeEmbed({ videoId, title = "YouTube video", className = "my-8" }: YouTubeEmbedProps) {
+export function YouTubeEmbed({ videoId, title = "YouTube video player", className = "my-8" }: YouTubeEmbedProps) {
   return (
     <div className={`w-full ${className} -mx-8 md:-mx-20`}>
       <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
@@ -15,6 +15,7 @@ export function YouTubeEmbed({ videoId, title = "YouTube video", className = "my
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          loading="lazy"
         />
       </div>
     </div>
@@ -35,11 +36,12 @@ export function SpotifyEmbed({
   playlistId, 
   albumId, 
   type, 
-  title = "Spotify content", 
+  title, 
   className = "my-8" 
 }: SpotifyEmbedProps) {
   const id = trackId || playlistId || albumId
   const spotifyUrl = `https://open.spotify.com/embed/${type}/${id}`
+  const defaultTitle = `Spotify ${type} player`
   
   return (
     <div className={`w-full ${className} -mx-8 md:-mx-20`}>
@@ -51,7 +53,8 @@ export function SpotifyEmbed({
         frameBorder="0"
         allowTransparency={true}
         allow="encrypted-media"
-        title={title}
+        title={title || defaultTitle}
+        loading="lazy"
       />
     </div>
   )
@@ -67,7 +70,7 @@ interface GenericEmbedProps {
 
 export function GenericEmbed({ 
   url, 
-  title = "Embedded content", 
+  title = "Embedded content player", 
   className = "my-8",
   width = "100%",
   height = "400px"
@@ -82,6 +85,7 @@ export function GenericEmbed({
         frameBorder="0"
         allowFullScreen
         title={title}
+        loading="lazy"
       />
     </div>
   )
