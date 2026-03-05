@@ -147,6 +147,18 @@ export default function RootLayout({
       className={`text-black bg-white dark:text-white dark:bg-black ${faktumRegular.variable} ${faktumMedium.variable} ${faktumBold.variable} ${faktumLight.variable} ${faktumSemiBold.variable} ${faktumExtraBold.variable} ${dmMono.variable} ${newsreader.variable} ${vt323.variable} ${xanhMono.variable} ${instrumentSerif.variable} ${GeistMono.className}`}
     >
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2GE39DCHY9"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2GE39DCHY9');
+          `}
+        </Script>
         {/* Google Fonts - VT323 and Xanh Mono (fallbacks) */}
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet" />
