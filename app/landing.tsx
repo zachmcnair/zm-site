@@ -37,8 +37,8 @@ export default function LandingPage() {
             {/* Hero text aligned with "Currently at work" */}
             <div>
               <p className="font-faktum-light" style={{ color: 'var(--text)', fontSize: 'var(--unit-xl)', lineHeight: '1.5' }}>
-              Howdy, I'm Zach. I design how humans experience <br />
-              AI, products, and the future of the web.
+              Howdy, I'm Zach. I design products people believe in, <br />
+              building brand and product design from zero, for entertainment, community, and AI-native tech.
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function LandingPage() {
           {/* Mobile - Hero text only, left-aligned */}
           <div className="md:hidden w-full">
             <p className="font-faktum-light text-left" style={{ color: 'var(--text)', fontSize: '21px', lineHeight: '1.5' }}>
-              Howdy, I'm Zach. I design how humans experience AI, products, and the future of the web.
+              Howdy, I'm Zach. I design products people believe in, building brand and product design from zero, for entertainment, community, and AI-native tech.
             </p>
           </div>
         </div>
@@ -75,7 +75,11 @@ export default function LandingPage() {
                         Howdy,
                       </p>
                       <p className="memo-text" data-agent-context="introduction">
-                        I'm grateful you dropped by. Since 1998, I've been using design to help people hone their ideas and engage their audiences.
+                        Since 1998 I've been obsessed with one thing: the moment a product stops being a thing and starts being something people care about. That space between what something is and what people feel about it is where I live.
+                      </p>
+
+                      <p className="memo-text" data-agent-context="sweet-spot">
+                        My sweet spot is products that need believers: entertainment, community platforms, AI-native tools. Companies where the work isn't just functional, it's felt.
                       </p>
 
                       <p className="memo-text" data-agent-context="freelance-work">
@@ -83,20 +87,19 @@ export default function LandingPage() {
                       </p>
 
                       <p className="memo-text" data-agent-context="current-work">
-                        Between 2024-2025, I shaped and shipped products at the intersection of AI and Web3 with the team behind <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>THINK</a>, building everything from a <a href="https://independentai.institute" className="hover:underline" style={{ color: 'var(--primary)' }}>consortium</a> and <a href="https://thinkagents.ai/claim" className="hover:underline" style={{ color: 'var(--primary)' }}>token</a> to <a href="https://thinkagents.ai/products/thinkubator" className="hover:underline" style={{ color: 'var(--primary)' }}>incubators</a>, social platforms, and <a href="/case-studies/6079-ai" className="hover:underline" style={{ color: 'var(--primary)' }}>games for iOS/Android/Web</a>.
+                        Recently, I built and launched <a href="https://spaceclipapp.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Safeclip</a>, a privacy-first clipping and transcription desktop application on MacOS, Windows, and Linux for people who can't afford to send their content to the cloud. I led the marcom and product design for <a href="https://thinkagents.ai" className="hover:underline" style={{ color: 'var(--primary)' }}>Think Agents</a> and 6079ai, where I built everything from the design system to a gamified community web app with real users competing in real time. With <a href="https://www.stages.movie/" className="hover:underline" style={{ color: 'var(--primary)' }}>Stages</a>, I helped filmmakers get their stories in front of audiences who were ready for them.
                       </p>
 
-                      <p className="memo-text" data-agent-context="spaceclip">
-                      Outside of client work, I’m building <a href="https://spaceclipapp.com" className="hover:underline" style={{ color: 'var(--primary)' }}>Spaceclip</a>: a private, local-first app that transcribes and turns long content into short clips using AI.
+                      <p className="memo-text" data-agent-context="web3">
+                        I've also been building in Web3 since 2021, across NFT communities, token launches, and protocol design. My tangible extension there is through Mindful Monkz, a community and wellness lifestyle IP brand.
                       </p>
-                      
-                      
-                      <p className="memo-text" data-agent-context="personal-life">
-                        When I’m not designing, I’m usually producing music with <a href="https://open.spotify.com/artist/73c3uoSWES19r8u3pNWd2K?si=FQDUi5VsSJmLVHPYSZmZ9Q" className="hover:underline" style={{ color: 'var(--primary)' }}>Forenn</a> and <a href="https://open.spotify.com/artist/3Q8oea8QqbpbbgHLzDcjTo?si=VnpW9iLtR6efwN7y0suYjw" className="hover:underline" style={{ color: 'var(--primary)' }}>Emma Bieniewicz</a>. And when I’m not making things at all, I’m with my family, eating tacos, and drinking coffee.
+
+                      <p className="memo-text" data-agent-context="philosophy">
+                        I believe design without conviction is decoration.
                       </p>
-                      
+
                       <p className="memo-text" data-agent-context="contact-invitation">
-                        I believe design should come from a place of truth and that it should have soul. If you are here, chances are we share that drive. Let's connect and create something great together.
+                        If you're building something that needs to mean something, <a href="mailto:hello@zachmcnair.com?subject=Let's%20create%20something%20great%20together" className="hover:underline" style={{ color: 'var(--primary)' }}>let's talk.</a>
                       </p>
                       
                       <p className="memo-text" data-agent-context="closing">
