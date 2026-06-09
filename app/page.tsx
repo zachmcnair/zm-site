@@ -167,17 +167,17 @@ export default function Page() {
                   </div>
                   <p className="mb-2 experience-body-text">Have helped launch:</p>
                   <ul className="list-disc list-inside space-y-1 ml-4 experience-body-text">
-                    <li><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></li>
-                    <li>A social mission game using X integration (<a href="https://6079.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</li>
-                    <li>A crypto token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with Futureverse</li>
-                    <li>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></li>
+                    <li>The Independent AI Institute</li>
+                    <li>A social mission game using X integration (6079.ai)</li>
+                    <li>A crypto token ($THINK) in partnership with Futureverse</li>
+                    <li>Marcom for Wire.Network & Wire.Foundation</li>
                     <li>A blockchain hub, explorer, and node dashboard for Wire Network</li>
                     <li>The 6079 Foundation</li>
-                    <li>A decentralized AI prompt-based Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</li>
+                    <li>A decentralized AI prompt-based Street Fighter game (AI Prize Fight)</li>
                     <li>An independent AI news hub (IAI News)</li>
-                    <li>A virtual game available on iOS, Android, and Web (<a href="https://6079.ai/game" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</li>
-                    <li>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</li>
-                    <li>A business incubator (Thinkubator) supporting <a href="https://gamesyouwin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">WIN</a> (on-chain gaming), <a href="https://supermode.ls" target="_blank" rel="noopener noreferrer" className="hover:underline">Supermode.ls</a> (creative tools you own), and <a href="https://money.xyz" target="_blank" rel="noopener noreferrer" className="hover:underline">Money.xyz</a> (know your assets)</li>
+                    <li>A virtual game available on iOS, Android, and Web (Nodeshifter)</li>
+                    <li>$MOR token swap product for Morpheus (Mor.org)</li>
+                    <li>A business incubator (Thinkubator) supporting WIN (on-chain gaming), Supermode.ls (creative tools you own), and Money.xyz (know your assets)</li>
                   </ul>
                 </div>
                 

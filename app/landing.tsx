@@ -234,17 +234,17 @@ export default function LandingPage() {
                   </div>
                   <p className="mb-2 body-text">Have helped launch:</p>
                   <div className="body-text space-y-3 md:space-y-3">
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>THINK Protocol token (<a href="https://www.thinkagents.ai/claim" target="_blank" rel="noopener noreferrer" className="hover:underline">$THINK</a>) in partnership with <a href="https://futureverse.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Futureverse</a></div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}><a href="https://independentai.institute" target="_blank" rel="noopener noreferrer" className="hover:underline">The Independent AI Institute</a></div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A social mission game using X integration (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">6079.ai</a>)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>Marcom for <a href="https://wire.network" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Network</a> & <a href="https://wire.foundation" target="_blank" rel="noopener noreferrer" className="hover:underline">Wire.Foundation</a></div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>THINK Protocol token ($THINK) in partnership with Futureverse</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>The Independent AI Institute</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A social mission game using X integration (6079.ai)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>Marcom for Wire.Network & Wire.Foundation</div>
                     <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A blockchain hub, explorer, and node dashboard for Wire Network</div>
                     <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>The 6079 Foundation</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A decentralized AI PVP Street Fighter game (<a href="https://www.independentai.institute/projects/ai-prize-fight" target="_blank" rel="noopener noreferrer" className="hover:underline">AI Prize Fight</a>)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A decentralized AI PVP Street Fighter game (AI Prize Fight)</div>
                     <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>An independent AI news hub (IAI News)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A virtual game available on iOS, Android, and Web (<a href="/case-studies/6079-ai" target="_blank" rel="noopener noreferrer" className="hover:underline">Nodeshifter</a>)</div>
-                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>$MOR token swap product for Morpheus (<a href="https://mor.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Mor.org</a>)</div>
-                    <div>A business incubator (Thinkubator) supporting <a href="https://gamesyouwin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">WIN</a> (Leading on-chain gaming), <a href="https://supermode.ls" target="_blank" rel="noopener noreferrer" className="hover:underline">Supermode.ls</a> (Building creative tools you own), and <a href="https://money.xyz" target="_blank" rel="noopener noreferrer" className="hover:underline">Money.xyz</a> (Enabling all your assets in one place)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>A virtual game available on iOS, Android, and Web (Nodeshifter)</div>
+                    <div className="border-b pb-3" style={{ borderColor: 'var(--raised)' }}>$MOR token swap product for Morpheus (Mor.org)</div>
+                    <div>A business incubator (Thinkubator) supporting WIN (Leading on-chain gaming), Supermode.ls (Building creative tools you own), and Money.xyz (Enabling all your assets in one place)</div>
                   </div>
                 </div>
 
