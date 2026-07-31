@@ -95,8 +95,10 @@ export function Navbar() {
             >
               Email
             </Link>
-            <ModeToggle />
-            <DarkModeToggle />
+            <div className="flex items-center gap-0.5">
+              <ModeToggle />
+              <DarkModeToggle />
+            </div>
           </div>
 
           {/* Mobile - Toggle and Hamburger */}

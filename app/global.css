@@ -897,17 +897,21 @@ div[style*="background-color: #333333"] {
   pointer-events: none;
   z-index: 55; /* over content, below dust (56) + UI (80+) */
   mix-blend-mode: multiply;
-  opacity: var(--grain-opacity, 0.135);
+  opacity: 0; /* Play-only — Quiet ("business") stays completely clean */
   will-change: transform;
-  /* Quiet = static baseline grain; the boil is Play-only. */
-}
-
-html[data-mode='play'] .texture-overlay__grain {
-  animation: grain-film 0.8s steps(1) infinite;
 }
 
 .dark .texture-overlay__grain {
   mix-blend-mode: screen;
+}
+
+/* Play: the film grain appears and boils over the whole frame. */
+html[data-mode='play'] .texture-overlay__grain {
+  opacity: var(--grain-opacity, 0.135);
+  animation: grain-film 0.8s steps(1) infinite;
+}
+
+html[data-mode='play'].dark .texture-overlay__grain {
   opacity: var(--grain-opacity, 0.16);
 }
 
@@ -935,13 +939,6 @@ html[data-mode='play'] .texture-overlay__dust {
 html[data-texture='off'] .texture-overlay__grain,
 html[data-texture='off'] .texture-overlay__dust {
   opacity: 0;
-}
-
-/* Quiet = clean/business: keep portfolio images crisp by lifting them above the
-   film-grain overlay. In Play the grain stays over everything (filmic). */
-html[data-mode='quiet'] .riso-media {
-  position: relative;
-  z-index: 56;
 }
 
 /* Film-grain jitter — the noise "hops" between offsets ~12×/s. */
