@@ -16,7 +16,6 @@ import {
   experienceNoFlashScript,
 } from './components/experience-provider'
 import { TextureOverlay } from './components/texture-overlay'
-import { ExperienceToggle } from './components/experience-toggle'
 import { RisoDefs } from './components/riso-defs'
 import { RisoCustomizer } from './components/riso-customizer'
 import { PlayCursor } from './components/play-cursor'
@@ -250,7 +249,6 @@ export default function RootLayout({
             </main>
             <TextureOverlay />
             <RisoDefs />
-            <ExperienceToggle />
             <PlayCursor />
             <HalftoneEngine />
             <RisoCustomizer />

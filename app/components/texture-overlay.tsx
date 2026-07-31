@@ -15,7 +15,7 @@ export function TextureOverlay() {
           <feTurbulence
             id="zm-grain-turb"
             type="fractalNoise"
-            baseFrequency="0.9"
+            baseFrequency="0.5"
             numOctaves="2"
             stitchTiles="stitch"
           />

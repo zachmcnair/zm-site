@@ -30,10 +30,10 @@ export function HalftoneEngine() {
     let debounce = 0
 
     const params = () => ({
-      pitch: getVar('--play-htpitch', 6),
-      registration: getVar('--play-registration', 1.5),
+      pitch: getVar('--play-htpitch', 3),
+      registration: getVar('--play-registration', 4.9),
       grain: getVar('--play-photo-grain', 0.45),
-      overspray: getVar('--play-overspray', 0.5),
+      overspray: getVar('--play-overspray', 0),
     })
 
     // Cache: true = animated (skip halftone → keep the live duotone), false = static.
