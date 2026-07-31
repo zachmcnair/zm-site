@@ -70,10 +70,10 @@ export const identity = {
 
 export const availability = {
   status: 'limited' as 'open' | 'limited' | 'closed',
-  label: 'With limited availability',
+  label: 'Open to the right project',
   dotColor: '#E2B237',
   mailto:
-    "mailto:hello@zachmcnair.com?subject=I know you have limited availability, but...",
+    "mailto:hello@zachmcnair.com?subject=I think I've got the right project",
 }
 
 export const socials = [
