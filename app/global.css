@@ -905,12 +905,12 @@ html[data-texture='on'] .texture-overlay {
   width: 100%;
   height: 100%;
   mix-blend-mode: multiply;
-  opacity: 0.11;
+  opacity: var(--grain-opacity, 0.11);
 }
 
 .dark .texture-overlay__grain {
   mix-blend-mode: screen;
-  opacity: 0.09;
+  opacity: var(--grain-opacity, 0.09);
 }
 
 /* ==========================================================================
@@ -923,21 +923,59 @@ html[data-texture='on'] .texture-overlay {
 }
 
 html[data-mode='play'] .riso-media {
-  filter: url(#zm-duotone) contrast(1.03);
+  filter: url(#zm-duotone) contrast(var(--riso-contrast, 1.03));
+  border-radius: var(--play-radius, 7px); /* subtly soft edges */
+}
+
+/* Per-image grain layer that "boils" on hover — the animated riso shimmer. */
+html[data-mode='play'] .riso-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 html[data-mode='play'] .riso-media:hover {
-  transform: translateY(-4px) rotate(-0.6deg) scale(1.012);
+  transform: translateY(var(--play-lift, -4px)) rotate(var(--play-tilt, -0.6deg))
+    scale(var(--play-scale, 1.012));
+}
+
+html[data-mode='play'] .riso-media:hover::after {
+  opacity: var(--play-grain-hover, 0.55);
+  animation: riso-boil 0.5s steps(3) infinite;
+}
+
+@keyframes riso-boil {
+  0% {
+    background-position: 0 0;
+  }
+  33% {
+    background-position: -38px 22px;
+  }
+  66% {
+    background-position: 26px -30px;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 /* Looser rhythm on the home work feed in Play. */
 html[data-mode='play'] .select-work-feed {
-  gap: 4.5rem;
+  gap: var(--play-feed-gap, 4.5rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-mode='play'] .riso-media:hover {
     transform: none;
+  }
+  html[data-mode='play'] .riso-media:hover::after {
+    animation: none;
   }
 }
 

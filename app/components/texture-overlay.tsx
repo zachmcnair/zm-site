@@ -11,6 +11,7 @@ export function TextureOverlay() {
       <svg className="texture-overlay__grain" xmlns="http://www.w3.org/2000/svg">
         <filter id="zm-grain">
           <feTurbulence
+            id="zm-grain-turb"
             type="fractalNoise"
             baseFrequency="0.9"
             numOctaves="2"

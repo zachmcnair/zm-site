@@ -21,11 +21,12 @@ export function RisoDefs() {
                     0.2126 0.7152 0.0722 0 0
                     0 0 0 1 0"
           />
-          {/* grayscale → two inks (shadow #232152 → highlight #EDE7D6) */}
+          {/* grayscale → two inks (shadow #232152 → highlight #EDE7D6).
+              IDs let the dev customizer update these live. */}
           <feComponentTransfer>
-            <feFuncR type="table" tableValues="0.137 0.929" />
-            <feFuncG type="table" tableValues="0.129 0.906" />
-            <feFuncB type="table" tableValues="0.322 0.839" />
+            <feFuncR id="zm-duo-r" type="table" tableValues="0.137 0.929" />
+            <feFuncG id="zm-duo-g" type="table" tableValues="0.129 0.906" />
+            <feFuncB id="zm-duo-b" type="table" tableValues="0.322 0.839" />
           </feComponentTransfer>
         </filter>
       </defs>
