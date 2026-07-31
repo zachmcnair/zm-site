@@ -17,61 +17,14 @@ export function Navbar() {
       
       <nav className="py-6 px-8 md:px-20 nav-backdrop">
         <div className="flex items-center justify-between">
-          {/* Left side - Branding with fixed positioning */}
-          <div className="hidden md:flex items-center" style={{ gap: '90px' }}>
-            <div>
-              <div className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>
-                From the mind of
-              </div>
-              <Link 
-                href="/" 
-                className="text-sm font-faktum-regular transition-colors hover:underline"
-                style={{ color: 'var(--text)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--primary)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--text)'
-                }}
-              >
-                Zach McNair
-              </Link>
-            </div>
-            <div>
-              <div className="text-sm font-faktum-regular mb-2" style={{ color: 'var(--text-tertiary)' }}>
-                Currently at work
-              </div>
-              <div className="flex items-center gap-2">
-                <Link 
-                  href="mailto:hello@zachmcnair.com?subject=I know you have limited availability, but..."
-                  className="text-sm font-faktum-regular transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
-                  style={{ color: 'var(--text)' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = 'var(--primary)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'var(--text)'
-                  }}
-                >
-                  With limited availability
-                </Link>
-                <div 
-                  className="w-2 h-2 rounded-full status-indicator" 
-                  style={{ backgroundColor: '#E2B237' }}
-                  role="status"
-                  aria-label="Limited availability"
-                  title="Limited availability"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile - Logo instead of "From the mind of" */}
-          <div className="md:hidden">
-            <Link href="/">
-              <Logo size="md" className="w-12 h-12" />
-            </Link>
-          </div>
+          {/* Left side - Z logo mark (links home) */}
+          <Link
+            href="/"
+            className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
+            aria-label="Zach McNair — home"
+          >
+            <Logo size="lg" className="w-11 h-11" />
+          </Link>
           
           {/* Right side - Navigation and Toggle */}
           <div className="hidden md:flex items-center gap-6">

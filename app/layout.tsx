@@ -11,6 +11,11 @@ import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
 import { LastFmProvider } from './components/lastfm-context'
 import { PageTransition } from './components/page-transition'
+import {
+  ExperienceProvider,
+  experienceNoFlashScript,
+} from './components/experience-provider'
+import { TextureOverlay } from './components/texture-overlay'
 
 
 // Set to true to show the minimal landing page, false to show the full site
@@ -147,6 +152,15 @@ export default function RootLayout({
       className={`text-black bg-white dark:text-white dark:bg-black ${faktumRegular.variable} ${faktumMedium.variable} ${faktumBold.variable} ${faktumLight.variable} ${faktumSemiBold.variable} ${faktumExtraBold.variable} ${dmMono.variable} ${newsreader.variable} ${vt323.variable} ${xanhMono.variable} ${instrumentSerif.variable} ${GeistMono.className}`}
     >
       <head>
+        {/* No-flash: apply persisted experience mode/texture before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: experienceNoFlashScript }} />
+        {/* No-flash: lock the home route into fixed-viewport column scrolling */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(location.pathname==='/')document.documentElement.classList.add('home-locked')}catch(e){}",
+          }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2GE39DCHY9"
           strategy="afterInteractive"
@@ -217,17 +231,20 @@ export default function RootLayout({
       </head>
       <body className="antialiased font-faktum">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {!WIP && <Navbar />}
-          <main className="min-h-screen pt-20">
-            <LastFmProvider>
-              <PageTransition>
-                {children}
-              </PageTransition>
-              {!WIP && <Footer />}
-            </LastFmProvider>
-            <Analytics />
-            <SpeedInsights />
-          </main>
+          <ExperienceProvider>
+            {!WIP && <Navbar />}
+            <main className="min-h-screen pt-20">
+              <LastFmProvider>
+                <PageTransition>
+                  {children}
+                </PageTransition>
+                {!WIP && <Footer />}
+              </LastFmProvider>
+              <Analytics />
+              <SpeedInsights />
+            </main>
+            <TextureOverlay />
+          </ExperienceProvider>
         </ThemeProvider>
       </body>
     </html>

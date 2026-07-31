@@ -64,9 +64,9 @@
   --background: #FEFCF4;
   --raised: #E0D9C3;
   --raised-tertiary: #9B9581;
-  --text: #0E0F12;
-  --text-secondary: #21232B;
-  --text-tertiary: #718096;
+  --text: #33302A;
+  --text-secondary: #4A463E;
+  --text-tertiary: #8A8474;
   --primary: #5959E3;
   --link: #5959E3;
   --danger: #E25A1C;
@@ -76,6 +76,10 @@
   /* Signature filter for light mode */
   --signature-filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1234%) hue-rotate(202deg) brightness(94%) contrast(86%);
   
+  /* System font stack — adopted for gentler, more legible reading (à la Studio Frank).
+     Newsreader (quotes) and DM Mono (labels) are kept as-is. */
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
   /* Type Units */
   --unit-xs: 0.5rem;
   --unit-sm: 0.875rem;
@@ -115,7 +119,7 @@
 
 html {
   min-width: 360px;
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
   line-height: 1.5;
 }
 
@@ -123,8 +127,10 @@ body {
   color: var(--text);
   background-color: var(--background);
   font-size: 16px;
-  line-height: 1.5;
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.55;
+  font-family: var(--font-system);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Gradient Animation Keyframes */
@@ -154,15 +160,14 @@ body {
   animation: status-pulse 2s ease-in-out infinite;
 }
 
-/* Sticky navigation backdrop blur */
+/* Navigation shares the exact page background so the header reads as one
+   continuous surface with the body (no visible band). */
 .nav-backdrop {
-  background-color: rgba(254, 252, 244, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: var(--background);
 }
 
 .dark .nav-backdrop {
-  background-color: rgba(5, 6, 7, 0.8);
+  background-color: var(--background);
 }
 
 /* Page transition animations */
@@ -229,29 +234,36 @@ body {
   animation: gradient-shift 8s ease-in-out infinite reverse;
 }
 
-/* Faktum font utility classes */
+/* Faktum utility classes — now mapped to the system stack (weights preserved)
+   so existing markup gets gentler, more legible type without per-component edits. */
 .font-faktum {
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
+  font-weight: 400;
 }
 
 .font-faktum-light {
-  font-family: var(--font-faktum-light), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
+  font-weight: 300;
 }
 
 .font-faktum-medium {
-  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
+  font-weight: 500;
 }
 
 .font-faktum-semibold {
-  font-family: var(--font-faktum-semibold), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
+  font-weight: 600;
 }
 
 .font-faktum-bold {
-  font-family: var(--font-faktum-bold), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
+  font-weight: 700;
 }
 
 .font-faktum-extrabold {
-  font-family: var(--font-faktum-extrabold), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
+  font-weight: 800;
 }
 
 /* DM Mono font utility classes */
@@ -439,42 +451,42 @@ table {
 h1, h2, h3, h4, h5, h6 {
   @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 500;
-  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
 }
 
 h1 {
   @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 500;
-  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
 }
 
 h2 {
   @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 500;
-  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
 }
 
 /* Override for section headings that should be regular weight */
 h2.font-faktum-regular {
   font-weight: 400 !important;
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-family: var(--font-system) !important;
 }
 
 h3 {
   @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 400;
-  font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
 }
 
 /* Override for footer headings that should be regular weight */
 h3.font-faktum-regular {
   font-weight: 400 !important;
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-family: var(--font-system) !important;
 }
 
 p {
   color: var(--text);
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
 }
 
 .dark p {
@@ -526,7 +538,7 @@ li {
 
 .expertise-item {
   @apply px-0 py-1 transition-colors text-left;
-  font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-system);
   font-size: var(--unit-sm);
   font-weight: 400; /* Regular weight */
   background: none !important;
@@ -631,8 +643,9 @@ div[style*="background-color: #333333"] {
 /* Memo text styling */
 .memo-text {
   color: var(--text); /* Off-black in light mode */
-  font-size: var(--unit-sm);
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.001em;
 }
 
 .dark .memo-text {
@@ -642,8 +655,8 @@ div[style*="background-color: #333333"] {
 /* Body text styling - consistent across the site */
 .body-text {
   color: var(--text); /* Off-black in light mode */
-  font-size: var(--unit-sm);
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .dark .body-text {
@@ -748,6 +761,210 @@ div[style*="background-color: #333333"] {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   v2 — Home reveal, experience texture layer + floating control
+   ========================================================================== */
+
+/* Staggered entrance for the home columns — CSS-only so content is never
+   dependent on JS to become visible. Reduced-motion is handled by the global
+   prefers-reduced-motion block above (duration collapses → snaps to visible). */
+@keyframes home-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-reveal {
+  animation: home-reveal 0.6s ease-out both;
+}
+
+/* Inline portrait illustration scales to its container and uses currentColor. */
+.portrait-illo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Slim persistent footer bar for the locked desktop home (hidden elsewhere). */
+.home-footer-bar {
+  display: none;
+}
+
+/* Independent per-column scroll on desktop: the home becomes a fixed-height
+   viewport and each column scrolls on its own (only the hovered column moves),
+   with NO visible scrollbar (Cargo-style). A slim footer bar sits at the bottom.
+   Mobile keeps normal stacked page scroll with the full footer. */
+@media (min-width: 1024px) {
+  html.home-locked,
+  html.home-locked body {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  /* The tall global footer belongs to the normal-scroll paradigm; the slim bar
+     replaces it on the locked home. */
+  html.home-locked footer {
+    display: none;
+  }
+
+  html.home-locked .home-viewport {
+    min-height: 0; /* override .min-h-screen so the height calc wins */
+    height: calc(100vh - 5rem); /* clear the fixed header (main has pt-20) */
+    display: flex;
+    flex-direction: column;
+  }
+
+  html.home-locked .home-inner {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  html.home-locked .home-grid {
+    flex: 1;
+    min-height: 0;
+  }
+
+  html.home-locked .home-col {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: 2.5rem;
+    /* Hidden scrollbar — the column still scrolls. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html.home-locked .home-col::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  html.home-locked .home-footer-bar {
+    display: flex;
+    flex: none;
+  }
+
+  /* Lift the floating experience toggle above the footer bar. */
+  html.home-locked .experience-toggle {
+    bottom: 4.75rem;
+  }
+}
+
+/* Full-viewport grain, gated by html[data-texture="on"] */
+.texture-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55; /* above the header (z-50) so grain covers it; below the toggle (z-60) */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+html[data-texture='on'] .texture-overlay {
+  opacity: 1;
+}
+
+.texture-overlay__grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.11;
+}
+
+.dark .texture-overlay__grain {
+  mix-blend-mode: screen;
+  opacity: 0.09;
+}
+
+/* Floating experience control */
+.experience-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.25rem 0.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--raised);
+  background-color: rgba(254, 252, 244, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: opacity 0.4s ease;
+}
+
+.dark .experience-toggle {
+  background-color: rgba(5, 6, 7, 0.82);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.experience-toggle__seg {
+  display: flex;
+}
+
+.experience-toggle__opt {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-family: var(--font-dm-mono), 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.experience-toggle__opt:hover {
+  color: var(--text);
+}
+
+.experience-toggle__opt[data-active='true'] {
+  color: var(--text);
+  background: var(--raised);
+}
+
+.experience-toggle__divider {
+  width: 1px;
+  height: 16px;
+  background: var(--raised);
+  margin: 0 0.2rem;
+}
+
+.experience-toggle__texture {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.experience-toggle__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 1px solid var(--text-tertiary);
+  background: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.experience-toggle__texture[data-active='true'] .experience-toggle__dot {
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 
