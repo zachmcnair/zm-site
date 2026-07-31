@@ -16,7 +16,6 @@ type Settings = {
   grainScale: number
   dust: number
   feather: number
-  rough: number
   photoGrain: number
   grainHover: number
   radius: number
@@ -31,14 +30,13 @@ const DEFAULTS: Settings = {
   shadow: '#232152',
   highlight: '#ede7d6',
   contrast: 1.1,
-  grainOpacity: 0.265,
-  grainScale: 0.65,
-  dust: 0.5,
-  feather: 16,
-  rough: 4,
-  photoGrain: 0.16,
+  grainOpacity: 0.135,
+  grainScale: 0.5,
+  dust: 0,
+  feather: 1,
+  photoGrain: 0.45,
   grainHover: 0.55,
-  radius: 2,
+  radius: 1,
   tilt: 3,
   lift: 4,
   scale: 1.012,
@@ -75,7 +73,6 @@ function apply(s: Settings) {
   set('zm-duo-b', sb, hb)
 
   document.getElementById('zm-grain-turb')?.setAttribute('baseFrequency', String(s.grainScale))
-  document.getElementById('zm-rough-disp')?.setAttribute('scale', String(s.rough))
 }
 
 const panel: React.CSSProperties = {
@@ -171,7 +168,6 @@ export function RisoCustomizer() {
       {color('highlight', 'Highlight ink')}
       {num('contrast', 'Contrast', 0.8, 1.6, 0.01)}
       {num('feather', 'Edge feather px', 0, 48, 1)}
-      {num('rough', 'Edge roughen', 0, 14, 0.5)}
       {num('radius', 'Corner radius px', 0, 28, 1)}
       {num('grainOpacity', 'Table grain', 0, 0.5, 0.005)}
       {num('grainScale', 'Grain scale', 0.3, 1.4, 0.05)}

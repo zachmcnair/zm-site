@@ -885,55 +885,85 @@ div[style*="background-color: #333333"] {
   }
 }
 
-/* Full-viewport grain, gated by html[data-texture="on"] */
+/* The two texture layers place themselves independently in the global stacking
+   order: the "table" grain sits BELOW content; "dust" settles ON TOP. */
 .texture-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 55; /* above the header (z-50) so grain covers it; below the toggle (z-60) */
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: contents;
 }
 
-html[data-texture='on'] .texture-overlay {
-  opacity: 1;
-}
-
-/* "Table" grain — the ever-present surface, gently drifting so it feels alive. */
+/* "Table" grain — the surface the work sits ON, so it lives BELOW images + text.
+   Moves like film grain: the pattern jitters between positions (steps). */
 .texture-overlay__grain {
-  position: absolute;
-  inset: -30%;
-  width: 160%;
-  height: 160%;
+  position: fixed;
+  inset: -40%;
+  width: 180%;
+  height: 180%;
+  pointer-events: none;
+  z-index: -1; /* below all page content */
   mix-blend-mode: multiply;
-  opacity: var(--grain-opacity, 0.265);
-  animation: grain-drift 7s ease-in-out infinite alternate;
+  opacity: var(--grain-opacity, 0.135);
+  animation: grain-film 0.8s steps(1) infinite;
 }
 
 .dark .texture-overlay__grain {
   mix-blend-mode: screen;
-  opacity: var(--grain-opacity, 0.22);
+  opacity: var(--grain-opacity, 0.16);
 }
 
-/* "Dust" — sparse specks that settle on top and drift on their own timeline. */
+/* "Dust" — sparse specks that settle ON TOP of everything and drift slowly. */
 .texture-overlay__dust {
-  position: absolute;
+  position: fixed;
   inset: -20%;
   width: 140%;
   height: 140%;
+  pointer-events: none;
+  z-index: 56; /* above content, below the toggle/customizer */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='1' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 12 -8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
   background-size: 300px 300px;
   mix-blend-mode: overlay;
-  opacity: var(--dust-opacity, 0.5);
+  opacity: var(--dust-opacity, 0);
   animation: dust-drift 22s linear infinite;
 }
 
-@keyframes grain-drift {
+html[data-texture='off'] .texture-overlay__grain,
+html[data-texture='off'] .texture-overlay__dust {
+  opacity: 0;
+}
+
+/* Film-grain jitter — the noise "hops" between offsets ~12×/s. */
+@keyframes grain-film {
   0% {
     transform: translate3d(0, 0, 0);
   }
+  10% {
+    transform: translate3d(-6%, -4%, 0);
+  }
+  20% {
+    transform: translate3d(5%, 3%, 0);
+  }
+  30% {
+    transform: translate3d(-4%, 6%, 0);
+  }
+  40% {
+    transform: translate3d(7%, -3%, 0);
+  }
+  50% {
+    transform: translate3d(-7%, -6%, 0);
+  }
+  60% {
+    transform: translate3d(4%, 5%, 0);
+  }
+  70% {
+    transform: translate3d(-3%, -2%, 0);
+  }
+  80% {
+    transform: translate3d(6%, 4%, 0);
+  }
+  90% {
+    transform: translate3d(-5%, 3%, 0);
+  }
   100% {
-    transform: translate3d(-4%, 3%, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -956,36 +986,36 @@ html[data-texture='on'] .texture-overlay {
 }
 
 html[data-mode='play'] .riso-media {
-  filter: url(#zm-rough) url(#zm-duotone) contrast(var(--riso-contrast, 1.1));
-  border-radius: var(--play-radius, 2px);
-  /* Feathered, imperfect edges all the way around — ink doesn't hit a clean border. */
+  filter: url(#zm-duotone) contrast(var(--riso-contrast, 1.1));
+  border-radius: var(--play-radius, 1px);
+  /* Feathered edges all the way around — ink softens toward the border. */
   -webkit-mask-image: linear-gradient(
       to right,
       #0000,
-      #000 var(--play-feather, 16px),
-      #000 calc(100% - var(--play-feather, 16px)),
+      #000 var(--play-feather, 1px),
+      #000 calc(100% - var(--play-feather, 1px)),
       #0000
     ),
     linear-gradient(
       to bottom,
       #0000,
-      #000 var(--play-feather, 16px),
-      #000 calc(100% - var(--play-feather, 16px)),
+      #000 var(--play-feather, 1px),
+      #000 calc(100% - var(--play-feather, 1px)),
       #0000
     );
   -webkit-mask-composite: source-in;
   mask-image: linear-gradient(
       to right,
       #0000,
-      #000 var(--play-feather, 16px),
-      #000 calc(100% - var(--play-feather, 16px)),
+      #000 var(--play-feather, 1px),
+      #000 calc(100% - var(--play-feather, 1px)),
       #0000
     ),
     linear-gradient(
       to bottom,
       #0000,
-      #000 var(--play-feather, 16px),
-      #000 calc(100% - var(--play-feather, 16px)),
+      #000 var(--play-feather, 1px),
+      #000 calc(100% - var(--play-feather, 1px)),
       #0000
     );
   mask-composite: intersect;
@@ -1001,7 +1031,7 @@ html[data-mode='play'] .riso-media::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 150px 150px;
   mix-blend-mode: soft-light;
-  opacity: var(--play-photo-grain, 0.16);
+  opacity: var(--play-photo-grain, 0.45);
   transition: opacity 0.35s ease;
 }
 
@@ -1046,6 +1076,32 @@ html[data-mode='play'] .select-work-feed {
   html[data-mode='play'] .riso-media:hover::after {
     animation: none;
   }
+}
+
+/* Fun Play cursor — a soft ink dot; native cursor hidden only while it's active. */
+html[data-cursor='custom'],
+html[data-cursor='custom'] * {
+  cursor: none;
+}
+
+.play-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 90;
+  will-change: transform;
+}
+
+.dark .play-cursor {
+  mix-blend-mode: screen;
+  opacity: 0.85;
 }
 
 /* Floating experience control */

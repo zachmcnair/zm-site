@@ -19,6 +19,7 @@ import { TextureOverlay } from './components/texture-overlay'
 import { ExperienceToggle } from './components/experience-toggle'
 import { RisoDefs } from './components/riso-defs'
 import { RisoCustomizer } from './components/riso-customizer'
+import { PlayCursor } from './components/play-cursor'
 
 
 // Set to true to show the minimal landing page, false to show the full site
@@ -249,6 +250,7 @@ export default function RootLayout({
             <TextureOverlay />
             <RisoDefs />
             <ExperienceToggle />
+            <PlayCursor />
             <RisoCustomizer />
           </ExperienceProvider>
         </ThemeProvider>
