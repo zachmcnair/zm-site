@@ -899,18 +899,51 @@ html[data-texture='on'] .texture-overlay {
   opacity: 1;
 }
 
+/* "Table" grain — the ever-present surface, gently drifting so it feels alive. */
 .texture-overlay__grain {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -30%;
+  width: 160%;
+  height: 160%;
   mix-blend-mode: multiply;
-  opacity: var(--grain-opacity, 0.11);
+  opacity: var(--grain-opacity, 0.265);
+  animation: grain-drift 7s ease-in-out infinite alternate;
 }
 
 .dark .texture-overlay__grain {
   mix-blend-mode: screen;
-  opacity: var(--grain-opacity, 0.09);
+  opacity: var(--grain-opacity, 0.22);
+}
+
+/* "Dust" — sparse specks that settle on top and drift on their own timeline. */
+.texture-overlay__dust {
+  position: absolute;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='1' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 12 -8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  mix-blend-mode: overlay;
+  opacity: var(--dust-opacity, 0.5);
+  animation: dust-drift 22s linear infinite;
+}
+
+@keyframes grain-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-4%, 3%, 0);
+  }
+}
+
+@keyframes dust-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(6%, -5%, 0);
+  }
 }
 
 /* ==========================================================================
@@ -923,25 +956,57 @@ html[data-texture='on'] .texture-overlay {
 }
 
 html[data-mode='play'] .riso-media {
-  filter: url(#zm-duotone) contrast(var(--riso-contrast, 1.03));
-  border-radius: var(--play-radius, 7px); /* subtly soft edges */
+  filter: url(#zm-rough) url(#zm-duotone) contrast(var(--riso-contrast, 1.1));
+  border-radius: var(--play-radius, 2px);
+  /* Feathered, imperfect edges all the way around — ink doesn't hit a clean border. */
+  -webkit-mask-image: linear-gradient(
+      to right,
+      #0000,
+      #000 var(--play-feather, 16px),
+      #000 calc(100% - var(--play-feather, 16px)),
+      #0000
+    ),
+    linear-gradient(
+      to bottom,
+      #0000,
+      #000 var(--play-feather, 16px),
+      #000 calc(100% - var(--play-feather, 16px)),
+      #0000
+    );
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+      to right,
+      #0000,
+      #000 var(--play-feather, 16px),
+      #000 calc(100% - var(--play-feather, 16px)),
+      #0000
+    ),
+    linear-gradient(
+      to bottom,
+      #0000,
+      #000 var(--play-feather, 16px),
+      #000 calc(100% - var(--play-feather, 16px)),
+      #0000
+    );
+  mask-composite: intersect;
 }
 
-/* Per-image grain layer that "boils" on hover — the animated riso shimmer. */
+/* The photo's OWN grain — always present, moves/tilts with the image,
+   and boils (animates) on hover. */
 html[data-mode='play'] .riso-media::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px 160px;
+  background-size: 150px 150px;
   mix-blend-mode: soft-light;
-  opacity: 0;
+  opacity: var(--play-photo-grain, 0.16);
   transition: opacity 0.35s ease;
 }
 
 html[data-mode='play'] .riso-media:hover {
-  transform: translateY(var(--play-lift, -4px)) rotate(var(--play-tilt, -0.6deg))
+  transform: translateY(var(--play-lift, -4px)) rotate(var(--play-tilt, 3deg))
     scale(var(--play-scale, 1.012));
 }
 
@@ -967,10 +1032,14 @@ html[data-mode='play'] .riso-media:hover::after {
 
 /* Looser rhythm on the home work feed in Play. */
 html[data-mode='play'] .select-work-feed {
-  gap: var(--play-feed-gap, 4.5rem);
+  gap: var(--play-feed-gap, 2rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .texture-overlay__grain,
+  .texture-overlay__dust {
+    animation: none;
+  }
   html[data-mode='play'] .riso-media:hover {
     transform: none;
   }

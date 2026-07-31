@@ -14,8 +14,12 @@ type Settings = {
   contrast: number
   grainOpacity: number
   grainScale: number
-  radius: number
+  dust: number
+  feather: number
+  rough: number
+  photoGrain: number
   grainHover: number
+  radius: number
   tilt: number
   lift: number
   scale: number
@@ -26,15 +30,19 @@ type Settings = {
 const DEFAULTS: Settings = {
   shadow: '#232152',
   highlight: '#ede7d6',
-  contrast: 1.03,
-  grainOpacity: 0.1,
-  grainScale: 0.9,
-  radius: 7,
+  contrast: 1.1,
+  grainOpacity: 0.265,
+  grainScale: 0.65,
+  dust: 0.5,
+  feather: 16,
+  rough: 4,
+  photoGrain: 0.16,
   grainHover: 0.55,
-  tilt: -0.6,
+  radius: 2,
+  tilt: 3,
   lift: 4,
   scale: 1.012,
-  feedGap: 4.5,
+  feedGap: 2,
 }
 
 function hex01(hex: string): [number, number, number] {
@@ -54,6 +62,9 @@ function apply(s: Settings) {
   root.style.setProperty('--play-feed-gap', `${s.feedGap}rem`)
   root.style.setProperty('--play-radius', `${s.radius}px`)
   root.style.setProperty('--play-grain-hover', String(s.grainHover))
+  root.style.setProperty('--play-feather', `${s.feather}px`)
+  root.style.setProperty('--play-photo-grain', String(s.photoGrain))
+  root.style.setProperty('--dust-opacity', String(s.dust))
 
   const [sr, sg, sb] = hex01(s.shadow)
   const [hr, hg, hb] = hex01(s.highlight)
@@ -64,6 +75,7 @@ function apply(s: Settings) {
   set('zm-duo-b', sb, hb)
 
   document.getElementById('zm-grain-turb')?.setAttribute('baseFrequency', String(s.grainScale))
+  document.getElementById('zm-rough-disp')?.setAttribute('scale', String(s.rough))
 }
 
 const panel: React.CSSProperties = {
@@ -158,14 +170,18 @@ export function RisoCustomizer() {
       {color('shadow', 'Shadow ink')}
       {color('highlight', 'Highlight ink')}
       {num('contrast', 'Contrast', 0.8, 1.6, 0.01)}
-      {num('grainOpacity', 'Grain opacity', 0, 0.3, 0.005)}
+      {num('feather', 'Edge feather px', 0, 48, 1)}
+      {num('rough', 'Edge roughen', 0, 14, 0.5)}
+      {num('radius', 'Corner radius px', 0, 28, 1)}
+      {num('grainOpacity', 'Table grain', 0, 0.5, 0.005)}
       {num('grainScale', 'Grain scale', 0.3, 1.4, 0.05)}
-      {num('radius', 'Soft edges px', 0, 28, 1)}
+      {num('photoGrain', 'Photo grain', 0, 0.5, 0.01)}
+      {num('dust', 'Dust', 0, 1, 0.05)}
       {num('grainHover', 'Hover shimmer', 0, 1, 0.05)}
-      {num('tilt', 'Hover tilt°', -3, 3, 0.1)}
+      {num('tilt', 'Hover tilt°', -4, 4, 0.1)}
       {num('lift', 'Hover lift px', 0, 20, 1)}
       {num('scale', 'Hover scale', 1, 1.06, 0.002)}
-      {num('feedGap', 'Feed gap rem', 2, 8, 0.25)}
+      {num('feedGap', 'Feed gap rem', 1, 8, 0.25)}
 
       <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
         <button

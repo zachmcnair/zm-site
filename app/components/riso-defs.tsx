@@ -12,6 +12,27 @@ export function RisoDefs() {
       style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}
     >
       <defs>
+        {/* Roughen: turbulence-displaced edges/content for a hand-printed,
+            imperfect-ink feel. scale is updated live by the dev customizer. */}
+        <filter id="zm-rough">
+          <feTurbulence
+            id="zm-rough-turb"
+            type="fractalNoise"
+            baseFrequency="0.014"
+            numOctaves="2"
+            seed="4"
+            result="n"
+          />
+          <feDisplacementMap
+            id="zm-rough-disp"
+            in="SourceGraphic"
+            in2="n"
+            scale="4"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+
         <filter id="zm-duotone" colorInterpolationFilters="sRGB">
           {/* luminance → grayscale */}
           <feColorMatrix
