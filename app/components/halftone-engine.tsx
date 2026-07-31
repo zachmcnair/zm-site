@@ -36,33 +36,21 @@ export function HalftoneEngine() {
     })
 
     // Cache: true = animated (skip halftone → keep the live duotone), false = static.
+    // Detect by reading the file header: GIFs animate; WebP with an ANMF chunk animate.
     const animCache = new WeakMap<HTMLImageElement, boolean>()
     const checkAnim = (img: HTMLImageElement, cb: (animated: boolean) => void) => {
-      const c = document.createElement('canvas')
-      c.width = 8
-      c.height = 8
-      const cx = c.getContext('2d', { willReadFrequently: true })
-      if (!cx) return cb(false)
-      const snap = () => {
-        cx.drawImage(img, 0, 0, 8, 8)
-        return cx.getImageData(0, 0, 8, 8).data
-      }
-      let a: Uint8ClampedArray
-      try {
-        a = snap()
-      } catch {
-        return cb(false)
-      }
-      window.setTimeout(() => {
-        try {
-          const b = snap()
-          let diff = 0
-          for (let i = 0; i < a.length; i += 4) if (Math.abs(a[i] - b[i]) > 6) diff++
-          cb(diff > 2)
-        } catch {
-          cb(false)
-        }
-      }, 200)
+      const src = img.currentSrc || img.src || ''
+      if (/\.gif(\?|$)/i.test(src)) return cb(true)
+      if (!/\.webp(\?|$)/i.test(src)) return cb(false)
+      fetch(src)
+        .then((r) => r.arrayBuffer())
+        .then((buf) => {
+          const bytes = new Uint8Array(buf.slice(0, 4096))
+          let s = ''
+          for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i])
+          cb(s.indexOf('ANMF') !== -1)
+        })
+        .catch(() => cb(false))
     }
 
     // Render at most one image per frame so activation/scroll never blocks.
