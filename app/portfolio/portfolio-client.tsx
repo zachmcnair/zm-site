@@ -25,8 +25,8 @@ export default function PortfolioPageClient() {
           }}
         >
           <p
-            className="font-faktum-light text-[21px] md:text-[24px] leading-[1.5] max-w-[613px]"
-            style={{ color: 'var(--text)' }}
+            className="font-faktum-light text-[21px] md:text-[24px] leading-[1.5] max-w-[613px] md:max-w-[54rem]"
+            style={{ color: 'var(--text)', textWrap: 'balance' }}
           >
             Since 1998, I design and ship brands, sites, and software that connect artists, communities, and companies to their fans.
           </p>
