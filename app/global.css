@@ -1176,4 +1176,42 @@ html[data-cursor='custom'] * {
   opacity: 0.85;
 }
 
+/* Minimal tooltip for the nav toggles — appears below on hover / keyboard focus. */
+.nav-tip {
+  position: relative;
+}
+
+.nav-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px);
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--text);
+  color: var(--background);
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 100;
+}
+
+.nav-tip:hover::after,
+.nav-tip:focus-visible::after {
+  opacity: 0.95;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (hover: none) {
+  .nav-tip::after {
+    display: none; /* no sticky tooltip after a tap on touch devices */
+  }
+}
+
 

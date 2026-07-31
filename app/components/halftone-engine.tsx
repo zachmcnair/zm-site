@@ -17,12 +17,19 @@ export function HalftoneEngine() {
 
   useEffect(() => {
     const root = document.documentElement
+    // Once this effect is cleaned up (mode change / unmount), no queued frame may
+    // paint — otherwise a stale render loop leaves halftone canvases on images
+    // below the fold and they stay "RISO" after switching to Business.
+    let disposed = false
     const getVar = (n: string, d: number) => {
       const f = parseFloat(getComputedStyle(root).getPropertyValue(n))
       return isNaN(f) ? d : f
     }
     const halftoneOn = () => getVar('--play-halftone', 1) >= 0.5
-    const active = () => mode === 'play' && halftoneOn()
+    // Judge from the LIVE DOM mode (not the captured React value) so a stale
+    // closure can never render after the mode has actually changed.
+    const active = () =>
+      !disposed && root.getAttribute('data-mode') === 'play' && halftoneOn()
 
     const canvases = new Map<HTMLElement, HTMLCanvasElement>()
     let io: IntersectionObserver | null = null
@@ -62,9 +69,13 @@ export function HalftoneEngine() {
       if (pumping) return
       pumping = true
       const step = () => {
+        if (disposed) {
+          pumping = false
+          return
+        }
         const next = queue.shift()
         if (next && active()) renderOne(next)
-        if (queue.length) requestAnimationFrame(step)
+        if (!disposed && queue.length) requestAnimationFrame(step)
         else pumping = false
       }
       requestAnimationFrame(step)
@@ -117,11 +128,18 @@ export function HalftoneEngine() {
     }
 
     const teardown = () => {
+      queue.length = 0
       canvases.forEach((cv, wrap) => {
         cv.remove()
         wrap.removeAttribute('data-halftone')
       })
       canvases.clear()
+      // Belt-and-suspenders: remove ANY stray halftone canvas the map may have
+      // lost track of, so nothing stays "RISO" once we leave Play.
+      document.querySelectorAll('canvas.riso-halftone').forEach((c) => c.remove())
+      document
+        .querySelectorAll('.riso-media[data-halftone]')
+        .forEach((w) => w.removeAttribute('data-halftone'))
       io?.disconnect()
       ro?.disconnect()
       io = ro = null
@@ -182,6 +200,7 @@ export function HalftoneEngine() {
     window.addEventListener('riso:change', onChange)
 
     return () => {
+      disposed = true
       teardown()
       window.removeEventListener('riso:change', onChange)
       window.clearTimeout(debounce)

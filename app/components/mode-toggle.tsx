@@ -44,9 +44,9 @@ export function ModeToggle() {
   return (
     <button
       onClick={toggleMode}
-      className="min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
-      aria-label={mode === 'play' ? 'Switch to Quiet mode' : 'Switch to Play mode'}
-      title={mode === 'play' ? 'Play mode — switch to Quiet' : 'Quiet mode — switch to Play'}
+      className="nav-tip min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
+      aria-label={mode === 'play' ? 'Switch to Business Mode' : 'Switch to RISO Mode'}
+      data-tip={mode === 'play' ? 'RISO Mode™' : 'Business Mode™'}
     >
       {mode === 'play' ? <BrushIcon /> : <LaptopIcon />}
     </button>
