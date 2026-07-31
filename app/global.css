@@ -121,6 +121,26 @@ html {
   min-width: 360px;
   font-family: var(--font-system);
   line-height: 1.5;
+  /* Always reserve the scrollbar gutter so content doesn't shift horizontally
+     between scrolling pages (portfolio) and the locked home. */
+  overflow-y: scroll;
+}
+
+/* Prevent orphans (a lone word on the final line) at every breakpoint. */
+p,
+li,
+blockquote,
+figcaption {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
 body {
@@ -802,7 +822,11 @@ div[style*="background-color: #333333"] {
    with NO visible scrollbar (Cargo-style). A slim footer bar sits at the bottom.
    Mobile keeps normal stacked page scroll with the full footer. */
 @media (min-width: 1024px) {
-  html.home-locked,
+  /* Keep html's reserved scrollbar gutter (overflow-y: scroll) so the locked
+     home matches scrolling pages; lock actual scrolling on the body only. */
+  html.home-locked {
+    height: 100%;
+  }
   html.home-locked body {
     overflow: hidden;
     height: 100%;
