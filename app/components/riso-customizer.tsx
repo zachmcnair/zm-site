@@ -12,6 +12,7 @@ type Settings = {
   halftone: number
   htpitch: number
   registration: number
+  overspray: number
   shadow: string
   highlight: string
   contrast: number
@@ -22,9 +23,12 @@ type Settings = {
   photoGrain: number
   grainHover: number
   radius: number
+  uiMisreg: number
   tilt: number
   lift: number
   scale: number
+  cursorSize: number
+  trailLife: number
 }
 
 // Defaults mirror the current baked-in values (see global.css / riso-defs.tsx).
@@ -32,6 +36,7 @@ const DEFAULTS: Settings = {
   halftone: 1,
   htpitch: 6,
   registration: 1.5,
+  overspray: 0.5,
   shadow: '#232152',
   highlight: '#ede7d6',
   contrast: 1.1,
@@ -42,9 +47,12 @@ const DEFAULTS: Settings = {
   photoGrain: 0.45,
   grainHover: 0.55,
   radius: 1,
+  uiMisreg: 0.6,
   tilt: 3,
   lift: 4,
   scale: 1.012,
+  cursorSize: 20,
+  trailLife: 420,
 }
 
 function hex01(hex: string): [number, number, number] {
@@ -69,6 +77,10 @@ function apply(s: Settings) {
   root.style.setProperty('--play-halftone', String(s.halftone))
   root.style.setProperty('--play-htpitch', String(s.htpitch))
   root.style.setProperty('--play-registration', String(s.registration))
+  root.style.setProperty('--play-overspray', String(s.overspray))
+  root.style.setProperty('--play-uimisreg', `${s.uiMisreg}px`)
+  root.style.setProperty('--play-cursor-size', `${s.cursorSize}px`)
+  root.style.setProperty('--play-trail-life', String(s.trailLife))
 
   const [sr, sg, sb] = hex01(s.shadow)
   const [hr, hg, hb] = hex01(s.highlight)
@@ -176,11 +188,13 @@ export function RisoCustomizer() {
       {num('halftone', 'Halftone (0/1)', 0, 1, 1)}
       {num('htpitch', 'Dot pitch px', 3, 14, 0.5)}
       {num('registration', 'Registration px', 0, 5, 0.1)}
+      {num('overspray', 'Overspray', 0, 1, 0.05)}
       {color('shadow', 'Duotone shadow')}
       {color('highlight', 'Duotone highlight')}
       {num('contrast', 'Contrast', 0.8, 1.6, 0.01)}
       {num('feather', 'Edge feather px', 0, 48, 1)}
       {num('radius', 'Corner radius px', 0, 28, 1)}
+      {num('uiMisreg', 'UI misregister px', 0, 2, 0.1)}
       {num('grainOpacity', 'Table grain', 0, 0.5, 0.005)}
       {num('grainScale', 'Grain scale', 0.3, 1.4, 0.05)}
       {num('photoGrain', 'Photo grain', 0, 0.5, 0.01)}
@@ -189,6 +203,8 @@ export function RisoCustomizer() {
       {num('tilt', 'Hover tilt°', -4, 4, 0.1)}
       {num('lift', 'Hover lift px', 0, 20, 1)}
       {num('scale', 'Hover scale', 1, 1.06, 0.002)}
+      {num('cursorSize', 'Cursor size px', 8, 44, 1)}
+      {num('trailLife', 'Trail fade ms', 100, 1200, 20)}
 
       <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
         <button

@@ -1092,7 +1092,8 @@ html[data-mode='play'] .riso-media[data-halftone='on'] {
 html[data-mode='play'] .font-dm-mono,
 html[data-mode='play'] .font-instrument-serif,
 html[data-mode='play'] h1 {
-  text-shadow: 0.6px 0 0 rgba(0, 148, 218, 0.35), -0.6px 0 0 rgba(232, 0, 128, 0.3);
+  text-shadow: var(--play-uimisreg, 0.6px) 0 0 rgba(0, 148, 218, 0.35),
+    calc(0px - var(--play-uimisreg, 0.6px)) 0 0 rgba(232, 0, 128, 0.3);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1129,8 +1130,8 @@ html[data-cursor='custom'] * {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: var(--play-cursor-size, 20px);
+  height: var(--play-cursor-size, 20px);
   border-radius: 50%;
   background: var(--primary);
   opacity: 0.7;

@@ -57,7 +57,8 @@ export function PlayCursor() {
     // Timestamped points; each frame we CLEAR the canvas and redraw only the
     // recent ones (so nothing ever lingers — fixes permanent marks in dark mode).
     const pts: { x: number; y: number; t: number }[] = []
-    const LIFE = 420 // ms — swift: a quick stroke, not a drawing
+    const lifeVar = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--play-trail-life'))
+    const LIFE = isNaN(lifeVar) ? 420 : lifeVar // ms — swift: a quick stroke, not a drawing
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX

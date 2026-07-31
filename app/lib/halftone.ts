@@ -9,6 +9,7 @@ export type HalftoneOpts = {
   pitch: number // dot spacing in display px
   registration: number // plate misregistration magnitude (px)
   grain?: number // grain baked into the print (0..1)
+  overspray?: number // stray ink specks past the edges (0..1)
   maxRadius?: number // dot radius at full ink, as a factor of pitch
   scale?: number // canvas pixels per display px (crispness)
   paper?: string // paper color the ink prints on
@@ -143,10 +144,11 @@ export function renderHalftone(
   }
 
   // Overspray — stray ink specks near the edges so borders aren't clean lines.
+  const ospray = opts.overspray ?? 0.5
   ctx.globalCompositeOperation = 'multiply'
   ctx.fillStyle = 'rgba(26,24,34,0.55)'
   const band = pitch * 2.5
-  const specks = Math.round((W + H) / pitch)
+  const specks = Math.round(((W + H) / pitch) * ospray * 2)
   for (let i = 0; i < specks; i++) {
     let x: number
     let y: number

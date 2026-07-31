@@ -33,6 +33,7 @@ export function HalftoneEngine() {
       pitch: getVar('--play-htpitch', 6),
       registration: getVar('--play-registration', 1.5),
       grain: getVar('--play-photo-grain', 0.45),
+      overspray: getVar('--play-overspray', 0.5),
     })
 
     // Cache: true = animated (skip halftone → keep the live duotone), false = static.
