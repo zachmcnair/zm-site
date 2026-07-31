@@ -13,6 +13,7 @@ type Settings = {
   htpitch: number
   registration: number
   overspray: number
+  dotScreen: number
   shadow: string
   highlight: string
   contrast: number
@@ -37,6 +38,7 @@ const DEFAULTS: Settings = {
   htpitch: 6,
   registration: 1.5,
   overspray: 0.5,
+  dotScreen: 0.35,
   shadow: '#232152',
   highlight: '#ede7d6',
   contrast: 1.1,
@@ -78,6 +80,7 @@ function apply(s: Settings) {
   root.style.setProperty('--play-htpitch', String(s.htpitch))
   root.style.setProperty('--play-registration', String(s.registration))
   root.style.setProperty('--play-overspray', String(s.overspray))
+  root.style.setProperty('--play-dotscreen', String(s.dotScreen))
   root.style.setProperty('--play-uimisreg', `${s.uiMisreg}px`)
   root.style.setProperty('--play-cursor-size', `${s.cursorSize}px`)
   root.style.setProperty('--play-trail-life', String(s.trailLife))
@@ -189,6 +192,7 @@ export function RisoCustomizer() {
       {num('htpitch', 'Dot pitch px', 3, 14, 0.5)}
       {num('registration', 'Registration px', 0, 5, 0.1)}
       {num('overspray', 'Overspray', 0, 1, 0.05)}
+      {num('dotScreen', 'Anim dot-screen', 0, 1, 0.05)}
       {color('shadow', 'Duotone shadow')}
       {color('highlight', 'Duotone highlight')}
       {num('contrast', 'Contrast', 0.8, 1.6, 0.01)}
