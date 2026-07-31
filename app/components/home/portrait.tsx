@@ -15,7 +15,7 @@ export function Portrait() {
 
   return (
     <div
-      className="portrait-illo w-full max-w-[280px] self-start"
+      className="portrait-illo w-full max-w-[380px] self-start"
       style={{ color: 'var(--text)' }}
       role="img"
       aria-label="Illustration of Zach McNair"

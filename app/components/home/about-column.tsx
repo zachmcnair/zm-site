@@ -65,7 +65,7 @@ export function AboutColumn({ portrait }: { portrait?: React.ReactNode }) {
         </h1>
         <p
           className="font-faktum-regular"
-          style={{ color: 'var(--text-tertiary)', fontSize: '0.9375rem', lineHeight: 1.5, maxWidth: '32ch' }}
+          style={{ color: 'var(--text-tertiary)', fontSize: '0.9375rem', lineHeight: 1.5, maxWidth: '60ch' }}
         >
           {identity.tagline}
         </p>
