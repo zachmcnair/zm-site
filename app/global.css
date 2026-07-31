@@ -1033,6 +1033,8 @@ html[data-mode='play'] .riso-media::after {
   mix-blend-mode: soft-light;
   opacity: var(--play-photo-grain, 0.45);
   transition: opacity 0.35s ease;
+  /* Grain is always alive in Play (boils slowly); faster on hover. */
+  animation: riso-boil 1.6s steps(3) infinite;
 }
 
 html[data-mode='play'] .riso-media:hover {
@@ -1042,7 +1044,24 @@ html[data-mode='play'] .riso-media:hover {
 
 html[data-mode='play'] .riso-media:hover::after {
   opacity: var(--play-grain-hover, 0.55);
-  animation: riso-boil 0.5s steps(3) infinite;
+  animation-duration: 0.5s;
+}
+
+/* Registration micro-jitter — the print "vibrates" like a live press. */
+html[data-mode='play'] .riso-halftone {
+  animation: riso-wobble 0.5s steps(2) infinite;
+}
+
+@keyframes riso-wobble {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0.6px, -0.5px, 0);
+  }
+  100% {
+    transform: translate3d(-0.5px, 0.5px, 0);
+  }
 }
 
 @keyframes riso-boil {
@@ -1086,14 +1105,13 @@ html[data-mode='play'] .select-work-feed {
 
 @media (prefers-reduced-motion: reduce) {
   .texture-overlay__grain,
-  .texture-overlay__dust {
+  .texture-overlay__dust,
+  html[data-mode='play'] .riso-halftone,
+  html[data-mode='play'] .riso-media::after {
     animation: none;
   }
   html[data-mode='play'] .riso-media:hover {
     transform: none;
-  }
-  html[data-mode='play'] .riso-media:hover::after {
-    animation: none;
   }
 }
 

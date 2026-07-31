@@ -38,7 +38,7 @@ export function renderHalftone(
   dispH: number,
   opts: HalftoneOpts
 ) {
-  const scale = opts.scale ?? Math.min(2, typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1)
+  const scale = opts.scale ?? Math.min(1.5, typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1)
   const maxRadiusF = opts.maxRadius ?? 0.72
   const W = Math.max(1, Math.round(dispW * scale))
   const H = Math.max(1, Math.round(dispH * scale))
@@ -82,6 +82,7 @@ export function renderHalftone(
   }
 
   ctx.globalCompositeOperation = 'multiply'
+  const TWO_PI = Math.PI * 2
   for (const ch of PLATES) {
     const [ir, ig, ib] = INKS[ch]
     ctx.fillStyle = `rgb(${ir},${ig},${ib})`
@@ -90,6 +91,8 @@ export function renderHalftone(
     const sin = Math.sin(a)
     const ox = REG[ch][0] * reg
     const oy = REG[ch][1] * reg
+    // Batch every dot of this plate into ONE path → a single fill (fast).
+    const path = new Path2D()
     for (let gy = -diag; gy <= diag; gy += pitch) {
       for (let gx = -diag; gx <= diag; gx += pitch) {
         const x = cx + gx * cos - gy * sin
@@ -98,11 +101,11 @@ export function renderHalftone(
         const d = sample(x + ox, y + oy, ch)
         if (d <= 0.03) continue
         const r = Math.min(maxR, Math.sqrt(d) * maxR)
-        ctx.beginPath()
-        ctx.arc(x, y, r, 0, Math.PI * 2)
-        ctx.fill()
+        path.moveTo(x + r, y)
+        path.arc(x, y, r, 0, TWO_PI)
       }
     }
+    ctx.fill(path)
   }
   ctx.globalCompositeOperation = 'source-over'
 }

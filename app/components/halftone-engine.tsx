@@ -34,6 +34,22 @@ export function HalftoneEngine() {
       registration: getVar('--play-registration', 1.5),
     })
 
+    // Render at most one image per frame so activation/scroll never blocks.
+    const queue: HTMLElement[] = []
+    let pumping = false
+    const enqueue = (w: HTMLElement) => {
+      if (!queue.includes(w)) queue.push(w)
+      if (pumping) return
+      pumping = true
+      const step = () => {
+        const next = queue.shift()
+        if (next && active()) renderOne(next)
+        if (queue.length) requestAnimationFrame(step)
+        else pumping = false
+      }
+      requestAnimationFrame(step)
+    }
+
     const renderOne = (wrap: HTMLElement) => {
       const img = wrap.querySelector('img') as HTMLImageElement | null
       if (!img) return
@@ -77,23 +93,31 @@ export function HalftoneEngine() {
       if (!active()) return
       const wraps = Array.from(document.querySelectorAll<HTMLElement>('.riso-media'))
       io = new IntersectionObserver(
-        (entries) => entries.forEach((e) => e.isIntersecting && renderOne(e.target as HTMLElement)),
+        (entries) => entries.forEach((e) => e.isIntersecting && enqueue(e.target as HTMLElement)),
         { rootMargin: '250px' }
       )
       ro = new ResizeObserver((entries) => {
         window.clearTimeout(debounce)
         debounce = window.setTimeout(() => {
-          if (active()) entries.forEach((e) => renderOne(e.target as HTMLElement))
+          if (active()) entries.forEach((e) => enqueue(e.target as HTMLElement))
         }, 150)
       })
       wraps.forEach((w) => {
         io!.observe(w)
         ro!.observe(w)
       })
-      // Render whatever's already on/near screen now (don't wait for the observer).
+      // On-screen now: render the first synchronously (instant feedback), queue the rest.
+      let first = true
       wraps.forEach((w) => {
         const r = w.getBoundingClientRect()
-        if (r.bottom > -250 && r.top < window.innerHeight + 250) renderOne(w)
+        if (r.bottom > -250 && r.top < window.innerHeight + 250) {
+          if (first) {
+            renderOne(w)
+            first = false
+          } else {
+            enqueue(w)
+          }
+        }
       })
     }
 
@@ -106,7 +130,7 @@ export function HalftoneEngine() {
         start()
         return
       }
-      canvases.forEach((_, wrap) => renderOne(wrap))
+      canvases.forEach((_, wrap) => enqueue(wrap))
     }
 
     start()
