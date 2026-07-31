@@ -21,9 +21,13 @@ interface Item {
   projectId?: string
 }
 
-// Deterministic featured feed: one item per project (prefer the featured one),
-// in source order. Computed at module scope so SSR and client agree.
-const FEED: Item[] = (() => {
+const COUNT = 8
+
+// One representative item per project (prefer the project's featured image),
+// across ALL non-hidden projects. Deterministic order so SSR and the first client
+// render agree; the component shuffles on mount so each refresh surfaces a
+// different set and, over time, every project gets exposure.
+const REPRESENTATIVES: Item[] = (() => {
   const items = (portfolioData as Item[]).filter((i) => !i.hidden)
   const byProject = new Map<string, Item[]>()
   for (const it of items) {
@@ -31,12 +35,22 @@ const FEED: Item[] = (() => {
     if (!byProject.has(key)) byProject.set(key, [])
     byProject.get(key)!.push(it)
   }
-  const feed: Item[] = []
+  const reps: Item[] = []
   byProject.forEach((group) => {
-    feed.push(group.find((g) => g.featured) || group[0])
+    reps.push(group.find((g) => g.featured) || group[0])
   })
-  return feed.slice(0, 8)
+  return reps
 })()
+
+// Fisher–Yates. Only ever called on the client (in an effect), never during SSR.
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
 
 function linkFor(item: Item): { href: string | null; external: boolean } {
   if (item.caseStudySlug) return { href: `/case-studies/${item.caseStudySlug}`, external: false }
@@ -142,6 +156,13 @@ function WorkItem({ item, index }: { item: Item; index: number }) {
 }
 
 export function SelectWorkColumn() {
+  // SSR + first client render show a stable slice (no hydration mismatch);
+  // after mount we shuffle so each visit/refresh highlights a different set.
+  const [feed, setFeed] = useState<Item[]>(() => REPRESENTATIVES.slice(0, COUNT))
+  useEffect(() => {
+    setFeed(shuffle(REPRESENTATIVES).slice(0, COUNT))
+  }, [])
+
   return (
     <div className="flex flex-col gap-8">
       <ColumnLabel
@@ -159,7 +180,7 @@ export function SelectWorkColumn() {
       </ColumnLabel>
 
       <div className="flex flex-col gap-12 lg:gap-16">
-        {FEED.map((item, i) => (
+        {feed.map((item, i) => (
           <WorkItem key={item.id} item={item} index={i} />
         ))}
       </div>
