@@ -8,9 +8,31 @@
 export type HalftoneOpts = {
   pitch: number // dot spacing in display px
   registration: number // plate misregistration magnitude (px)
+  grain?: number // grain baked into the print (0..1)
   maxRadius?: number // dot radius at full ink, as a factor of pitch
   scale?: number // canvas pixels per display px (crispness)
   paper?: string // paper color the ink prints on
+}
+
+// Cached grayscale noise tile for baked-in grain (visible regardless of blend).
+let noiseTile: HTMLCanvasElement | null = null
+function getNoise(): HTMLCanvasElement {
+  if (noiseTile) return noiseTile
+  const n = document.createElement('canvas')
+  n.width = 128
+  n.height = 128
+  const nx = n.getContext('2d')
+  if (nx) {
+    const id = nx.createImageData(128, 128)
+    for (let i = 0; i < id.data.length; i += 4) {
+      const v = 90 + Math.random() * 130
+      id.data[i] = id.data[i + 1] = id.data[i + 2] = v
+      id.data[i + 3] = 255
+    }
+    nx.putImageData(id, 0, 0)
+  }
+  noiseTile = n
+  return n
 }
 
 // Riso-ish process inks (vivid, slightly soft).
@@ -107,5 +129,46 @@ export function renderHalftone(
     }
     ctx.fill(path)
   }
+
+  // Baked grain — visible on the print regardless of any overlay blend.
+  if (opts.grain && opts.grain > 0.01) {
+    const pat = ctx.createPattern(getNoise(), 'repeat')
+    if (pat) {
+      ctx.globalCompositeOperation = 'overlay'
+      ctx.globalAlpha = Math.min(1, opts.grain)
+      ctx.fillStyle = pat
+      ctx.fillRect(0, 0, W, H)
+      ctx.globalAlpha = 1
+    }
+  }
+
+  // Overspray — stray ink specks near the edges so borders aren't clean lines.
+  ctx.globalCompositeOperation = 'multiply'
+  ctx.fillStyle = 'rgba(26,24,34,0.55)'
+  const band = pitch * 2.5
+  const specks = Math.round((W + H) / pitch)
+  for (let i = 0; i < specks; i++) {
+    let x: number
+    let y: number
+    const edge = i & 3
+    if (edge === 0) {
+      x = Math.random() * W
+      y = Math.random() * band
+    } else if (edge === 1) {
+      x = Math.random() * W
+      y = H - Math.random() * band
+    } else if (edge === 2) {
+      x = Math.random() * band
+      y = Math.random() * H
+    } else {
+      x = W - Math.random() * band
+      y = Math.random() * H
+    }
+    ctx.globalAlpha = 0.12 + Math.random() * 0.28
+    ctx.beginPath()
+    ctx.arc(x, y, Math.random() * (pitch * 0.3), 0, TWO_PI)
+    ctx.fill()
+  }
+  ctx.globalAlpha = 1
   ctx.globalCompositeOperation = 'source-over'
 }

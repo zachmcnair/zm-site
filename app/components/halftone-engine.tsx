@@ -32,7 +32,38 @@ export function HalftoneEngine() {
     const params = () => ({
       pitch: getVar('--play-htpitch', 6),
       registration: getVar('--play-registration', 1.5),
+      grain: getVar('--play-photo-grain', 0.45),
     })
+
+    // Cache: true = animated (skip halftone → keep the live duotone), false = static.
+    const animCache = new WeakMap<HTMLImageElement, boolean>()
+    const checkAnim = (img: HTMLImageElement, cb: (animated: boolean) => void) => {
+      const c = document.createElement('canvas')
+      c.width = 8
+      c.height = 8
+      const cx = c.getContext('2d', { willReadFrequently: true })
+      if (!cx) return cb(false)
+      const snap = () => {
+        cx.drawImage(img, 0, 0, 8, 8)
+        return cx.getImageData(0, 0, 8, 8).data
+      }
+      let a: Uint8ClampedArray
+      try {
+        a = snap()
+      } catch {
+        return cb(false)
+      }
+      window.setTimeout(() => {
+        try {
+          const b = snap()
+          let diff = 0
+          for (let i = 0; i < a.length; i += 4) if (Math.abs(a[i] - b[i]) > 6) diff++
+          cb(diff > 2)
+        } catch {
+          cb(false)
+        }
+      }, 200)
+    }
 
     // Render at most one image per frame so activation/scroll never blocks.
     const queue: HTMLElement[] = []
@@ -53,13 +84,14 @@ export function HalftoneEngine() {
     const renderOne = (wrap: HTMLElement) => {
       const img = wrap.querySelector('img') as HTMLImageElement | null
       if (!img) return
-      // Animated GIFs would freeze as a single halftoned frame — keep them on the
-      // live CSS duotone instead (which animates with the GIF).
-      if (/\.gif(\?|$)/i.test(img.currentSrc || img.src || '')) return
       if (!img.complete || !img.naturalWidth) {
         img.addEventListener('load', () => active() && renderOne(wrap), { once: true })
         return
       }
+      // Known-animated images: keep them on the live duotone (skip the halftone).
+      const known = animCache.get(img)
+      if (known === true) return
+
       const rect = wrap.getBoundingClientRect()
       if (rect.width < 2 || rect.height < 2) return
       let cv = canvases.get(wrap)
@@ -76,7 +108,22 @@ export function HalftoneEngine() {
         renderHalftone(img, cv, w, h, params())
         wrap.setAttribute('data-halftone', 'on')
       } catch {
-        /* tainted/undecodable image — leave the duotone treatment */
+        return /* tainted/undecodable image — leave the duotone treatment */
+      }
+
+      // First encounter: verify it isn't animated; if it is, revert to the duotone.
+      if (known === undefined) {
+        checkAnim(img, (animated) => {
+          animCache.set(img, animated)
+          if (animated) {
+            const c = canvases.get(wrap)
+            if (c) {
+              c.remove()
+              canvases.delete(wrap)
+            }
+            wrap.removeAttribute('data-halftone')
+          }
+        })
       }
     }
 

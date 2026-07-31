@@ -1031,15 +1031,15 @@ html[data-mode='play'] .riso-media::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 150px 150px;
   mix-blend-mode: overlay;
-  opacity: var(--play-photo-grain, 0.5);
+  opacity: 0;
   transition: opacity 0.35s ease;
-  /* Grain is always alive in Play (boils slowly); faster on hover. */
-  animation: riso-boil 1.6s steps(3) infinite;
 }
 
-.dark html[data-mode='play'] .riso-media::after,
-html[data-mode='play'].dark .riso-media::after {
-  mix-blend-mode: soft-light;
+/* Halftone images bake their own grain into the canvas; duotone images get their
+   always-on animated grain from this layer instead. */
+html[data-mode='play'] .riso-media:not([data-halftone='on'])::after {
+  opacity: var(--play-photo-grain, 0.5);
+  animation: riso-boil 1.6s steps(3) infinite;
 }
 
 html[data-mode='play'] .riso-media:hover {
@@ -1047,9 +1047,10 @@ html[data-mode='play'] .riso-media:hover {
     scale(var(--play-scale, 1.012));
 }
 
+/* Hovering any image kicks up extra grain. */
 html[data-mode='play'] .riso-media:hover::after {
-  opacity: var(--play-grain-hover, 0.6);
-  animation-duration: 0.5s;
+  opacity: var(--play-grain-hover, 0.55);
+  animation: riso-boil 0.5s steps(3) infinite;
 }
 
 @keyframes riso-boil {

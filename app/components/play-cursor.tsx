@@ -52,13 +52,18 @@ export function PlayCursor() {
     let cx = mx
     let cy = my
     let s = 1
-    let lastX = mx
-    let lastY = my
     let raf = 0
+
+    // Timestamped points; each frame we CLEAR the canvas and redraw only the
+    // recent ones (so nothing ever lingers — fixes permanent marks in dark mode).
+    const pts: { x: number; y: number; t: number }[] = []
+    const LIFE = 420 // ms — swift: a quick stroke, not a drawing
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX
       my = e.clientY
+      pts.push({ x: mx, y: my, t: performance.now() })
+      if (pts.length > 140) pts.shift()
     }
 
     const loop = () => {
@@ -76,26 +81,29 @@ export function PlayCursor() {
         dotRef.current.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%) scale(${s})`
       }
 
-      // fading ink stroke
       const ctx = canvasRef.current?.getContext('2d')
       if (ctx && W) {
-        ctx.globalCompositeOperation = 'destination-out'
-        ctx.fillStyle = 'rgba(0,0,0,0.12)' // erase ~12%/frame → gone in ~0.4s
-        ctx.fillRect(0, 0, W, H)
-        if (v > 0.5) {
-          ctx.globalCompositeOperation = 'source-over'
-          ctx.strokeStyle = ink
-          ctx.lineWidth = Math.max(1.5, Math.min(7, v * 0.4))
-          ctx.lineCap = 'round'
-          ctx.lineJoin = 'round'
+        const now = performance.now()
+        while (pts.length && now - pts[0].t > LIFE) pts.shift()
+        ctx.clearRect(0, 0, W, H)
+        ctx.lineCap = 'round'
+        ctx.lineJoin = 'round'
+        ctx.strokeStyle = ink
+        for (let i = 1; i < pts.length; i++) {
+          const p0 = pts[i - 1]
+          const p1 = pts[i]
+          const k = 1 - (now - p1.t) / LIFE // 1 → 0 as it ages out
+          if (k <= 0) continue
+          const speed = Math.hypot(p1.x - p0.x, p1.y - p0.y)
+          ctx.globalAlpha = Math.min(0.9, k)
+          ctx.lineWidth = Math.max(1.5, Math.min(7, speed * 0.4)) * k
           ctx.beginPath()
-          ctx.moveTo(lastX, lastY)
-          ctx.lineTo(mx, my)
+          ctx.moveTo(p0.x, p0.y)
+          ctx.lineTo(p1.x, p1.y)
           ctx.stroke()
         }
+        ctx.globalAlpha = 1
       }
-      lastX = mx
-      lastY = my
       raf = requestAnimationFrame(loop)
     }
 
