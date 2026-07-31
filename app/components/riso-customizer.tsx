@@ -9,6 +9,9 @@ import { useEffect, useState } from 'react'
  */
 
 type Settings = {
+  halftone: number
+  htpitch: number
+  registration: number
   shadow: string
   highlight: string
   contrast: number
@@ -27,6 +30,9 @@ type Settings = {
 
 // Defaults mirror the current baked-in values (see global.css / riso-defs.tsx).
 const DEFAULTS: Settings = {
+  halftone: 1,
+  htpitch: 6,
+  registration: 1.5,
   shadow: '#232152',
   highlight: '#ede7d6',
   contrast: 1.1,
@@ -63,6 +69,9 @@ function apply(s: Settings) {
   root.style.setProperty('--play-feather', `${s.feather}px`)
   root.style.setProperty('--play-photo-grain', String(s.photoGrain))
   root.style.setProperty('--dust-opacity', String(s.dust))
+  root.style.setProperty('--play-halftone', String(s.halftone))
+  root.style.setProperty('--play-htpitch', String(s.htpitch))
+  root.style.setProperty('--play-registration', String(s.registration))
 
   const [sr, sg, sb] = hex01(s.shadow)
   const [hr, hg, hb] = hex01(s.highlight)
@@ -73,6 +82,9 @@ function apply(s: Settings) {
   set('zm-duo-b', sb, hb)
 
   document.getElementById('zm-grain-turb')?.setAttribute('baseFrequency', String(s.grainScale))
+
+  // Tell the halftone engine to re-render with the new params.
+  window.dispatchEvent(new Event('riso:change'))
 }
 
 const panel: React.CSSProperties = {
@@ -164,8 +176,11 @@ export function RisoCustomizer() {
         </button>
       </div>
 
-      {color('shadow', 'Shadow ink')}
-      {color('highlight', 'Highlight ink')}
+      {num('halftone', 'Halftone (0/1)', 0, 1, 1)}
+      {num('htpitch', 'Dot pitch px', 3, 14, 0.5)}
+      {num('registration', 'Registration px', 0, 5, 0.1)}
+      {color('shadow', 'Duotone shadow')}
+      {color('highlight', 'Duotone highlight')}
       {num('contrast', 'Contrast', 0.8, 1.6, 0.01)}
       {num('feather', 'Edge feather px', 0, 48, 1)}
       {num('radius', 'Corner radius px', 0, 28, 1)}

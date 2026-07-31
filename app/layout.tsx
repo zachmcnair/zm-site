@@ -20,6 +20,7 @@ import { ExperienceToggle } from './components/experience-toggle'
 import { RisoDefs } from './components/riso-defs'
 import { RisoCustomizer } from './components/riso-customizer'
 import { PlayCursor } from './components/play-cursor'
+import { HalftoneEngine } from './components/halftone-engine'
 
 
 // Set to true to show the minimal landing page, false to show the full site
@@ -251,6 +252,7 @@ export default function RootLayout({
             <RisoDefs />
             <ExperienceToggle />
             <PlayCursor />
+            <HalftoneEngine />
             <RisoCustomizer />
           </ExperienceProvider>
         </ThemeProvider>
