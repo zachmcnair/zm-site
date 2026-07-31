@@ -913,6 +913,34 @@ html[data-texture='on'] .texture-overlay {
   opacity: 0.09;
 }
 
+/* ==========================================================================
+   v2 — Play mode: RISO duotone on work imagery + looser layout + hover motion.
+   Grain stays on as the baseline; Play layers the duotone + motion on top.
+   Applied to the image WRAPPER so it composes with the img's own blur-in filter.
+   ========================================================================== */
+.riso-media {
+  transition: filter 0.5s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html[data-mode='play'] .riso-media {
+  filter: url(#zm-duotone) contrast(1.03);
+}
+
+html[data-mode='play'] .riso-media:hover {
+  transform: translateY(-4px) rotate(-0.6deg) scale(1.012);
+}
+
+/* Looser rhythm on the home work feed in Play. */
+html[data-mode='play'] .select-work-feed {
+  gap: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-mode='play'] .riso-media:hover {
+    transform: none;
+  }
+}
+
 /* Floating experience control */
 .experience-toggle {
   position: fixed;

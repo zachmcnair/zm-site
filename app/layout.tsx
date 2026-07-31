@@ -16,6 +16,8 @@ import {
   experienceNoFlashScript,
 } from './components/experience-provider'
 import { TextureOverlay } from './components/texture-overlay'
+import { ExperienceToggle } from './components/experience-toggle'
+import { RisoDefs } from './components/riso-defs'
 
 
 // Set to true to show the minimal landing page, false to show the full site
@@ -244,6 +246,8 @@ export default function RootLayout({
               <SpeedInsights />
             </main>
             <TextureOverlay />
+            <RisoDefs />
+            <ExperienceToggle />
           </ExperienceProvider>
         </ThemeProvider>
       </body>

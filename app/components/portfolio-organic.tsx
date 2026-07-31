@@ -224,7 +224,7 @@ export function PortfolioOrganic({ featuredOnly = false, limit }: PortfolioOrgan
 
         const cardContent = (
           <div className="flex flex-col group cursor-pointer">
-            <div className="relative w-full overflow-hidden mb-2">
+            <div className="riso-media relative w-full overflow-hidden mb-2">
                       <img
                         ref={(el) => {
                           if (el) {

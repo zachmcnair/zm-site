@@ -1,50 +1,40 @@
 'use client'
 
-import { useExperience } from './experience-provider'
+import { useExperience, type Mode } from './experience-provider'
 
+const MODES: { value: Mode; label: string }[] = [
+  { value: 'quiet', label: 'Quiet' },
+  { value: 'play', label: 'Play' },
+]
+
+/**
+ * Floating Quiet ↔ Play control. Play turns on the RISO duotone treatment on
+ * work imagery + looser layout + hover motion (see global.css [data-mode="play"]).
+ * Grain ships always-on as the baseline, so there's no texture switch here.
+ */
 export function ExperienceToggle() {
-  const { mode, setMode, texture, toggleTexture, ready } = useExperience()
+  const { mode, setMode, ready } = useExperience()
 
   return (
     <div
       className="experience-toggle"
-      role="group"
-      aria-label="Experience settings"
-      // Fade in only after we know the real state, to avoid a flash.
+      role="radiogroup"
+      aria-label="Experience mode"
       style={{ opacity: ready ? 1 : 0 }}
     >
-      {/* Mode: Quiet <-> Play */}
-      <div className="experience-toggle__seg" role="radiogroup" aria-label="Mode">
-        {(['quiet', 'play'] as const).map((m) => (
-          <button
-            key={m}
-            type="button"
-            role="radio"
-            aria-checked={mode === m}
-            className="experience-toggle__opt"
-            data-active={mode === m}
-            onClick={() => setMode(m)}
-          >
-            {m === 'quiet' ? 'Quiet' : 'Play'}
-          </button>
-        ))}
-      </div>
-
-      <span className="experience-toggle__divider" aria-hidden="true" />
-
-      {/* Texture on/off */}
-      <button
-        type="button"
-        className="experience-toggle__opt experience-toggle__texture"
-        role="switch"
-        aria-checked={texture === 'on'}
-        aria-label="Texture"
-        data-active={texture === 'on'}
-        onClick={toggleTexture}
-      >
-        <span className="experience-toggle__dot" aria-hidden="true" />
-        Grain
-      </button>
+      {MODES.map((m) => (
+        <button
+          key={m.value}
+          type="button"
+          role="radio"
+          aria-checked={mode === m.value}
+          className="experience-toggle__opt"
+          data-active={mode === m.value}
+          onClick={() => setMode(m.value)}
+        >
+          {m.label}
+        </button>
+      ))}
     </div>
   )
 }
