@@ -891,18 +891,20 @@ div[style*="background-color: #333333"] {
   display: contents;
 }
 
-/* "Table" grain — the surface the work sits ON, so it lives BELOW images + text.
-   Moves like film grain: the pattern jitters between positions (steps). */
+/* Film grain — laid OVER the whole frame like real grain (an under-content layer
+   is occluded by the opaque page fill, so it must sit on top at low opacity).
+   In Play the pattern boils; in Quiet it's a still, subtle grain. */
 .texture-overlay__grain {
   position: fixed;
-  inset: -40%;
-  width: 180%;
-  height: 180%;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
   pointer-events: none;
-  z-index: -1; /* below all page content */
+  z-index: 55; /* over content, below dust (56) + UI (80+) */
   mix-blend-mode: multiply;
   opacity: var(--grain-opacity, 0.135);
-  /* Quiet = static baseline grain; the film-grain jitter is Play-only. */
+  will-change: transform;
+  /* Quiet = static baseline grain; the boil is Play-only. */
 }
 
 html[data-mode='play'] .texture-overlay__grain {
@@ -925,12 +927,14 @@ html[data-mode='play'] .texture-overlay__grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='1' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 5 -2.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
   background-size: 260px 260px;
   mix-blend-mode: overlay;
-  opacity: 0; /* Play-only — settled dust is part of the Play "table" scene */
-  animation: dust-drift 22s linear infinite;
+  opacity: 0; /* Play-only — a coarser fleck layer over the fine grain */
+  will-change: transform;
 }
 
+/* Coarse flecks boil in place too (Play only) — no directional drift. */
 html[data-mode='play'] .texture-overlay__dust {
   opacity: var(--dust-opacity, 0);
+  animation: grain-film 1.1s steps(1) infinite;
 }
 
 html[data-texture='off'] .texture-overlay__grain,

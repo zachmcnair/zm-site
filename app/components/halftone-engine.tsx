@@ -169,7 +169,9 @@ export function HalftoneEngine() {
         start()
         return
       }
-      canvases.forEach((_, wrap) => enqueue(wrap))
+      // Synchronous re-render (not the rAF queue) so customizer tweaks apply
+      // instantly and reliably even when the tab isn't focused (rAF is paused).
+      canvases.forEach((_, wrap) => renderOne(wrap))
     }
 
     start()

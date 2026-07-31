@@ -45,11 +45,12 @@ const INKS: Record<'c' | 'm' | 'y' | 'k', [number, number, number]> = {
 }
 // Classic screen angles (degrees) to avoid moiré.
 const ANGLES: Record<'c' | 'm' | 'y' | 'k', number> = { c: 15, m: 75, y: 0, k: 45 }
-// Per-plate registration directions (unit-ish), scaled by `registration`.
+// Per-plate registration directions, scaled by `registration`. Magnitudes are
+// > 1 so a few px of registration reads as clear plate misalignment (color fringe).
 const REG: Record<'c' | 'm' | 'y' | 'k', [number, number]> = {
-  c: [1, 0.25],
-  m: [-0.7, 0.85],
-  y: [0.35, -1],
+  c: [1.5, 0.4],
+  m: [-1.1, 1.25],
+  y: [0.6, -1.5],
   k: [0, 0],
 }
 const PLATES: ('c' | 'm' | 'y' | 'k')[] = ['k', 'c', 'm', 'y']
@@ -144,33 +145,37 @@ export function renderHalftone(
   }
 
   // Overspray — stray ink specks near the edges so borders aren't clean lines.
+  // Sized in DISPLAY px (not dot-pitch) so it stays visible at any pitch.
   const ospray = opts.overspray ?? 0.5
-  ctx.globalCompositeOperation = 'multiply'
-  ctx.fillStyle = 'rgba(26,24,34,0.55)'
-  const band = pitch * 2.5
-  const specks = Math.round(((W + H) / pitch) * ospray * 2)
-  for (let i = 0; i < specks; i++) {
-    let x: number
-    let y: number
-    const edge = i & 3
-    if (edge === 0) {
-      x = Math.random() * W
-      y = Math.random() * band
-    } else if (edge === 1) {
-      x = Math.random() * W
-      y = H - Math.random() * band
-    } else if (edge === 2) {
-      x = Math.random() * band
-      y = Math.random() * H
-    } else {
-      x = W - Math.random() * band
-      y = Math.random() * H
+  if (ospray > 0.01) {
+    ctx.globalCompositeOperation = 'multiply'
+    ctx.fillStyle = 'rgba(26,24,34,0.6)'
+    const band = 22 * scale
+    const maxSpeck = 3.2 * scale
+    const specks = Math.round(((W + H) / scale) * 0.14 * ospray)
+    for (let i = 0; i < specks; i++) {
+      let x: number
+      let y: number
+      const edge = i & 3
+      if (edge === 0) {
+        x = Math.random() * W
+        y = Math.random() * band
+      } else if (edge === 1) {
+        x = Math.random() * W
+        y = H - Math.random() * band
+      } else if (edge === 2) {
+        x = Math.random() * band
+        y = Math.random() * H
+      } else {
+        x = W - Math.random() * band
+        y = Math.random() * H
+      }
+      ctx.globalAlpha = 0.14 + Math.random() * 0.32
+      ctx.beginPath()
+      ctx.arc(x, y, 0.5 * scale + Math.random() * maxSpeck, 0, TWO_PI)
+      ctx.fill()
     }
-    ctx.globalAlpha = 0.12 + Math.random() * 0.28
-    ctx.beginPath()
-    ctx.arc(x, y, Math.random() * (pitch * 0.3), 0, TWO_PI)
-    ctx.fill()
+    ctx.globalAlpha = 1
   }
-  ctx.globalAlpha = 1
   ctx.globalCompositeOperation = 'source-over'
 }
