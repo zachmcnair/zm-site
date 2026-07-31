@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { DarkModeToggle } from './dark-mode-toggle'
+import { ModeToggle } from './mode-toggle'
 import { Logo } from './logo'
 
 export function Navbar() {
@@ -94,11 +95,15 @@ export function Navbar() {
             >
               Email
             </Link>
-            <DarkModeToggle />
+            <div className="flex items-center gap-0.5">
+              <ModeToggle />
+              <DarkModeToggle />
+            </div>
           </div>
 
           {/* Mobile - Toggle and Hamburger */}
           <div className="flex items-center gap-2 md:hidden">
+            <ModeToggle />
             <DarkModeToggle />
             <button
               className="min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
@@ -142,6 +147,7 @@ export function Navbar() {
               
               {/* Toggle and Close button */}
               <div className="flex items-center gap-2">
+                <ModeToggle />
                 <DarkModeToggle />
                 <button
                   className="min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"

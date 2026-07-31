@@ -26,13 +26,13 @@ const ExperienceContext = createContext<ExperienceContextValue | null>(null)
  * before first paint, preventing a flash of the wrong mode/texture.
  * Rendered in <head> from layout.tsx.
  */
-// For now the experience toggle is removed and grain ships always-on in Quiet
-// mode. (The Quiet/Play + texture switching returns in the next phase.)
+// Grain ships always-on (no texture toggle); the Quiet/Play mode persists.
 export const experienceNoFlashScript = `
 (function () {
   try {
+    var m = localStorage.getItem('${MODE_KEY}');
     var el = document.documentElement;
-    el.setAttribute('data-mode', 'quiet');
+    el.setAttribute('data-mode', m === 'play' ? 'play' : 'quiet');
     el.setAttribute('data-texture', 'on');
   } catch (e) {}
 })();

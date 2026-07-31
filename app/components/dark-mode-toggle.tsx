@@ -28,8 +28,9 @@ export function DarkModeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
+      className="nav-tip min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded"
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      data-tip={theme === 'dark' ? 'Dark' : 'Light'}
     >
       {theme === 'dark' ? (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text)' }} aria-hidden="true">

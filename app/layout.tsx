@@ -16,6 +16,9 @@ import {
   experienceNoFlashScript,
 } from './components/experience-provider'
 import { TextureOverlay } from './components/texture-overlay'
+import { RisoDefs } from './components/riso-defs'
+import { PlayCursor } from './components/play-cursor'
+import { HalftoneEngine } from './components/halftone-engine'
 
 
 // Set to true to show the minimal landing page, false to show the full site
@@ -244,6 +247,9 @@ export default function RootLayout({
               <SpeedInsights />
             </main>
             <TextureOverlay />
+            <RisoDefs />
+            <PlayCursor />
+            <HalftoneEngine />
           </ExperienceProvider>
         </ThemeProvider>
       </body>

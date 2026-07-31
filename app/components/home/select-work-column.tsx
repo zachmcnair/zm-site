@@ -72,7 +72,7 @@ function WorkItem({ item, index }: { item: Item; index: number }) {
   }, [])
 
   const media = (
-    <div className="relative w-full overflow-hidden">
+    <div className="riso-media relative w-full overflow-hidden">
       <img
         ref={imgRef}
         src={item.src}
@@ -179,7 +179,7 @@ export function SelectWorkColumn() {
         Selected Work
       </ColumnLabel>
 
-      <div className="flex flex-col gap-12 lg:gap-16">
+      <div className="select-work-feed flex flex-col gap-12 lg:gap-16">
         {feed.map((item, i) => (
           <WorkItem key={item.id} item={item} index={i} />
         ))}

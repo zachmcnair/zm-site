@@ -878,119 +878,340 @@ div[style*="background-color: #333333"] {
     display: flex;
     flex: none;
   }
-
-  /* Lift the floating experience toggle above the footer bar. */
-  html.home-locked .experience-toggle {
-    bottom: 4.75rem;
-  }
 }
 
-/* Full-viewport grain, gated by html[data-texture="on"] */
+/* The two texture layers place themselves independently in the global stacking
+   order: the "table" grain sits BELOW content; "dust" settles ON TOP. */
 .texture-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 55; /* above the header (z-50) so grain covers it; below the toggle (z-60) */
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: contents;
 }
 
-html[data-texture='on'] .texture-overlay {
-  opacity: 1;
-}
-
+/* Film grain — laid OVER the whole frame like real grain (an under-content layer
+   is occluded by the opaque page fill, so it must sit on top at low opacity).
+   In Play the pattern boils; in Quiet it's a still, subtle grain. */
 .texture-overlay__grain {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  pointer-events: none;
+  z-index: 55; /* over content, below dust (56) + UI (80+) */
   mix-blend-mode: multiply;
-  opacity: 0.11;
+  opacity: 0; /* Play-only — Quiet ("business") stays completely clean */
+  will-change: transform;
 }
 
 .dark .texture-overlay__grain {
   mix-blend-mode: screen;
-  opacity: 0.09;
 }
 
-/* Floating experience control */
-.experience-toggle {
+/* Play: the film grain appears and boils over the whole frame. */
+html[data-mode='play'] .texture-overlay__grain {
+  opacity: var(--grain-opacity, 0.135);
+  animation: grain-film 0.8s steps(1) infinite;
+}
+
+html[data-mode='play'].dark .texture-overlay__grain {
+  opacity: var(--grain-opacity, 0.16);
+}
+
+/* "Dust" — sparse specks that settle ON TOP of everything and drift slowly. */
+.texture-overlay__dust {
   position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
-  padding: 0.25rem 0.3rem;
-  border-radius: 999px;
-  border: 1px solid var(--raised);
-  background-color: rgba(254, 252, 244, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-  transition: opacity 0.4s ease;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  pointer-events: none;
+  z-index: 56; /* above content, below the toggle/customizer */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='1' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 5 -2.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  mix-blend-mode: overlay;
+  opacity: 0; /* Play-only — a coarser fleck layer over the fine grain */
+  will-change: transform;
 }
 
-.dark .experience-toggle {
-  background-color: rgba(5, 6, 7, 0.82);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+/* Coarse flecks boil in place too (Play only) — no directional drift. */
+html[data-mode='play'] .texture-overlay__dust {
+  opacity: var(--dust-opacity, 0.3);
+  animation: grain-film 1.1s steps(1) infinite;
 }
 
-.experience-toggle__seg {
-  display: flex;
+html[data-texture='off'] .texture-overlay__grain,
+html[data-texture='off'] .texture-overlay__dust {
+  opacity: 0;
 }
 
-.experience-toggle__opt {
-  appearance: none;
-  border: none;
-  background: transparent;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  color: var(--text-tertiary);
-  cursor: pointer;
-  font-family: var(--font-dm-mono), 'Courier New', monospace;
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  line-height: 1;
-  transition: color 0.2s ease, background-color 0.2s ease;
+/* Film-grain jitter — the noise "hops" between offsets ~12×/s. */
+@keyframes grain-film {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  10% {
+    transform: translate3d(-6%, -4%, 0);
+  }
+  20% {
+    transform: translate3d(5%, 3%, 0);
+  }
+  30% {
+    transform: translate3d(-4%, 6%, 0);
+  }
+  40% {
+    transform: translate3d(7%, -3%, 0);
+  }
+  50% {
+    transform: translate3d(-7%, -6%, 0);
+  }
+  60% {
+    transform: translate3d(4%, 5%, 0);
+  }
+  70% {
+    transform: translate3d(-3%, -2%, 0);
+  }
+  80% {
+    transform: translate3d(6%, 4%, 0);
+  }
+  90% {
+    transform: translate3d(-5%, 3%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-.experience-toggle__opt:hover {
-  color: var(--text);
+@keyframes dust-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(6%, -5%, 0);
+  }
 }
 
-.experience-toggle__opt[data-active='true'] {
-  color: var(--text);
-  background: var(--raised);
+/* ==========================================================================
+   v2 — Play mode: RISO duotone on work imagery + looser layout + hover motion.
+   Grain stays on as the baseline; Play layers the duotone + motion on top.
+   Applied to the image WRAPPER so it composes with the img's own blur-in filter.
+   ========================================================================== */
+.riso-media {
+  transition: filter 0.5s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.experience-toggle__divider {
-  width: 1px;
-  height: 16px;
-  background: var(--raised);
-  margin: 0 0.2rem;
+html[data-mode='play'] .riso-media {
+  filter: url(#zm-duotone) contrast(var(--riso-contrast, 1.1));
+  border-radius: var(--play-radius, 2px);
+  /* Feathered edges all the way around — ink softens toward the border. */
+  -webkit-mask-image: linear-gradient(
+      to right,
+      #0000,
+      #000 var(--play-feather, 2px),
+      #000 calc(100% - var(--play-feather, 2px)),
+      #0000
+    ),
+    linear-gradient(
+      to bottom,
+      #0000,
+      #000 var(--play-feather, 2px),
+      #000 calc(100% - var(--play-feather, 2px)),
+      #0000
+    );
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+      to right,
+      #0000,
+      #000 var(--play-feather, 2px),
+      #000 calc(100% - var(--play-feather, 2px)),
+      #0000
+    ),
+    linear-gradient(
+      to bottom,
+      #0000,
+      #000 var(--play-feather, 2px),
+      #000 calc(100% - var(--play-feather, 2px)),
+      #0000
+    );
+  mask-composite: intersect;
 }
 
-.experience-toggle__texture {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+/* The photo's OWN grain — always present, moves/tilts with the image,
+   and boils (animates) on hover. */
+html[data-mode='play'] .riso-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
-.experience-toggle__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  border: 1px solid var(--text-tertiary);
-  background: transparent;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+/* Halftone images bake their own grain into the canvas; duotone images get their
+   always-on animated grain from this layer instead. */
+html[data-mode='play'] .riso-media:not([data-halftone='on'])::after {
+  opacity: var(--play-photo-grain, 0.45);
+  animation: riso-boil 1.6s steps(3) infinite;
 }
 
-.experience-toggle__texture[data-active='true'] .experience-toggle__dot {
+/* Duotone images (animated ones that can't be halftoned, or when halftone is off)
+   get a fixed dot-screen so they still read as *printed* — a coarse screen the
+   moving image shows through. Pitch tracks the halftone dot pitch. */
+html[data-mode='play'] .riso-media:not([data-halftone='on'])::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* above the image, below the ::after grain */
+  background-image: radial-gradient(
+    circle at center,
+    rgba(15, 14, 22, 0.85) 0 32%,
+    transparent 34%
+  );
+  background-size: calc(var(--play-htpitch, 3) * 1px) calc(var(--play-htpitch, 3) * 1px);
+  mix-blend-mode: multiply;
+  opacity: var(--play-dotscreen, 0);
+}
+
+html[data-mode='play'] .riso-media:hover {
+  transform: translateY(var(--play-lift, -4px)) rotate(var(--play-tilt, 3deg))
+    scale(var(--play-scale, 1.012));
+}
+
+/* Hovering any image kicks up extra grain. */
+html[data-mode='play'] .riso-media:hover::after {
+  opacity: var(--play-grain-hover, 0.55);
+  animation: riso-boil 0.5s steps(3) infinite;
+}
+
+@keyframes riso-boil {
+  0% {
+    background-position: 0 0;
+  }
+  33% {
+    background-position: -38px 22px;
+  }
+  66% {
+    background-position: 26px -30px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* CMYK halftone canvas pass (Full Process). When active, the canvas IS the print,
+   so the duotone filter is dropped and the source image hidden (feather mask +
+   photo grain still layer on top). */
+.riso-halftone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+html[data-mode='play'] .riso-media[data-halftone='on'] {
+  filter: none;
+}
+
+.riso-media[data-halftone='on'] > img {
+  opacity: 0;
+}
+
+/* In Play the whole UI feels a touch hand-printed: type picks up a faint
+   ink misregistration (cyan/magenta plate offset). Still fully legible. */
+html[data-mode='play'] .font-dm-mono,
+html[data-mode='play'] .font-instrument-serif,
+html[data-mode='play'] h1 {
+  text-shadow: var(--play-uimisreg, 1px) 0 0 rgba(0, 148, 218, 0.35),
+    calc(0px - var(--play-uimisreg, 1px)) 0 0 rgba(232, 0, 128, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texture-overlay__grain,
+  .texture-overlay__dust,
+  html[data-mode='play'] .riso-halftone,
+  html[data-mode='play'] .riso-media::after {
+    animation: none;
+  }
+  html[data-mode='play'] .riso-media:hover {
+    transform: none;
+  }
+}
+
+/* Fun Play cursor — a soft ink dot; native cursor hidden only while it's active. */
+html[data-cursor='custom'],
+html[data-cursor='custom'] * {
+  cursor: none;
+}
+
+.play-trail {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 89;
+  mix-blend-mode: multiply;
+}
+
+.dark .play-trail {
+  mix-blend-mode: screen;
+}
+
+.play-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--play-cursor-size, 20px);
+  height: var(--play-cursor-size, 20px);
+  border-radius: 50%;
   background: var(--primary);
-  border-color: var(--primary);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 90;
+  will-change: transform;
+}
+
+.dark .play-cursor {
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+/* Minimal tooltip for the nav toggles — appears below on hover / keyboard focus. */
+.nav-tip {
+  position: relative;
+}
+
+.nav-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px);
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--text);
+  color: var(--background);
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 100;
+}
+
+.nav-tip:hover::after,
+.nav-tip:focus-visible::after {
+  opacity: 0.95;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (hover: none) {
+  .nav-tip::after {
+    display: none; /* no sticky tooltip after a tap on touch devices */
+  }
 }
 
 
