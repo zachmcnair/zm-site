@@ -17,7 +17,6 @@ import {
 } from './components/experience-provider'
 import { TextureOverlay } from './components/texture-overlay'
 import { RisoDefs } from './components/riso-defs'
-import { RisoCustomizer } from './components/riso-customizer'
 import { PlayCursor } from './components/play-cursor'
 import { HalftoneEngine } from './components/halftone-engine'
 
@@ -251,7 +250,6 @@ export default function RootLayout({
             <RisoDefs />
             <PlayCursor />
             <HalftoneEngine />
-            <RisoCustomizer />
           </ExperienceProvider>
         </ThemeProvider>
       </body>
