@@ -121,9 +121,11 @@ html {
   min-width: 360px;
   font-family: var(--font-system);
   line-height: 1.5;
-  /* Always reserve the scrollbar gutter so content doesn't shift horizontally
-     between scrolling pages (portfolio) and the locked home. */
-  overflow-y: scroll;
+  /* Reserve the scrollbar gutter (no visible track when idle) so content doesn't
+     shift horizontally between scrolling pages and the locked home. overflow-y:auto
+     makes the root a scroll container so scrollbar-gutter actually applies. */
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 /* Prevent orphans (a lone word on the final line) at every breakpoint. */
