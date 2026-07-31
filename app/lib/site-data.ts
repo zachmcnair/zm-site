@@ -61,7 +61,7 @@ export const identity = {
   positioning: 'Brand & product designer',
   /** One-liner used under the name. */
   tagline:
-    'I design products people believe in — brand and product from zero, for entertainment, community, and AI-native tech.',
+    'I design products people believe in, building brand and product from zero, for entertainment, community, and AI-native tech.',
   since: 1998,
   location: 'Austin, Texas & Remote',
   email: 'hello@zachmcnair.com',
