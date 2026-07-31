@@ -1030,11 +1030,16 @@ html[data-mode='play'] .riso-media::after {
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 150px 150px;
-  mix-blend-mode: soft-light;
-  opacity: var(--play-photo-grain, 0.45);
+  mix-blend-mode: overlay;
+  opacity: var(--play-photo-grain, 0.5);
   transition: opacity 0.35s ease;
   /* Grain is always alive in Play (boils slowly); faster on hover. */
   animation: riso-boil 1.6s steps(3) infinite;
+}
+
+.dark html[data-mode='play'] .riso-media::after,
+html[data-mode='play'].dark .riso-media::after {
+  mix-blend-mode: soft-light;
 }
 
 html[data-mode='play'] .riso-media:hover {
@@ -1043,25 +1048,8 @@ html[data-mode='play'] .riso-media:hover {
 }
 
 html[data-mode='play'] .riso-media:hover::after {
-  opacity: var(--play-grain-hover, 0.55);
+  opacity: var(--play-grain-hover, 0.6);
   animation-duration: 0.5s;
-}
-
-/* Registration micro-jitter — the print "vibrates" like a live press. */
-html[data-mode='play'] .riso-halftone {
-  animation: riso-wobble 0.5s steps(2) infinite;
-}
-
-@keyframes riso-wobble {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0.6px, -0.5px, 0);
-  }
-  100% {
-    transform: translate3d(-0.5px, 0.5px, 0);
-  }
 }
 
 @keyframes riso-boil {
@@ -1098,9 +1086,12 @@ html[data-mode='play'] .riso-media[data-halftone='on'] {
   opacity: 0;
 }
 
-/* Looser rhythm on the home work feed in Play. */
-html[data-mode='play'] .select-work-feed {
-  gap: var(--play-feed-gap, 2rem);
+/* In Play the whole UI feels a touch hand-printed: type picks up a faint
+   ink misregistration (cyan/magenta plate offset). Still fully legible. */
+html[data-mode='play'] .font-dm-mono,
+html[data-mode='play'] .font-instrument-serif,
+html[data-mode='play'] h1 {
+  text-shadow: 0.6px 0 0 rgba(0, 148, 218, 0.35), -0.6px 0 0 rgba(232, 0, 128, 0.3);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1119,6 +1110,18 @@ html[data-mode='play'] .select-work-feed {
 html[data-cursor='custom'],
 html[data-cursor='custom'] * {
   cursor: none;
+}
+
+.play-trail {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 89;
+  mix-blend-mode: multiply;
+}
+
+.dark .play-trail {
+  mix-blend-mode: screen;
 }
 
 .play-cursor {

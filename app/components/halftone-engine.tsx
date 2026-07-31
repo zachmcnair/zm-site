@@ -53,6 +53,9 @@ export function HalftoneEngine() {
     const renderOne = (wrap: HTMLElement) => {
       const img = wrap.querySelector('img') as HTMLImageElement | null
       if (!img) return
+      // Animated GIFs would freeze as a single halftoned frame — keep them on the
+      // live CSS duotone instead (which animates with the GIF).
+      if (/\.gif(\?|$)/i.test(img.currentSrc || img.src || '')) return
       if (!img.complete || !img.naturalWidth) {
         img.addEventListener('load', () => active() && renderOne(wrap), { once: true })
         return

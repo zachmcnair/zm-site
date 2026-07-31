@@ -25,7 +25,6 @@ type Settings = {
   tilt: number
   lift: number
   scale: number
-  feedGap: number
 }
 
 // Defaults mirror the current baked-in values (see global.css / riso-defs.tsx).
@@ -46,7 +45,6 @@ const DEFAULTS: Settings = {
   tilt: 3,
   lift: 4,
   scale: 1.012,
-  feedGap: 2,
 }
 
 function hex01(hex: string): [number, number, number] {
@@ -63,7 +61,6 @@ function apply(s: Settings) {
   root.style.setProperty('--play-tilt', `${s.tilt}deg`)
   root.style.setProperty('--play-lift', `${-Math.abs(s.lift)}px`)
   root.style.setProperty('--play-scale', String(s.scale))
-  root.style.setProperty('--play-feed-gap', `${s.feedGap}rem`)
   root.style.setProperty('--play-radius', `${s.radius}px`)
   root.style.setProperty('--play-grain-hover', String(s.grainHover))
   root.style.setProperty('--play-feather', `${s.feather}px`)
@@ -192,7 +189,6 @@ export function RisoCustomizer() {
       {num('tilt', 'Hover tilt°', -4, 4, 0.1)}
       {num('lift', 'Hover lift px', 0, 20, 1)}
       {num('scale', 'Hover scale', 1, 1.06, 0.002)}
-      {num('feedGap', 'Feed gap rem', 1, 8, 0.25)}
 
       <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
         <button
