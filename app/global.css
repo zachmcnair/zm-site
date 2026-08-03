@@ -586,25 +586,144 @@ nav a:hover {
   text-decoration: underline !important;
 }
 
-/* Mobile navigation links - no background or decoration */
-.mobile-nav-link {
-  background: none !important;
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+/* ===== Mobile menu (open state) — editorial numbered nav ===== */
+.mobile-menu__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--raised);
+  color: var(--text);
+  text-decoration: none !important;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.mobile-menu__item:hover,
+.mobile-menu__item:focus,
+.mobile-menu__item:active {
   text-decoration: none !important;
 }
 
-.mobile-nav-link:hover,
-.mobile-nav-link:focus,
-.mobile-nav-link:active {
-  background: none !important;
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
+.mobile-menu__num {
+  flex: none;
+  min-width: 1.5rem;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--text-tertiary);
+  transition: color 0.25s ease;
+}
+
+.mobile-menu__label {
+  flex: 1;
+  font-size: clamp(2.15rem, 11vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  transition: color 0.25s ease;
+}
+
+.mobile-menu__marker {
+  flex: none;
+  align-self: center;
+  display: flex;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Pointer devices get the slide + arrow on hover; touch shows it on press. */
+@media (hover: hover) {
+  .mobile-menu__item:hover {
+    transform: translateX(8px);
+  }
+  .mobile-menu__item:hover .mobile-menu__label,
+  .mobile-menu__item:hover .mobile-menu__num {
+    color: var(--primary);
+  }
+  .mobile-menu__item:hover .mobile-menu__marker {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.mobile-menu__item:active .mobile-menu__label,
+.mobile-menu__item:active .mobile-menu__num {
+  color: var(--primary);
+}
+.mobile-menu__item:active .mobile-menu__marker {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Keyboard focus mirrors hover + a visible ring. */
+.mobile-menu__item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+.mobile-menu__item:focus-visible .mobile-menu__label,
+.mobile-menu__item:focus-visible .mobile-menu__num {
+  color: var(--primary);
+}
+.mobile-menu__item:focus-visible .mobile-menu__marker {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Current page reads as selected. */
+.mobile-menu__item[aria-current='page'] .mobile-menu__label,
+.mobile-menu__item[aria-current='page'] .mobile-menu__num {
+  color: var(--primary);
+}
+.mobile-menu__item[aria-current='page'] .mobile-menu__marker {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding-top: 1.5rem;
+}
+.mobile-menu__avail {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+.mobile-menu__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: -0.6rem; /* optical: nudge the first icon to the text edge */
+  color: var(--text-secondary);
+}
+.mobile-menu__socials a {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+@media (hover: hover) {
+  .mobile-menu__socials a:hover {
+    color: var(--primary);
+  }
+}
+.mobile-menu__socials a:active {
+  transform: scale(0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu__item,
+  .mobile-menu__footer {
+    animation: none !important;
+  }
+  .mobile-menu__item {
+    transition: none;
+  }
 }
 
 /* Active navigation links - strikethrough styling */
