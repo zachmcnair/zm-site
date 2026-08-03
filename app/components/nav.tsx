@@ -236,7 +236,7 @@ export function Navbar() {
             className={`mobile-menu__footer ${isMobileMenuOpen ? 'animate-in fade-in slide-in-from-bottom-4' : ''}`}
             style={{ animationDelay: '0.3s', animationDuration: '0.5s', animationFillMode: 'both', pointerEvents: 'auto' }}
           >
-            <p className="mobile-menu__avail">
+            <p className="mobile-menu__avail font-faktum-regular">
               <span
                 className="w-2 h-2 rounded-full status-indicator"
                 style={{ backgroundColor: '#E2B237' }}

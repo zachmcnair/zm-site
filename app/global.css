@@ -675,11 +675,9 @@ nav a:hover {
 .mobile-menu__avail {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  font-family: var(--font-dm-mono), ui-monospace, monospace;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  color: var(--text-secondary);
+  gap: 0.5rem;
+  font-size: var(--unit-sm);
+  color: var(--text);
 }
 .mobile-menu__socials {
   display: flex;
