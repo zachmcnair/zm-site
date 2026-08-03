@@ -140,9 +140,10 @@ export function Navbar() {
           <div className="gradient-bar h-2 w-full"></div>
           <div className="py-6 px-8">
             <div className="flex items-center justify-between">
-              {/* Logo */}
-              <Link href="/">
-                <Logo size="md" className="w-12 h-12" />
+              {/* Logo — must match the main nav logo exactly so the header
+                  doesn't visibly shift when the mobile menu opens. */}
+              <Link href="/" aria-label="Zach McNair — home">
+                <Logo size="lg" className="w-11 h-11" />
               </Link>
               
               {/* Toggle and Close button */}
