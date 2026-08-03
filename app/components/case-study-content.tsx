@@ -1,83 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface CaseStudyContentProps {
   content: string
-  featuredImageSrc?: string
 }
 
-/**
- * Narrative body rendering — the written case study (The brief / My role /
- * Approach / Outcome / Reflection) that sits above the image gallery. Sections
- * already surfaced elsewhere are ignored: the lead paragraph (hero description),
- * "Role / Deliverables" (hero tags), "Collaborators" (hero credits), and
- * "Project Images" (the gallery below). Studies with none of the narrative
- * headings render nothing here, so the existing gallery-only studies are unchanged.
- */
-const NARRATIVE_DENY = new Set([
-  'role / deliverables',
-  'role/deliverables',
-  'roles',
-  'deliverables',
-  'collaborators',
-  'project images',
-])
-
-// Authoring guidance that must never render on the live site.
-function isAuthoringNote(text: string): boolean {
-  const t = text.replace(/^[*_\s]+|[*_\s]+$/g, '')
-  if (!t) return true
-  if (/\[fill/i.test(text)) return true
-  if (/^(add\b.*here|optional\b)/i.test(t)) return true
-  return false
-}
-
-// Minimal inline formatting: **bold** and *italic*.
-function renderInline(text: string, keyBase: string): ReactNode {
-  const parts: ReactNode[] = []
-  const re = /\*\*([^*]+)\*\*|\*([^*]+)\*/g
-  let last = 0
-  let m: RegExpExecArray | null
-  let i = 0
-  while ((m = re.exec(text)) !== null) {
-    if (m.index > last) parts.push(text.slice(last, m.index))
-    if (m[1] != null) parts.push(<strong key={`${keyBase}-b${i}`}>{m[1]}</strong>)
-    else parts.push(<em key={`${keyBase}-i${i}`}>{m[2]}</em>)
-    last = m.index + m[0].length
-    i++
-  }
-  if (last < text.length) parts.push(text.slice(last))
-  return parts
-}
-
-type NarrativeSection = { title: string; blocks: string[] }
-
-function parseNarrative(content: string): NarrativeSection[] {
-  const lines = content.split('\n')
-  const out: NarrativeSection[] = []
-  let current: NarrativeSection | null = null
-  let started = false
-  for (const raw of lines) {
-    const heading = raw.match(/^##\s+(.+?)\s*$/)
-    if (heading) {
-      started = true
-      const title = heading[1].trim()
-      if (NARRATIVE_DENY.has(title.toLowerCase())) {
-        current = null
-        continue
-      }
-      current = { title, blocks: [] }
-      out.push(current)
-      continue
-    }
-    if (!started) continue // preamble = hero description
-    if (current) current.blocks.push(raw)
-  }
-  return out
-}
-
-export function CaseStudyContent({ content, featuredImageSrc }: CaseStudyContentProps) {
+export function CaseStudyContent({ content }: CaseStudyContentProps) {
   const imageRefs = useRef<Map<number, HTMLImageElement>>(new Map())
   const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set())
 
@@ -164,73 +93,8 @@ export function CaseStudyContent({ content, featuredImageSrc }: CaseStudyContent
     })
   }
 
-  const narrative = parseNarrative(content)
-
-  const renderSection = (sec: NarrativeSection, si: number): ReactNode => {
-    const nodes: ReactNode[] = []
-    let list: string[] = []
-    const flush = () => {
-      if (list.length) {
-        const key = `ul-${si}-${nodes.length}`
-        nodes.push(
-          <ul key={key} className="cs-prose__list">
-            {list.map((li, k) => (
-              <li key={k}>{renderInline(li, `${key}-${k}`)}</li>
-            ))}
-          </ul>
-        )
-        list = []
-      }
-    }
-    sec.blocks.forEach((raw, bi) => {
-      const t = raw.trim()
-      if (!t) {
-        flush()
-        return
-      }
-      const img = t.match(/^!\[([^\]]*)\]\(([^)]+)\)(?:\{\w+\})?/)
-      if (img) {
-        flush()
-        const alt = img[1]
-        const src = img[2]
-        const hideOnMobile = !!featuredImageSrc && src === featuredImageSrc
-        nodes.push(
-          <figure key={`fig-${si}-${bi}`} className={`cs-prose__figure${hideOnMobile ? ' hidden md:flex' : ''}`}>
-            <img src={src} alt={alt} className="w-full h-auto object-contain" loading="lazy" />
-            {alt && <figcaption className="cs-prose__caption">{alt}</figcaption>}
-          </figure>
-        )
-        return
-      }
-      if (isAuthoringNote(t)) return
-      if (t.startsWith('- ')) {
-        list.push(t.slice(2).trim())
-        return
-      }
-      flush()
-      nodes.push(
-        <p key={`p-${si}-${bi}`} className="cs-prose__p">
-          {renderInline(t, `p-${si}-${bi}`)}
-        </p>
-      )
-    })
-    flush()
-    if (nodes.length === 0) return null // hide unfilled sections
-    const isOutcome = /^outcome/i.test(sec.title)
-    return (
-      <section key={`sec-${si}`} className={`cs-prose__section${isOutcome ? ' cs-prose__section--outcome' : ''}`}>
-        <h2 className="cs-prose__h">{sec.title}</h2>
-        {nodes}
-      </section>
-    )
-  }
-
   return (
     <div className="flex flex-col gap-[60px] md:gap-[80px]">
-      {narrative.length > 0 && (
-        <div className="cs-prose">{narrative.map((sec, si) => renderSection(sec, si))}</div>
-      )}
-
       {/* Project Images and Videos */}
       {media.length > 0 && (
         <div className="flex flex-col gap-4 md:gap-6">

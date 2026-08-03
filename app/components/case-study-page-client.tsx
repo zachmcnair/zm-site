@@ -189,7 +189,7 @@ export function CaseStudyPageClient({
           pointerEvents: imagesVisible ? 'auto' : 'none',
         }}
       >
-        <CaseStudyContent content={content} featuredImageSrc={featuredImage?.src} />
+        <CaseStudyContent content={content} />
       </section>
 
       {/* Navigation to Next/Previous Case Studies - Always visible */}
