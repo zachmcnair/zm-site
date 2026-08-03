@@ -189,7 +189,6 @@ export function Navbar() {
               const isActive = 'match' in item && pathname === item.match
               const inner = (
                 <>
-                  <span className="mobile-menu__num">{String(i + 1).padStart(2, '0')}</span>
                   <span className="mobile-menu__label">{item.label}</span>
                   {'note' in item && item.note && <span className="sr-only"> ({item.note})</span>}
                   <span className="mobile-menu__marker">

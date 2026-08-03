@@ -603,17 +603,6 @@ nav a:hover {
   text-decoration: none !important;
 }
 
-.mobile-menu__num {
-  flex: none;
-  min-width: 1.5rem;
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1;
-  color: var(--text-tertiary);
-  transition: color 0.25s ease;
-}
-
 .mobile-menu__label {
   flex: 1;
   font-size: clamp(2.15rem, 11vw, 3rem);
@@ -638,8 +627,7 @@ nav a:hover {
   .mobile-menu__item:hover {
     transform: translateX(8px);
   }
-  .mobile-menu__item:hover .mobile-menu__label,
-  .mobile-menu__item:hover .mobile-menu__num {
+  .mobile-menu__item:hover .mobile-menu__label {
     color: var(--primary);
   }
   .mobile-menu__item:hover .mobile-menu__marker {
@@ -647,8 +635,7 @@ nav a:hover {
     transform: translateX(0);
   }
 }
-.mobile-menu__item:active .mobile-menu__label,
-.mobile-menu__item:active .mobile-menu__num {
+.mobile-menu__item:active .mobile-menu__label {
   color: var(--primary);
 }
 .mobile-menu__item:active .mobile-menu__marker {
@@ -662,8 +649,7 @@ nav a:hover {
   outline-offset: 6px;
   border-radius: 2px;
 }
-.mobile-menu__item:focus-visible .mobile-menu__label,
-.mobile-menu__item:focus-visible .mobile-menu__num {
+.mobile-menu__item:focus-visible .mobile-menu__label {
   color: var(--primary);
 }
 .mobile-menu__item:focus-visible .mobile-menu__marker {
@@ -672,8 +658,7 @@ nav a:hover {
 }
 
 /* Current page reads as selected. */
-.mobile-menu__item[aria-current='page'] .mobile-menu__label,
-.mobile-menu__item[aria-current='page'] .mobile-menu__num {
+.mobile-menu__item[aria-current='page'] .mobile-menu__label {
   color: var(--primary);
 }
 .mobile-menu__item[aria-current='page'] .mobile-menu__marker {
