@@ -97,7 +97,7 @@ export const memo: MemoParagraph[] = [
     id: 'introduction',
     lead: true,
     segments: [
-      "Since 1998 I've been obsessed with one thing: the moment a product stops being a thing and starts being something people care about. That space between what something is and what people feel about it is where I live.",
+      "Since 1998 I've been obsessed with one thing: helping people connect deeply with their audience. I bridge the gap between brand and product design. That space between what something is and what people feel about it is where I live.",
     ],
   },
   {
