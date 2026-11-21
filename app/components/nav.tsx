@@ -142,7 +142,11 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Navigation Menu */}
-      <div className={`md:hidden fixed inset-0 z-30 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      {/* inert removes the hidden overlay from tab order and assistive tech when closed */}
+      <div
+        className={`md:hidden fixed inset-0 z-30 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        {...(!isMobileMenuOpen && { inert: '' } as React.HTMLAttributes<HTMLDivElement>)}
+      >
         {/* Background that drops to bottom of viewport */}
         <button 
           className="fixed top-0 left-0 right-0 bottom-0 cursor-default"
@@ -201,7 +205,7 @@ export function Navbar() {
                 animationDelay: `${0.05 * (i + 1)}s`,
                 animationDuration: '0.5s',
                 animationFillMode: 'both' as const,
-                pointerEvents: 'auto' as const,
+                pointerEvents: (isMobileMenuOpen ? 'auto' : 'none') as React.CSSProperties['pointerEvents'],
               }
               return 'external' in item && item.external ? (
                 <a
@@ -234,7 +238,7 @@ export function Navbar() {
           {/* Thoughtful footer: what I'm up for + where to find me. */}
           <div
             className={`mobile-menu__footer ${isMobileMenuOpen ? 'animate-in fade-in slide-in-from-bottom-4' : ''}`}
-            style={{ animationDelay: '0.3s', animationDuration: '0.5s', animationFillMode: 'both', pointerEvents: 'auto' }}
+            style={{ animationDelay: '0.3s', animationDuration: '0.5s', animationFillMode: 'both', pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
           >
             <p className="mobile-menu__avail font-faktum-regular">
               <span
